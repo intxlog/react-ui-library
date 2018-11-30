@@ -5,7 +5,7 @@
   "main": "./dist/lib/index.js",
   "scripts": {
     "webpack": "node_modules/.bin/webpack",
-    "test": "test",
+    "test": "jest",
     "build": "./node_modules/.bin/webpack --mode=production",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
@@ -19,10 +19,16 @@
     "@storybook/addon-links": "^4.0.9",
     "@storybook/addons": "^4.0.9",
     "@storybook/react": "^4.0.9",
-    "babel-core": "^6.26.3",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.7.0",
+    "enzyme-to-json": "^3.3.4",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^23.6.0",
     "node-sass": "^4.10.0",
     "sass-loader": "^7.1.0",
     "webpack": "^4.26.1",
@@ -38,5 +44,22 @@
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-router-dom": "^4.3.1"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "setupFiles": [
+      "./src/setupTests.js"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!src/setupTests.js",
+      "!src/**/_story.js",
+      "!src/lib/index.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "identity-obj-proxy"
+    }
   }
 }
