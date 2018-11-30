@@ -1,8 +1,8 @@
 # Dependency directories
 node_modules/
 
-# Build
-dist
-
-# Text Coverage
+# Test Coverage
 coverage
+
+#Build
+dist
