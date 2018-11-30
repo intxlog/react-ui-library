@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button renders correctly 1`] = `
+<button
+  className="button primary medium"
+  onClick={[MockFunction]}
+  style={Object {}}
+  type="button"
+>
+  None Provided
+</button>
+`;
+
+exports[`Button when fontSize prop is 14 renders correctly 1`] = `
+<button
+  className="button primary medium"
+  onClick={[MockFunction]}
+  style={
+    Object {
+      "fontSize": "14px",
+      "lineHeight": "14px",
+    }
+  }
+  type="button"
+>
+  None Provided
+</button>
+`;
+
+exports[`Button when fullWidth prop is true renders correctly 1`] = `
+<button
+  className="button primary medium"
+  onClick={[MockFunction]}
+  style={
+    Object {
+      "width": "100%",
+    }
+  }
+  type="button"
+>
+  None Provided
+</button>
+`;
+
+exports[`Button when text prop is Example Text renders correctly 1`] = `
+<button
+  className="button primary medium"
+  onClick={[MockFunction]}
+  style={Object {}}
+  type="button"
+>
+  Example Text
+</button>
+`;
+
+exports[`Button when type prop is link renders correctly 1`] = `
+<a
+  className="link"
+  href="/"
+>
+  None Provided
+</a>
+`;
+
+exports[`Button when type prop is plain renders correctly 1`] = `
+<button
+  className="button plain medium"
+  onClick={[MockFunction]}
+  style={Object {}}
+  type="button"
+>
+  None Provided
+</button>
+`;
+
+exports[`Button when type prop is primary renders correctly 1`] = `
+<button
+  className="button primary medium"
+  onClick={[MockFunction]}
+  style={Object {}}
+  type="button"
+>
+  None Provided
+</button>
+`;
+
+exports[`Button when type prop is routedLink renders correctly 1`] = `
+<Link
+  className="link"
+  replace={false}
+  to="/"
+>
+  None Provided
+</Link>
+`;

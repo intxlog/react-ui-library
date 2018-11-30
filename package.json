@@ -1,0 +1,42 @@
+{
+  "name": "iel-ui-library",
+  "version": "0.1.0",
+  "description": "A UI library for use in IEL React Apps.",
+  "main": "./dist/lib/index.js",
+  "scripts": {
+    "webpack": "node_modules/.bin/webpack",
+    "test": "test",
+    "build": "./node_modules/.bin/webpack --mode=production",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "author": "Integrity Express Logistics",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@storybook/addon-actions": "^4.0.9",
+    "@storybook/addon-backgrounds": "^4.0.8",
+    "@storybook/addon-links": "^4.0.9",
+    "@storybook/addons": "^4.0.9",
+    "@storybook/react": "^4.0.9",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "node-sass": "^4.10.0",
+    "sass-loader": "^7.1.0",
+    "webpack": "^4.26.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "peerDependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-router-dom": "^4.3.1"
+  },
+  "dependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-router-dom": "^4.3.1"
+  }
+}

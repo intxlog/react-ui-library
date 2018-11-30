@@ -1,0 +1,143 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextInput renders correctly 1`] = `
+<div
+  className="container"
+>
+  <input
+    className="element"
+    defaultValue=""
+    id=""
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder=""
+    style={Object {}}
+    type="text"
+  />
+  <p
+    className="infoText"
+  />
+</div>
+`;
+
+exports[`TextInput when error prop is true renders correctly 1`] = `
+<div
+  className="container"
+>
+  <input
+    className="element error"
+    defaultValue=""
+    id=""
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder=""
+    style={Object {}}
+    type="text"
+  />
+  <p
+    className="infoText error"
+  />
+</div>
+`;
+
+exports[`TextInput when idForLabel prop is passed in renders correctly 1`] = `
+<div
+  className="container"
+>
+  <input
+    className="element"
+    defaultValue=""
+    id="exampleID"
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder=""
+    style={Object {}}
+    type="text"
+  />
+  <p
+    className="infoText"
+  />
+</div>
+`;
+
+exports[`TextInput when infoText prop is passed in renders correctly 1`] = `
+<div
+  className="container"
+>
+  <input
+    className="element"
+    defaultValue=""
+    id=""
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder=""
+    style={Object {}}
+    type="text"
+  />
+  <p
+    className="infoText"
+  >
+    Example Text
+  </p>
+</div>
+`;
+
+exports[`TextInput when password prop is true renders correctly 1`] = `
+<div
+  className="container"
+>
+  <input
+    className="element"
+    defaultValue=""
+    id=""
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder=""
+    style={Object {}}
+    type="password"
+  />
+  <p
+    className="infoText"
+  />
+</div>
+`;
+
+exports[`TextInput when placeholder prop is passed in renders correctly 1`] = `
+<div
+  className="container"
+>
+  <input
+    className="element"
+    defaultValue=""
+    id=""
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder="Example Text"
+    style={Object {}}
+    type="text"
+  />
+  <p
+    className="infoText"
+  />
+</div>
+`;
+
+exports[`TextInput when value prop is passed in renders correctly 1`] = `
+<div
+  className="container"
+>
+  <input
+    className="element"
+    defaultValue="Example Text"
+    id=""
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder=""
+    style={Object {}}
+    type="text"
+  />
+  <p
+    className="infoText"
+  />
+</div>
+`;

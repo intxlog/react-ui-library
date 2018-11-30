@@ -1,0 +1,56 @@
+.button {
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--colorPrimaryBase);
+  transition: color 0.3s;
+
+  &:hover {
+    color: var(--colorPrimaryLight);
+  }
+
+  &:active {
+    color: var(--colorPrimaryLight);
+  }
+}
+
+.plain {
+  background-color: transparent;
+}
+
+.primary {
+  color: white;
+  border-radius: 3px;
+  transition: background-color 0.3s;
+  background-color: var(--colorPrimaryBase);
+
+  &:hover {
+    background-color: var(--colorPrimaryLight);
+  }
+
+  &:active {
+    background-color: var(--colorPrimaryLight);
+  }
+}
+
+.small {
+  font-size: 12px;
+  line-height: 12px;
+  padding: 6px 10px;
+}
+
+.medium {
+  font-size: 16px;
+  line-height: 16px;
+  padding: 10px 15px;
+}
+
+.large {
+  font-size: 20px;
+  line-height: 20px;
+  padding: 10px 20px;
+}
