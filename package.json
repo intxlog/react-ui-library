@@ -1,7 +1,7 @@
 {
-  "name": "iel-ui-library",
+  "name": "@intxlog/iuilib",
   "version": "0.1.0",
-  "description": "A UI library for use in IEL React Apps.",
+  "description": "A UI library for use in React Apps.",
   "main": "./dist/lib/index.js",
   "scripts": {
     "webpack": "node_modules/.bin/webpack",
@@ -10,8 +10,20 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/intxlog/react-ui-library.git"
+  },
+  "keywords": [
+    "javascript",
+    "react"
+  ],
   "author": "Integrity Express Logistics",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/intxlog/react-ui-library/issues"
+  },
+  "homepage": "https://github.com/intxlog/react-ui-library#readme",
   "devDependencies": {
     "@babel/core": "^7.1.6",
     "@storybook/addon-actions": "^4.0.9",
