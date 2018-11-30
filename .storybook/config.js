@@ -1,7 +1,7 @@
 
 import { configure, addDecorator } from '@storybook/react'
 import React from 'react'
-import './base.module.scss'
+import './styles/base.module.scss'
 
 const defaultWrapperStyles = {
   padding: '10px',

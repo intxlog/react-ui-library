@@ -1,3 +1,7 @@
+@import './_normalize.scss';
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700');
+
 // CSS variables. Make them CSS variables to keep the option open for theming
 :root {
   --colorPrimaryBase: #073451;
@@ -10,4 +14,11 @@
   --colorSecondaryTrans: rgba(227, 118, 28, 0.5);
   --colorFormInputPlaceholder: rgba(#707070, .5);
   --colorFormInputFontColor: #474747;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  color: black;
+  text-rendering: optimizelegibility;
 }
