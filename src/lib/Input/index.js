@@ -5,6 +5,9 @@ import classNames from 'classnames'
 //import css
 import styles from './styles.module.scss'
 
+//import validator
+import validateString from './../../validators'
+
 // logic behind all the different types of inputs
 class Input extends React.Component {
   constructor(props) {
@@ -12,20 +15,59 @@ class Input extends React.Component {
     this.state = {
       value: '',
       entered: false,
-      error: false
+      error: false,
+      infoText: null
     }
   }
 
   handleOnChange = (e) => {
     const val = e.target.value
+
+    //validate if the user has entered the input once before
+    if (this.state.entered && this.props.validate) {
+      this.validate(val)
+    }
+    
     //update the state and fire the onChange function if one was passed in
     this.setState({value: val})
-    this.props.onChange(val)
+    this.props.onChange(val)  
   }
 
   handleOnBlur = () => {
+    const val = this.state.value
+
+    //only run validation if validate is set to true
+    if (this.props.validate) {
+      //set entered to true
+      this.setState({entered: true})
+      //run validation
+      this.validate(val)
+    }
+
     //fire the blur event that was passed in 
-    this.props.onBlur(this.state.value)
+    this.props.onBlur(val)
+  }
+
+  validate = (val) => {
+    const res = validateString(val, this.props.type)
+    const isValid = res.valid
+    const message = res.message
+    const newValue = res.value
+
+    //if it is not valid then set the error state
+    if (!isValid) {
+      this.setState({
+        error: true,
+        infoText: message
+      })
+    } else {
+      this.setState({
+        error: false,
+        infoText: null
+      })
+      //fire the onValid function with 
+      this.props.onValid(newValue)
+    }
   }
 
   render(){
@@ -48,7 +90,7 @@ class Input extends React.Component {
       [styles.error]: this.props.error || this.state.error
     })
 
-    //dynamically handle css classnames
+    //dynamically handle css classnames for info text
     let textClassNames = classNames({
       [styles.infoText]: true,
       [styles.error]: this.props.error || this.state.error
@@ -96,7 +138,7 @@ class Input extends React.Component {
     return (
       <div>
         {element}
-        <p className={textClassNames}>{this.props.infoText}</p>
+        <p className={textClassNames}>{this.props.infoText || this.state.infoText}</p>
       </div>
     )
   }
@@ -113,9 +155,10 @@ Input.propTypes = {
   error: PropTypes.bool,
   defaultValue: PropTypes.string,
   validate: PropTypes.bool,
-  type: PropTypes.oneOf(['text', 'password', 'select']).isRequired,
+  type: PropTypes.oneOf(['text', 'email', 'password', 'select']).isRequired,
   onChange: PropTypes.func,
-  onBlur: PropTypes.func
+  onBlur: PropTypes.func,
+  onValid: PropTypes.func
 }
 
 // Specifies the default values for props:
@@ -130,7 +173,8 @@ Input.defaultProps = {
   validate: true,
   type: 'text',
   onChange: () => {},
-  onBlur: () => {}
+  onBlur: () => {},
+  onValid: () => {}
 }
 
 export default Input
