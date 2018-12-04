@@ -1,11 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TextInput renders correctly 1`] = `
-<div
-  className="container"
->
+<div>
   <input
-    className="element"
+    className="input"
     defaultValue=""
     id=""
     onBlur={[Function]}
@@ -21,11 +19,9 @@ exports[`TextInput renders correctly 1`] = `
 `;
 
 exports[`TextInput when error prop is true renders correctly 1`] = `
-<div
-  className="container"
->
+<div>
   <input
-    className="element error"
+    className="input error"
     defaultValue=""
     id=""
     onBlur={[Function]}
@@ -41,11 +37,9 @@ exports[`TextInput when error prop is true renders correctly 1`] = `
 `;
 
 exports[`TextInput when idForLabel prop is passed in renders correctly 1`] = `
-<div
-  className="container"
->
+<div>
   <input
-    className="element"
+    className="input"
     defaultValue=""
     id="exampleID"
     onBlur={[Function]}
@@ -61,11 +55,9 @@ exports[`TextInput when idForLabel prop is passed in renders correctly 1`] = `
 `;
 
 exports[`TextInput when infoText prop is passed in renders correctly 1`] = `
-<div
-  className="container"
->
+<div>
   <input
-    className="element"
+    className="input"
     defaultValue=""
     id=""
     onBlur={[Function]}
@@ -83,18 +75,16 @@ exports[`TextInput when infoText prop is passed in renders correctly 1`] = `
 `;
 
 exports[`TextInput when password prop is true renders correctly 1`] = `
-<div
-  className="container"
->
+<div>
   <input
-    className="element"
+    className="input"
     defaultValue=""
     id=""
     onBlur={[Function]}
     onChange={[Function]}
     placeholder=""
     style={Object {}}
-    type="password"
+    type="text"
   />
   <p
     className="infoText"
@@ -103,11 +93,9 @@ exports[`TextInput when password prop is true renders correctly 1`] = `
 `;
 
 exports[`TextInput when placeholder prop is passed in renders correctly 1`] = `
-<div
-  className="container"
->
+<div>
   <input
-    className="element"
+    className="input"
     defaultValue=""
     id=""
     onBlur={[Function]}
@@ -123,12 +111,10 @@ exports[`TextInput when placeholder prop is passed in renders correctly 1`] = `
 `;
 
 exports[`TextInput when value prop is passed in renders correctly 1`] = `
-<div
-  className="container"
->
+<div>
   <input
-    className="element"
-    defaultValue="Example Text"
+    className="input"
+    defaultValue=""
     id=""
     onBlur={[Function]}
     onChange={[Function]}
