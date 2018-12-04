@@ -68,36 +68,36 @@ describe('TextInput', () => {
       expect(wrapper).toMatchSnapshot()
     })
   }),
-  describe('when user changes the value', () => {
-    it('calls the correct function', () => {
-      const onChangeMock = jest.fn()
-      const wrapper = shallow(
-        <TextInput
-          onChange={onChangeMock}
-        />
-      )
-      const element = wrapper.find('.element')
-      element.simulate('change', {
-        target: { value: 'hello' }
-      })
-      expect(onChangeMock).toHaveBeenCalledTimes(1)
-      expect(onChangeMock).toHaveBeenCalledWith('hello')
-    })
-  }),
-  describe('when user fires the blur event', () => {
-    it('calls the correct function', () => {
-      const onBlurMock = jest.fn()
-      const wrapper = shallow(
-        <TextInput
-          onBlur={onBlurMock}
-        />
-      )
-      const element = wrapper.find('.element')
-      element.simulate('blur')
-      expect(onBlurMock).toHaveBeenCalledTimes(1)
-      expect(onBlurMock).toHaveBeenCalledWith('')
-    })
-  }),
+  // describe('when user changes the value', () => {
+  //   it('calls the correct function', () => {
+  //     const onChangeMock = jest.fn()
+  //     const wrapper = shallow(
+  //       <TextInput
+  //         onChange={onChangeMock}
+  //       />
+  //     )
+  //     const element = wrapper.find('.element')
+  //     element.simulate('change', {
+  //       target: { value: 'hello' }
+  //     })
+  //     expect(onChangeMock).toHaveBeenCalledTimes(1)
+  //     expect(onChangeMock).toHaveBeenCalledWith('hello')
+  //   })
+  // }),
+  // describe('when user fires the blur event', () => {
+  //   it('calls the correct function', () => {
+  //     const onBlurMock = jest.fn()
+  //     const wrapper = shallow(
+  //       <TextInput
+  //         onBlur={onBlurMock}
+  //       />
+  //     )
+  //     const element = wrapper.find('.element')
+  //     element.simulate('blur')
+  //     expect(onBlurMock).toHaveBeenCalledTimes(1)
+  //     expect(onBlurMock).toHaveBeenCalledWith('')
+  //   })
+  // }),
   describe('when handleOnChange is called', () => {
     it('calls the correct function and state is correct', () => {
       const e = { target: { value: 'test' } }

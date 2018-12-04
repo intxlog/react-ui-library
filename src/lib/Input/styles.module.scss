@@ -1,0 +1,99 @@
+//vars
+$fontSize: 16px;
+$lineHeight: 16px;
+$colorBorder: #656565;
+
+//base form element
+%element {
+  width: 100%;
+  color: var(--colorFormInputFontColor);
+  border-radius: 3px;
+  border: 1px solid $colorBorder;
+  transition: border .3s;
+  box-shadow: inset 0 0 0 0 transparent;
+  outline: 0;
+
+  &:focus {
+    border: 1px solid var(--colorPrimaryBase);
+  }
+
+  &.error {
+    border: 1px solid red;
+  }
+}
+
+.input {
+  @extend %element;
+  font-size: $fontSize;
+  line-height: $lineHeight;
+  padding: 5px 10px;
+
+  //Style Placeholder
+  &::-webkit-input-placeholder {
+    color: var(--colorFormInputPlaceholder);
+  }
+
+  &:-moz-placeholder { /* Firefox 18- */
+    color: var(--colorFormInputPlaceholder);
+  }
+
+  &::-moz-placeholder { /* Firefox 19+ */
+    color: var(--colorFormInputPlaceholder);
+  }
+
+  &:-ms-input-placeholder {
+    color: var(--colorFormInputPlaceholder);
+  }
+}
+
+.select {
+  background: transparent;
+  border: 0;
+  outline: 0;
+  width: 100%;
+  color: var(--colorFormInputFontColor);
+  font-size: $fontSize;
+  line-height: 20px;
+  padding: 6px 10px;
+  user-select: none;
+  height: 32px;
+  -webkit-appearance: none;
+}
+
+.selectWrapper {
+  @extend %element;
+  position: relative;
+  overflow: hidden;
+  background-color: white;
+
+  &, > * {
+    cursor: pointer;
+  }
+
+  &:after {
+    content: '';
+    width: 0;
+    position: absolute;
+    right: 7px;
+    top: 50%;
+    margin-top: -3px;
+    border-width: 6px 4px;
+    border-style: solid;
+    pointer-events: none;
+    border-color: $colorBorder transparent transparent transparent;
+  }
+}
+
+.infoText {
+  //keep the elements space even when it is blank
+  display: inline-block;
+  font-size: 12px;
+  line-height: 16px;
+  margin: 0;
+  padding-left: 6px;
+
+  &.error {
+    color: red;
+  }
+}
+
