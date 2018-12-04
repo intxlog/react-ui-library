@@ -49,7 +49,8 @@ class Input extends React.Component {
   }
 
   validate = (val) => {
-    const res = validateString(val, this.props.type)
+    //shorthand if statement
+    const res = this.props.customValidationFunc ? this.props.customValidationFunc(val) : validateString(val, this.props.type)
     const isValid = res.valid
     const message = res.message
     const newValue = res.value
@@ -156,6 +157,7 @@ Input.propTypes = {
   defaultValue: PropTypes.string,
   validate: PropTypes.bool,
   type: PropTypes.oneOf(['text', 'email', 'password', 'select']).isRequired,
+  customValidationFunc: PropTypes.func,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
   onValid: PropTypes.func
