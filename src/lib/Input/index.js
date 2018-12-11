@@ -91,6 +91,12 @@ class Input extends React.Component {
       [styles.error]: this.props.error || this.state.error
     })
 
+    //dynamically handle css classnames for radio
+    let radioClassNames = classNames({
+      [styles.radio]: true,
+      [this.props.className]: this.props.className
+    })
+
     //dynamically handle css classnames for info text
     let textClassNames = classNames({
       [styles.infoText]: true,
@@ -136,6 +142,25 @@ class Input extends React.Component {
       </div>
     }
 
+    //if type is radio then make the element a input with type radio
+    if (this.props.type === 'radio') {
+      element = <div className={styles.radioWrapper}>
+        <input
+          id={this.props.idForLabel}
+          value={this.props.value}
+          name={this.props.name}
+          type={`radio`}
+          onChange={this.handleOnChange}
+          onBlur={this.handleOnBlur}
+        />
+        <div className={radioClassNames}></div>
+        <label
+          htmlFor={this.props.idForLabel}
+          style={this.props.inlineStyles}
+          >{this.props.labelText}</label>
+      </div>
+    }
+
     return (
       <div>
         {element}
@@ -148,15 +173,17 @@ class Input extends React.Component {
 //rules for props being passed in
 Input.propTypes = {
   idForLabel: PropTypes.string,
+  labelText: PropTypes.string,
   className: PropTypes.string,
   inlineStyles: PropTypes.object,
   placeholder: PropTypes.string,
   infoText: PropTypes.string,
-  password: PropTypes.bool,
+  value: PropTypes.string,
+  name: PropTypes.string,
   error: PropTypes.bool,
   defaultValue: PropTypes.string,
   validate: PropTypes.bool,
-  type: PropTypes.oneOf(['text', 'email', 'password', 'select']).isRequired,
+  type: PropTypes.oneOf(['text', 'email', 'password', 'select', 'radio']).isRequired,
   customValidationFunc: PropTypes.func,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
@@ -165,11 +192,11 @@ Input.propTypes = {
 
 // Specifies the default values for props:
 Input.defaultProps = {
+  labelText: `None Provided`,
   placeholder: ``,
   infoText: ``,
   idForLabel: ``,
   inlineStyles: {},
-  password: false,
   error: false,
   defaultValue: '',
   validate: true,
