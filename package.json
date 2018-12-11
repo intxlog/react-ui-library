@@ -1,14 +1,16 @@
 {
   "name": "@intxlog/iuilib",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "A UI library for use in React Apps.",
   "main": "./dist/lib/index.js",
   "scripts": {
+    "report-coverage": "coveralls < ./coverage/lcov.info",
     "webpack": "node_modules/.bin/webpack",
     "test": "jest",
+    "cover": "npm test -- --coverage",
     "build": "./node_modules/.bin/webpack --mode=production",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook -o docs"
   },
   "repository": {
     "type": "git",
@@ -36,6 +38,7 @@
     "babel-loader": "^8.0.4",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "coveralls": "^3.0.2",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
     "enzyme-to-json": "^3.3.4",

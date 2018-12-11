@@ -1,5 +1,6 @@
 #Storybook
 .storybook
+docs
 
 #Dev Files
 webpack.config.js
