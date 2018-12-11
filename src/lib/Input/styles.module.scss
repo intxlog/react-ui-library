@@ -94,7 +94,7 @@ $checkOffset: 2px;
     font-size: 16px;
     line-height: 22px;
     cursor: pointer;
-    padding: 18px;
+    padding-left: 18px;
   } 
   
   > input {
@@ -134,7 +134,52 @@ $checkOffset: 2px;
   }
 }
 
+$cbHeightWidth: 14px;
+$cbCheckHeightWidth: 8px;
+.checkBoxWrapper {
+  position: relative;
 
+  > label {
+    font-size: 16px;
+    line-height: 22px;
+    cursor: pointer;
+    padding-left: 18px;
+  } 
+  
+  > input {
+    clip: rect(1px, 1px, 1px, 1px);
+    width: 1px;
+    height: 1px;
+    position: absolute;
+
+    &:checked ~ .checkbox::before {
+      display: block;
+    } 
+  }
+  
+  > .checkbox {
+    background-color: white;
+    border-radius: 2px;
+    height: $radioHeightWidth;
+    width: $radioHeightWidth;
+    cursor: pointer;
+    border: 1px solid $colorBorder;
+    position: absolute;
+    top: 4px;
+    pointer-events: none;
+    // overflow: hidden;
+
+    &:before {
+      content: '\2714';
+      color: $colorBorder;
+      position: absolute;
+      top: -8px;
+      left: 0px;
+      font-size: 20px;
+      display: none;
+    }
+  }
+}
 
 .infoText {
   //keep the elements space even when it is blank

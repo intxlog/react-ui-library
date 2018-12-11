@@ -97,6 +97,12 @@ class Input extends React.Component {
       [this.props.className]: this.props.className
     })
 
+    //dynamically handle css classnames for checkbox
+    let checkboxClassNames = classNames({
+      [styles.checkbox]: true,
+      [this.props.className]: this.props.className
+    })
+
     //dynamically handle css classnames for info text
     let textClassNames = classNames({
       [styles.infoText]: true,
@@ -157,7 +163,26 @@ class Input extends React.Component {
         <label
           htmlFor={this.props.idForLabel}
           style={this.props.inlineStyles}
-          >{this.props.labelText}</label>
+        >{this.props.labelText}</label>
+      </div>
+    }
+
+    //if type is checkbox then make the element a input with type checkbox
+    if (this.props.type === 'checkbox') {
+      element = <div className={styles.checkBoxWrapper}>
+        <input
+          id={this.props.idForLabel}
+          value={this.props.value}
+          name={this.props.name}
+          type={`checkbox`}
+          onChange={this.handleOnChange}
+          onBlur={this.handleOnBlur}
+        />
+        <div className={checkboxClassNames}></div>
+        <label
+          htmlFor={this.props.idForLabel}
+          style={this.props.inlineStyles}
+        >{this.props.labelText}</label>
       </div>
     }
 
@@ -183,7 +208,7 @@ Input.propTypes = {
   error: PropTypes.bool,
   defaultValue: PropTypes.string,
   validate: PropTypes.bool,
-  type: PropTypes.oneOf(['text', 'email', 'password', 'select', 'radio']).isRequired,
+  type: PropTypes.oneOf(['text', 'email', 'password', 'select', 'radio', 'checkbox']).isRequired,
   customValidationFunc: PropTypes.func,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,

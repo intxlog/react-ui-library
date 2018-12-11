@@ -53,7 +53,16 @@ storiesOf('Input Radio', module)
       value={`option2`}
       idForLabel={`option2`}
       labelText={'Option 2'}
-      onChange={(val) => {console.log(val)}}
     ></Input>
   </>
+))
+
+storiesOf('Input Checkbox', module)
+.add('default', () => (
+  <Input
+    type='checkbox'
+    value={`Checkbox`}
+    idForLabel={`option1`}
+    labelText={'Awesome Checkbox'}
+  ></Input>
 ))
