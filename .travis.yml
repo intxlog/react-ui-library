@@ -14,6 +14,9 @@ after_script:
 - npm run report-coverage
 after_success:
 - scripts/docs
+branches:
+  only:
+  - master
 before_deploy:
 - echo 'Preparing to publish'
 - npm run build-storybook
