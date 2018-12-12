@@ -1,0 +1,109 @@
+.container {
+  background-color: rgba(0,0,0,.3);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  margin-top: -100px;
+  height: 350px;
+  width: 350px;
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.text {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.circle {
+  height: 100px;
+  width: 100px;
+  margin-bottom: 20px;
+  border-radius: 100%;
+  position: relative;
+  
+  &.success {
+    border: 5px solid green;
+    
+    &:before {
+      content: '\2714';
+      position: absolute;
+      top: 8px;
+      left: 21px;
+      color: green;
+      font-weight: 700;
+      font-size: 62px;
+    }
+  }
+
+  &.warning {
+    border: 5px solid orange;
+    
+    &:before {
+      content: '\0021';
+      position: absolute;
+      top: 8px;
+      left: 37px;
+      color: orange;
+      font-weight: 700;
+      font-size: 62px;
+    }
+  }
+
+  &.error {
+    border: 5px solid red;
+    
+    &:before {
+      content: '\2716';
+      position: absolute;
+      top: 8px;
+      left: 20px;
+      color: red;
+      font-weight: 700;
+      font-size: 62px;
+    }
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  height: 20px;
+  width: 20px;
+  outline: 0;
+  border: 2px solid white;
+  border-radius: 100%;
+  background-color:grey;
+  cursor: pointer;
+  box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.3);
+  transition: background-color .3s;
+
+  &:hover {
+    background-color:rgb(109, 109, 109);
+  }
+
+  &:before {
+    content: '\2716';
+    position: absolute;
+    top: 2px;
+    left: 3px;
+    color: white;
+    font-weight: 700;
+    font-size: 11px;
+  }
+}

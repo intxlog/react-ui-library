@@ -1,109 +1,83 @@
 import React from 'react'
 
 import { shallow } from 'enzyme'
-import TextInput from '..'
+import Input from '..'
 
-describe('TextInput', () => {
+describe('Input', () => {
   it('renders correctly', () => {
-    const wrapper = shallow(<TextInput/>)
+    const wrapper = shallow( <Input/> )
     expect(wrapper).toMatchSnapshot()
   }),
-  describe('when password prop is true', () =>{
+  describe('when type is password', () => {
     it('renders correctly', () => {
       const wrapper = shallow(
-        <TextInput
-          password={true}
+        <Input
+          type={`password`}
         />
       )
       expect(wrapper).toMatchSnapshot()
     })
   }),
-  describe('when idForLabel prop is passed in', () =>{
+  describe('when idForLabel prop is passed in', () => {
     it('renders correctly', () => {
       const wrapper = shallow(
-        <TextInput
+        <Input
           idForLabel={`exampleID`}
         />
       )
       expect(wrapper).toMatchSnapshot()
     })
   }),
-  describe('when placeholder prop is passed in', () =>{
+  describe('when placeholder prop is passed in', () => {
     it('renders correctly', () => {
       const wrapper = shallow(
-        <TextInput
+        <Input
           placeholder={`Example Text`}
         />
       )
       expect(wrapper).toMatchSnapshot()
     })
   }),
-  describe('when infoText prop is passed in', () =>{
+  describe('when infoText prop is passed in', () => {
     it('renders correctly', () => {
       const wrapper = shallow(
-        <TextInput
+        <Input
           infoText={`Example Text`}
         />
       )
       expect(wrapper).toMatchSnapshot()
     })
   }),
-  describe('when error prop is true', () =>{
+  describe('when error prop is true', () => {
     it('renders correctly', () => {
       const wrapper = shallow(
-        <TextInput
+        <Input
           error={true}
         />
       )
       expect(wrapper).toMatchSnapshot()
     })
   }),
-  describe('when value prop is passed in', () =>{
+  describe('when value prop is passed in', () => {
     it('renders correctly', () => {
       const wrapper = shallow(
-        <TextInput
+        <Input
           value={`Example Text`}
         />
       )
       expect(wrapper).toMatchSnapshot()
     })
   }),
-  // describe('when user changes the value', () => {
-  //   it('calls the correct function', () => {
-  //     const onChangeMock = jest.fn()
-  //     const wrapper = shallow(
-  //       <TextInput
-  //         onChange={onChangeMock}
-  //       />
-  //     )
-  //     const element = wrapper.find('.element')
-  //     element.simulate('change', {
-  //       target: { value: 'hello' }
-  //     })
-  //     expect(onChangeMock).toHaveBeenCalledTimes(1)
-  //     expect(onChangeMock).toHaveBeenCalledWith('hello')
-  //   })
-  // }),
-  // describe('when user fires the blur event', () => {
-  //   it('calls the correct function', () => {
-  //     const onBlurMock = jest.fn()
-  //     const wrapper = shallow(
-  //       <TextInput
-  //         onBlur={onBlurMock}
-  //       />
-  //     )
-  //     const element = wrapper.find('.element')
-  //     element.simulate('blur')
-  //     expect(onBlurMock).toHaveBeenCalledTimes(1)
-  //     expect(onBlurMock).toHaveBeenCalledWith('')
-  //   })
-  // }),
   describe('when handleOnChange is called', () => {
     it('calls the correct function and state is correct', () => {
-      const e = { target: { value: 'test' } }
+      const e = {
+        target: {
+          value: 'test'
+        }
+      }
       const onChangeMock = jest.fn()
       const wrapper = shallow(
-        <TextInput
+        <Input
           onChange={onChangeMock}
         />
       )
@@ -111,17 +85,139 @@ describe('TextInput', () => {
       expect(wrapper.state().value).toEqual('test')
       expect(onChangeMock).toHaveBeenCalledTimes(1)
     })
-  })
+  }),
   describe('when handleOnBlur is called', () => {
     it('calls the correct function', () => {
       const onBlurMock = jest.fn()
       const wrapper = shallow(
-        <TextInput
+        <Input
           onBlur={onBlurMock}
         />
       )
       expect(wrapper.instance().handleOnBlur()).toEqual(undefined)
       expect(onBlurMock).toHaveBeenCalledTimes(1)
+    })
+  })
+})
+
+
+//checkbox testing
+describe('checkbox', () => {
+  it('renders correctly', () => {
+      const wrapper = shallow(
+        <Input
+          type='checkbox'
+          idForLabel={`exampleID`}
+        />
+      )
+      expect(wrapper).toMatchSnapshot()
+    }),
+    describe('when handleOnChange is called', () => {
+      it('calls the correct function and state is correct', () => {
+        const e = {
+          target: {
+            value: 'test'
+          }
+        }
+        const onChangeMock = jest.fn()
+        const wrapper = shallow(
+          <Input
+            type='checkbox'
+            idForLabel={`exampleID`}
+            onChange={onChangeMock}
+          />
+        )
+        expect(wrapper.instance().handleOnChange(e)).toEqual(undefined)
+        expect(wrapper.state().value).toEqual('test')
+        expect(onChangeMock).toHaveBeenCalledTimes(1)
+      })
+    }),
+    describe('when handleOnBlur is called', () => {
+      it('calls the correct function', () => {
+        const onBlurMock = jest.fn()
+        const wrapper = shallow(
+          <Input
+            type='checkbox'
+            idForLabel={`exampleID`}
+            onBlur={onBlurMock}
+          />
+        )
+        expect(wrapper.instance().handleOnBlur()).toEqual(undefined)
+        expect(onBlurMock).toHaveBeenCalledTimes(1)
+      })
+    })
+})
+
+
+//Radio testing
+describe('radio', () => {
+  it('renders correctly', () => {
+    const wrapper = shallow(
+      <Input
+        type='radio'
+        idForLabel={`exampleID`}
+      />
+    )
+    expect(wrapper).toMatchSnapshot()
+  }),
+  describe('when handleOnChange is called', () => {
+    it('calls the correct function and state is correct', () => {
+      const e = {
+        target: {
+          value: 'test'
+        }
+      }
+      const onChangeMock = jest.fn()
+      const wrapper = shallow(
+        <Input
+          type='radio'
+          idForLabel={ `exampleID`}
+          onChange={onChangeMock}
+        />
+      )
+      expect(wrapper.instance().handleOnChange(e)).toEqual(undefined)
+      expect(wrapper.state().value).toEqual('test')
+      expect(onChangeMock).toHaveBeenCalledTimes(1)
+    })
+  }),
+  describe('when handleOnBlur is called', () => {
+    it('calls the correct function', () => {
+      const onBlurMock = jest.fn()
+      const wrapper = shallow(
+        <Input
+          type='radio'
+          idForLabel={`exampleID`}
+          onBlur={onBlurMock}
+        />
+      )
+      expect(wrapper.instance().handleOnBlur()).toEqual(undefined)
+      expect(onBlurMock).toHaveBeenCalledTimes(1)
+    })
+  })
+})
+
+//Select testing
+describe('select', () => {
+  it('renders correctly', () => {
+    const wrapper = shallow(
+      <Input 
+        type="select" 
+      ></Input>
+    )
+    expect(wrapper).toMatchSnapshot()
+  }),
+  describe('when options are children', () => {
+    it('renders correctly', () => {
+      const wrapper = shallow(
+        <Input 
+          type="select" 
+        >
+          <option value="option1">Option 1</option>
+          <option value="option2">Option 2</option>
+          <option value="option3">Option 3</option>
+        </Input>
+      )
+      expect(wrapper).toMatchSnapshot()
     })
   })
 })
