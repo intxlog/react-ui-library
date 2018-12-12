@@ -34,6 +34,14 @@ describe('Button', () => {
       expect(wrapper).toMatchSnapshot()
     })
   }),
+  describe('when submitsForm prop is true', () =>{
+    it('renders correctly', () => {
+      wrapper.setProps({ 
+        submitsForm: true
+      })
+      expect(wrapper).toMatchSnapshot()
+    })
+  }),
   describe('when text prop is Example Text', () =>{
     it('renders correctly', () => {
       wrapper.setProps({ 

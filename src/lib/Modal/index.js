@@ -40,8 +40,6 @@ class Modal extends React.Component {
           text = `Error!`
           className = styles.error
           break
-        default://this should never hit since success is the default
-          break
       }
   
       //dynamically handle classNames
@@ -49,6 +47,16 @@ class Modal extends React.Component {
         [styles.circle]: true,
         [className]: true
       })
+
+      //if text is passed then make the text the value passed in
+      if (this.props.text) {
+        text = this.props.text
+      }
+
+      //if buttonText is passed in then make the buttonText value the value passed in
+      if (this.props.buttonText) {
+        buttonText = this.props.buttonText
+      }
   
       content = <>
         <div className={circleClassNames}>
@@ -80,6 +88,8 @@ class Modal extends React.Component {
 //rules for props being passed in
 Modal.propTypes = {
   isOpen: PropTypes.bool,
+  text: PropTypes.string,
+  buttonText: PropTypes.string,
   closeFunc: PropTypes.func,
   customContent: PropTypes.object,
   type: PropTypes.oneOf(['success', 'warning', 'error'])

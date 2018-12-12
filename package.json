@@ -25,7 +25,7 @@
   "bugs": {
     "url": "https://github.com/intxlog/react-ui-library/issues"
   },
-  "homepage": "https://github.com/intxlog/react-ui-library#readme",
+  "homepage": "https://intxlog.github.io/react-ui-library",
   "devDependencies": {
     "@babel/core": "^7.1.6",
     "@storybook/addon-actions": "^4.0.9",
