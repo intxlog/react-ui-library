@@ -19,7 +19,6 @@ branches:
   - master
 before_deploy:
 - echo 'Preparing to publish'
-- npm run build-storybook
 - npm run build
 deploy:
 - provider: npm

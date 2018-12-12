@@ -88,4 +88,7 @@ Button.defaultProps = {
   submitsForm: false
 }
 
+//maintain the name for documentation purposes
+Button.displayName = 'Button'
+
 export default Button
