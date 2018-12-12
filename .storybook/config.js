@@ -5,7 +5,7 @@ import { withInfo } from '@storybook/addon-info'
 import './styles/base.module.scss'
 
 const defaultWrapperStyles = {
-  padding: '20px',
+  padding: '20px 40px'
 }
 
 const req = require.context('../src', true, /\_story\.js$/)
