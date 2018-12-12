@@ -12,6 +12,7 @@ import styles from './styles.module.scss'
 class Modal extends React.Component {
   render(){
     //var to house the content
+    let modal = null
     let content = null
     let buttonText = null
     let text = null
@@ -49,30 +50,30 @@ class Modal extends React.Component {
         [className]: true
       })
   
-      //if isOpen is true then serve up the modal
-      if (this.props.isOpen) {
-        content = <>
-          <div className={circleClassNames}>
-            <div className={styles.circleContent}></div>
-          </div>
-          <p className={styles.text}>{text}</p>
-          <Button
-            text={buttonText}
-            inlineStyles={{minWidth: '120px'}}
-            onClick={this.props.closeFunc}
-          ></Button>
-        </>
-      }
+      content = <>
+        <div className={circleClassNames}>
+          <div className={styles.circleContent}></div>
+        </div>
+        <p className={styles.text}>{text}</p>
+        <Button
+          text={buttonText}
+          inlineStyles={{minWidth: '120px'}}
+          onClick={this.props.closeFunc}
+        ></Button>
+      </>
     }// end the customContent if
 
-    return (
-      <div className={styles.container}>
+    //if isOpen is true then serve up the modal
+    if (this.props.isOpen) {
+      modal = <div className={styles.container}>
         <div className={styles.modal}>
           <button className={styles.closeButton} onClick={this.props.closeFunc}></button>
           {content}
         </div>
       </div>
-    )
+    }
+
+    return modal
   }
 }
 
