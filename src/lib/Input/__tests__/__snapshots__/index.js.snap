@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TextInput renders correctly 1`] = `
+exports[`Input renders correctly 1`] = `
 <div>
   <input
     className="input"
@@ -18,7 +18,7 @@ exports[`TextInput renders correctly 1`] = `
 </div>
 `;
 
-exports[`TextInput when error prop is true renders correctly 1`] = `
+exports[`Input when error prop is true renders correctly 1`] = `
 <div>
   <input
     className="input error"
@@ -36,7 +36,7 @@ exports[`TextInput when error prop is true renders correctly 1`] = `
 </div>
 `;
 
-exports[`TextInput when idForLabel prop is passed in renders correctly 1`] = `
+exports[`Input when idForLabel prop is passed in renders correctly 1`] = `
 <div>
   <input
     className="input"
@@ -54,7 +54,7 @@ exports[`TextInput when idForLabel prop is passed in renders correctly 1`] = `
 </div>
 `;
 
-exports[`TextInput when infoText prop is passed in renders correctly 1`] = `
+exports[`Input when infoText prop is passed in renders correctly 1`] = `
 <div>
   <input
     className="input"
@@ -74,25 +74,7 @@ exports[`TextInput when infoText prop is passed in renders correctly 1`] = `
 </div>
 `;
 
-exports[`TextInput when password prop is true renders correctly 1`] = `
-<div>
-  <input
-    className="input"
-    defaultValue=""
-    id=""
-    onBlur={[Function]}
-    onChange={[Function]}
-    placeholder=""
-    style={Object {}}
-    type="text"
-  />
-  <p
-    className="infoText"
-  />
-</div>
-`;
-
-exports[`TextInput when placeholder prop is passed in renders correctly 1`] = `
+exports[`Input when placeholder prop is passed in renders correctly 1`] = `
 <div>
   <input
     className="input"
@@ -110,7 +92,25 @@ exports[`TextInput when placeholder prop is passed in renders correctly 1`] = `
 </div>
 `;
 
-exports[`TextInput when value prop is passed in renders correctly 1`] = `
+exports[`Input when type is password renders correctly 1`] = `
+<div>
+  <input
+    className="input"
+    defaultValue=""
+    id=""
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder=""
+    style={Object {}}
+    type="password"
+  />
+  <p
+    className="infoText"
+  />
+</div>
+`;
+
+exports[`Input when value prop is passed in renders correctly 1`] = `
 <div>
   <input
     className="input"
@@ -122,6 +122,114 @@ exports[`TextInput when value prop is passed in renders correctly 1`] = `
     style={Object {}}
     type="text"
   />
+  <p
+    className="infoText"
+  />
+</div>
+`;
+
+exports[`checkbox renders correctly 1`] = `
+<div>
+  <div
+    className="checkBoxWrapper"
+  >
+    <input
+      id="exampleID"
+      onBlur={[Function]}
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <div
+      className="checkbox"
+    />
+    <label
+      htmlFor="exampleID"
+      style={Object {}}
+    >
+      None Provided
+    </label>
+  </div>
+  <p
+    className="infoText"
+  />
+</div>
+`;
+
+exports[`radio renders correctly 1`] = `
+<div>
+  <div
+    className="radioWrapper"
+  >
+    <input
+      id="exampleID"
+      onBlur={[Function]}
+      onChange={[Function]}
+      type="radio"
+    />
+    <div
+      className="radio"
+    />
+    <label
+      htmlFor="exampleID"
+      style={Object {}}
+    >
+      None Provided
+    </label>
+  </div>
+  <p
+    className="infoText"
+  />
+</div>
+`;
+
+exports[`select renders correctly 1`] = `
+<div>
+  <div
+    className="selectWrapper"
+    style={Object {}}
+  >
+    <select
+      className="select"
+      defaultValue=""
+      id=""
+      onChange={[Function]}
+    />
+  </div>
+  <p
+    className="infoText"
+  />
+</div>
+`;
+
+exports[`select when options are children renders correctly 1`] = `
+<div>
+  <div
+    className="selectWrapper"
+    style={Object {}}
+  >
+    <select
+      className="select"
+      defaultValue=""
+      id=""
+      onChange={[Function]}
+    >
+      <option
+        value="option1"
+      >
+        Option 1
+      </option>
+      <option
+        value="option2"
+      >
+        Option 2
+      </option>
+      <option
+        value="option3"
+      >
+        Option 3
+      </option>
+    </select>
+  </div>
   <p
     className="infoText"
   />

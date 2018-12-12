@@ -35,3 +35,34 @@ storiesOf('Input Select', module)
     <option>Option 3</option>
   </Input>
 ))
+
+
+storiesOf('Input Radio', module)
+.add('default', () => (
+  <>
+    <Input
+      type='radio'
+      name={'test'}
+      value={`option1`}
+      idForLabel={`option1`}
+      labelText={'Option 1'}
+    ></Input>
+    <Input
+      type='radio'
+      name={'test'}
+      value={`option2`}
+      idForLabel={`option2`}
+      labelText={'Option 2'}
+    ></Input>
+  </>
+))
+
+storiesOf('Input Checkbox', module)
+.add('default', () => (
+  <Input
+    type='checkbox'
+    value={`Checkbox`}
+    idForLabel={`option1`}
+    labelText={'Awesome Checkbox'}
+  ></Input>
+))
