@@ -38,4 +38,7 @@ class LoadingGif extends React.Component {
 //
 // }
 
+//maintain the name for documentation purposes
+LoadingGif.displayName = 'LoadingGif'
+
 export default LoadingGif
