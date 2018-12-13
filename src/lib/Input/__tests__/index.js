@@ -210,10 +210,6 @@ describe('select', () => {
           {value:"option2", infoText:"Option 2"},
           {value:"option3", infoText:"Option 3"}
         ]
-        //   <option value="option1">Option 1</option>
-        //   <option value="option2">Option 2</option>
-        //   <option value="option3">Option 3</option>
-        // </Input>
       })
       expect(wrapper).toMatchSnapshot()
     })
