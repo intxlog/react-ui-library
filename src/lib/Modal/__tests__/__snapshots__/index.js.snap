@@ -1,0 +1,210 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal renders correctly 1`] = `""`;
+
+exports[`Modal when isOpen is true renders correctly 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="modal"
+  >
+    <button
+      className="closeButton"
+    />
+    <div
+      className="circle success"
+    >
+      <div
+        className="circleContent"
+      />
+    </div>
+    <p
+      className="text"
+    >
+      Success!
+    </p>
+    <Button
+      fullWidth={false}
+      inlineStyles={
+        Object {
+          "minWidth": "120px",
+        }
+      }
+      size="medium"
+      submitsForm={false}
+      text="Ok"
+      type="primary"
+    />
+  </div>
+</div>
+`;
+
+exports[`Modal when isOpen is true when custom content is passed in renders correctly 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="modal"
+  >
+    <button
+      className="closeButton"
+    />
+    <div>
+      Here is some custom content
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Modal when isOpen is true when text is passed in renders correctly 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="modal"
+  >
+    <button
+      className="closeButton"
+    />
+    <div
+      className="circle success"
+    >
+      <div
+        className="circleContent"
+      />
+    </div>
+    <p
+      className="text"
+    >
+      This is custom text
+    </p>
+    <Button
+      fullWidth={false}
+      inlineStyles={
+        Object {
+          "minWidth": "120px",
+        }
+      }
+      size="medium"
+      submitsForm={false}
+      text="Ok"
+      type="primary"
+    />
+  </div>
+</div>
+`;
+
+exports[`Modal when isOpen is true when text is passed in renders correctly 2`] = `
+<div
+  className="container"
+>
+  <div
+    className="modal"
+  >
+    <button
+      className="closeButton"
+    />
+    <div
+      className="circle success"
+    >
+      <div
+        className="circleContent"
+      />
+    </div>
+    <p
+      className="text"
+    >
+      Success!
+    </p>
+    <Button
+      fullWidth={false}
+      inlineStyles={
+        Object {
+          "minWidth": "120px",
+        }
+      }
+      size="medium"
+      submitsForm={false}
+      text="Custom Text"
+      type="primary"
+    />
+  </div>
+</div>
+`;
+
+exports[`Modal when isOpen is true when type is error renders correctly 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="modal"
+  >
+    <button
+      className="closeButton"
+    />
+    <div
+      className="circle error"
+    >
+      <div
+        className="circleContent"
+      />
+    </div>
+    <p
+      className="text"
+    >
+      Error!
+    </p>
+    <Button
+      fullWidth={false}
+      inlineStyles={
+        Object {
+          "minWidth": "120px",
+        }
+      }
+      size="medium"
+      submitsForm={false}
+      text="Ok"
+      type="primary"
+    />
+  </div>
+</div>
+`;
+
+exports[`Modal when isOpen is true when type is warning renders correctly 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="modal"
+  >
+    <button
+      className="closeButton"
+    />
+    <div
+      className="circle warning"
+    >
+      <div
+        className="circleContent"
+      />
+    </div>
+    <p
+      className="text"
+    >
+      Warning!
+    </p>
+    <Button
+      fullWidth={false}
+      inlineStyles={
+        Object {
+          "minWidth": "120px",
+        }
+      }
+      size="medium"
+      submitsForm={false}
+      text="Ok"
+      type="primary"
+    />
+  </div>
+</div>
+`;

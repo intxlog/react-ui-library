@@ -231,4 +231,7 @@ Input.defaultProps = {
   onValid: () => {}
 }
 
+//maintain the name for documentation purposes
+Input.displayName = 'Input'
+
 export default Input

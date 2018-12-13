@@ -1,8 +1,15 @@
 import React from 'react'
 
-import {  shallow } from 'enzyme'
+import { shallow } from 'enzyme'
 import Input from '..'
 
+
+describe('Input', () => {
+
+  const onClickMock = jest.fn()
+  let props = {
+    onClick: onClickMock
+  }
 //create a shallow wrapper that can be reused
 let wrapper
 //initialize the components
@@ -14,7 +21,7 @@ describe('Input', () => {
     // const wrapper = shallow( <Input/> )
     expect(wrapper).toMatchSnapshot()
   }),
-  describe('when password prop is true', () => {
+  describe('when type is password', () => {
     it('renders correctly', () => {
       wrapper.setProps({
           password:true
@@ -92,11 +99,10 @@ describe('Input', () => {
 
 
 //checkbox testing
-
 describe('checkbox', () => {
   it('renders correctly', () => {
       wrapper.setProps({
-        type:'checkbox'
+        type:'checkbox',
         idForLabel:`exampleID`
       })
       expect(wrapper).toMatchSnapshot()
@@ -135,11 +141,10 @@ describe('checkbox', () => {
 
 
 //Radio testing
-
 describe('radio', () => {
   it('renders correctly', () => {
       wrapper.setProps({
-        type:'radio'
+        type:'radio',
         idForLabel:`exampleID`
       })
       expect(wrapper).toMatchSnapshot()
@@ -153,7 +158,7 @@ describe('radio', () => {
         }
         const onChangeMock = jest.fn()
         wrapper.setProps({
-          type:'radio'
+          type:'radio',
           idForLabel:`exampleID`,
           onChange:onChangeMock
         })
@@ -173,6 +178,46 @@ describe('radio', () => {
         expect(wrapper.instance().handleOnBlur()).toEqual(undefined)
         expect(onBlurMock).toHaveBeenCalledTimes(1)
       })
+    }),
+  describe('when handleOnBlur is called', () => {
+    it('calls the correct function', () => {
+      const onBlurMock = jest.fn()
+      wrapper.setProps({
+          type:'radio',
+          idForLabel:`exampleID`,
+          onBlur:onBlurMock
+        })
+      expect(wrapper.instance().handleOnBlur()).toEqual(undefined)
+      expect(onBlurMock).toHaveBeenCalledTimes(1)
     })
+  })
+})
+
+//Select testing
+describe('select', () => {
+  it('renders correctly', () => {
+    wrapper.setProps({
+      type:"select"
+    })
+    expect(wrapper).toMatchSnapshot()
+  }),
+  describe('when options are children', () => {
+    it('renders correctly', () => {
+      wrapper.setProps({
+        type:"select",
+        option:[
+          {value:"option1", infoText:"Option 1"},
+          {value:"option2", infoText:"Option 2"},
+          {value:"option3", infoText:"Option 3"}
+        ]
+        //   <option value="option1">Option 1</option>
+        //   <option value="option2">Option 2</option>
+        //   <option value="option3">Option 3</option>
+        // </Input>
+      })
+      expect(wrapper).toMatchSnapshot()
+    })
+  })
+})
 
 })

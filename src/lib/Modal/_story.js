@@ -11,6 +11,18 @@ storiesOf('Modal', module)
     isOpen={true}
   ></Modal>
 ))
+.add('default with custom text', () => (
+  <Modal
+    isOpen={true}
+    text={`This is custom text`}
+  ></Modal>
+))
+.add('default with custom button text', () => (
+  <Modal
+    isOpen={true}
+    buttonText={`Custom Text`}
+  ></Modal>
+))
 .add('warning', () => (
   <Modal
     isOpen={true}

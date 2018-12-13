@@ -42,6 +42,17 @@ exports[`Button when fullWidth prop is true renders correctly 1`] = `
 </button>
 `;
 
+exports[`Button when submitsForm prop is true renders correctly 1`] = `
+<button
+  className="button primary medium"
+  onClick={[MockFunction]}
+  style={Object {}}
+  type="submit"
+>
+  None Provided
+</button>
+`;
+
 exports[`Button when text prop is Example Text renders correctly 1`] = `
 <button
   className="button primary medium"
