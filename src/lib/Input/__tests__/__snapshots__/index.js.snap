@@ -91,25 +91,6 @@ exports[`Input select renders correctly 1`] = `
 </div>
 `;
 
-exports[`Input select when options are children renders correctly 1`] = `
-<div>
-  <div
-    className="selectWrapper"
-    style={Object {}}
-  >
-    <select
-      className="select"
-      defaultValue=""
-      id=""
-      onChange={[Function]}
-    />
-  </div>
-  <p
-    className="infoText"
-  />
-</div>
-`;
-
 exports[`Input when error prop is true renders correctly 1`] = `
 <div>
   <input
