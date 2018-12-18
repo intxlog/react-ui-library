@@ -100,7 +100,6 @@ Modal.defaultProps = {
   type: `success`
 }
 
-//maintain the name for documentation purposes
 Modal.displayName = 'Modal'
 
 export default Modal

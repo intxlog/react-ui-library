@@ -18,6 +18,18 @@ storiesOf('Input', module)
   ></Input>
 ))
 
+storiesOf('TextArea', module)
+.add('default', () => (
+  <Input type={`textArea`}></Input>
+))
+.add('with placeholder', () => (
+  <Input type={`textArea`} placeholder={`Example of a placeholder`}></Input>
+))
+.add('with defaultValue', () => (
+  <Input type={`textArea`} defaultValue={`Example of a default value`}></Input>
+))
+
+
 storiesOf('Input Select', module)
 .add('default', () => (
   <Input
@@ -46,6 +58,25 @@ storiesOf('Input Radio', module)
       value={`option1`}
       idForLabel={`option1`}
       labelText={'Option 1'}
+    ></Input>
+    <Input
+      type='radio'
+      name={'test'}
+      value={`option2`}
+      idForLabel={`option2`}
+      labelText={'Option 2'}
+    ></Input>
+  </>
+))
+.add('defaultChecked', () => (
+  <>
+    <Input
+      type='radio'
+      name={'test'}
+      value={`option1`}
+      idForLabel={`option1`}
+      labelText={'Option 1'}
+      defaultChecked
     ></Input>
     <Input
       type='radio'

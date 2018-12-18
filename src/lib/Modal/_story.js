@@ -14,7 +14,7 @@ storiesOf('Modal', module)
 .add('default with custom text', () => (
   <Modal
     isOpen={true}
-    text={`This is custom text`}
+    text={`This is custom text. Long enough to wrap two lines to make sure everything looks good.`}
   ></Modal>
 ))
 .add('default with custom button text', () => (

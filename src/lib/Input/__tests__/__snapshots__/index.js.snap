@@ -1,9 +1,100 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Input checkbox renders correctly 1`] = `
+<div>
+  <div
+    className="checkBoxWrapper"
+  >
+    <input
+      id="exampleID"
+      onBlur={[Function]}
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <div
+      className="checkbox"
+    />
+    <label
+      htmlFor="exampleID"
+      style={Object {}}
+    >
+      None Provided
+    </label>
+  </div>
+  <p
+    className="infoText"
+  />
+</div>
+`;
+
+exports[`Input radio renders correctly 1`] = `
+<div>
+  <div
+    className="radioWrapper"
+  >
+    <input
+      id="exampleID"
+      onBlur={[Function]}
+      onChange={[Function]}
+      type="radio"
+    />
+    <div
+      className="radio"
+    />
+    <label
+      htmlFor="exampleID"
+      style={Object {}}
+    >
+      None Provided
+    </label>
+  </div>
+  <p
+    className="infoText"
+  />
+</div>
+`;
+
 exports[`Input renders correctly 1`] = `
 <div>
   <input
     className="input"
+    defaultValue=""
+    id=""
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder=""
+    style={Object {}}
+    type="text"
+  />
+  <p
+    className="infoText"
+  />
+</div>
+`;
+
+exports[`Input select renders correctly 1`] = `
+<div>
+  <div
+    className="selectWrapper"
+    style={Object {}}
+  >
+    <select
+      className="select"
+      defaultValue=""
+      id=""
+      onChange={[Function]}
+    />
+  </div>
+  <p
+    className="infoText"
+  />
+</div>
+`;
+
+exports[`Input textArea renders correctly 1`] = `
+<div>
+  <textarea
+    className="textArea"
     defaultValue=""
     id=""
     onBlur={[Function]}
@@ -110,7 +201,7 @@ exports[`Input when type is password renders correctly 1`] = `
 </div>
 `;
 
-exports[`Input when value prop is passed in renders correctly 1`] = `
+exports[`Input when validate is passed in renders correctly 1`] = `
 <div>
   <input
     className="input"
@@ -128,108 +219,18 @@ exports[`Input when value prop is passed in renders correctly 1`] = `
 </div>
 `;
 
-exports[`checkbox renders correctly 1`] = `
+exports[`Input when value prop is passed in renders correctly 1`] = `
 <div>
-  <div
-    className="checkBoxWrapper"
-  >
-    <input
-      id="exampleID"
-      onBlur={[Function]}
-      onChange={[Function]}
-      type="checkbox"
-    />
-    <div
-      className="checkbox"
-    />
-    <label
-      htmlFor="exampleID"
-      style={Object {}}
-    >
-      None Provided
-    </label>
-  </div>
-  <p
-    className="infoText"
-  />
-</div>
-`;
-
-exports[`radio renders correctly 1`] = `
-<div>
-  <div
-    className="radioWrapper"
-  >
-    <input
-      id="exampleID"
-      onBlur={[Function]}
-      onChange={[Function]}
-      type="radio"
-    />
-    <div
-      className="radio"
-    />
-    <label
-      htmlFor="exampleID"
-      style={Object {}}
-    >
-      None Provided
-    </label>
-  </div>
-  <p
-    className="infoText"
-  />
-</div>
-`;
-
-exports[`select renders correctly 1`] = `
-<div>
-  <div
-    className="selectWrapper"
+  <input
+    className="input"
+    defaultValue=""
+    id=""
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder=""
     style={Object {}}
-  >
-    <select
-      className="select"
-      defaultValue=""
-      id=""
-      onChange={[Function]}
-    />
-  </div>
-  <p
-    className="infoText"
+    type="text"
   />
-</div>
-`;
-
-exports[`select when options are children renders correctly 1`] = `
-<div>
-  <div
-    className="selectWrapper"
-    style={Object {}}
-  >
-    <select
-      className="select"
-      defaultValue=""
-      id=""
-      onChange={[Function]}
-    >
-      <option
-        value="option1"
-      >
-        Option 1
-      </option>
-      <option
-        value="option2"
-      >
-        Option 2
-      </option>
-      <option
-        value="option3"
-      >
-        Option 3
-      </option>
-    </select>
-  </div>
   <p
     className="infoText"
   />

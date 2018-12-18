@@ -25,7 +25,6 @@ deploy:
   email: dev@intxlog.com
   skip_cleanup: true
   on:
-    tags: true
     repo: intxlog/react-ui-library
   api_key:
     secure: N5a0WGfipMicy0Persct+qda1OsRgAKKx3DmGWH/GYuYuxtC+YYYhebWeUmKEyWjWgrNyyUlMThSeeQeVHKMFgDSj1nNQ2+WQxwIQGtRByBE2OWzM9BQCr/kSUvzNatCue4CIJ8Oo/lLLapaTZ/gJ/l5JTThK7Zv83IACUNxK1TyzCqB4cIEptu7RfxUtAZ+ezOHqREYptoFK50yemUJ6InWTG79cS8ZtMmdBIixb6Iqqs02zj6fTDImRxscr1bQHJ1DDyo6XS4TvP9/CaB7FzzoTqfi197DYreEibzTYiJxYlbLKhoqdXMFzAZ5SEL34GP7abAUbTs0ld3+9vGSN3HFC3dffCvFO91AhErgrwCmQSHN2g/ktCwXe3fD/raYQrPsidF9sWrFMOD3U0RzAZdlcdD30izet55UI5mMiUX35QyDkpIrRf5BWBXHQAKWScC4TjbFjHW8/1RyfXz334lH5x6vB4PuSZxz2dif8tAeN5R0pkRGICS37TBDAwcurlk336QoOc0OQul3G9y4ADz4cj2y0Ftl2jX+3/4vX0zZK/6NOY6gnJGm1A66qt/QE2GOrJH79lDFkmBMq7W0zmpo0Piw0bXWd7Qcr3AwVfbebMXW0JdIvHR/Ah38ttI+4XFnGaPf0pkscyc0FllUcSwBGzPmk8a7T1pItYgPTss=
