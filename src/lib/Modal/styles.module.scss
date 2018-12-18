@@ -37,19 +37,22 @@
   width: 100px;
   margin-bottom: 20px;
   border-radius: 100%;
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:before {
+    font-weight: 700;
+    font-size: 62px;
+    line-height: 62px;
+  }
   
   &.success {
     border: 5px solid green;
     
     &:before {
       content: '\2714';
-      position: absolute;
-      top: 8px;
-      left: 21px;
       color: green;
-      font-weight: 700;
-      font-size: 62px;
     }
   }
 
@@ -58,12 +61,7 @@
     
     &:before {
       content: '\0021';
-      position: absolute;
-      top: 8px;
-      left: 37px;
       color: orange;
-      font-weight: 700;
-      font-size: 62px;
     }
   }
 
@@ -72,12 +70,7 @@
     
     &:before {
       content: '\2716';
-      position: absolute;
-      top: 8px;
-      left: 20px;
       color: red;
-      font-weight: 700;
-      font-size: 62px;
     }
   }
 }
