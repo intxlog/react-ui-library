@@ -20,9 +20,18 @@ describe('Input', () => {
     // const wrapper = shallow( <Input/> )
     expect(wrapper).toMatchSnapshot()
   }),
+  describe('when validate is passed in', () => {
+    it('renders correctly', () => {
+      wrapper.setProps({
+          validate:true
+      })
+      expect(wrapper).toMatchSnapshot()
+    })
+  }),
   describe('when type is password', () => {
     it('renders correctly', () => {
       wrapper.setProps({
+          type:'password',
           password:true
       })
       expect(wrapper).toMatchSnapshot()
@@ -196,6 +205,15 @@ describe('Input', () => {
     it('renders correctly', () => {
       wrapper.setProps({
         type:"select"
+      })
+      expect(wrapper).toMatchSnapshot()
+    })
+  })
+
+  describe('textArea', () => {
+    it('renders correctly', () => {
+      wrapper.setProps({
+        type:"textArea"
       })
       expect(wrapper).toMatchSnapshot()
     })
