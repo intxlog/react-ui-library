@@ -109,6 +109,12 @@ class Input extends React.Component {
       [styles.error]: this.props.error || this.state.error
     })
 
+    //dynamically handle css classnames for textArea
+    let textAreaClassNames = classNames({
+      [styles.textArea]: true,
+      [styles.error]: this.props.error || this.state.error
+    })
+
     //logic for the different html input types
     switch (this.props.type) {
       case `password`:
@@ -187,6 +193,20 @@ class Input extends React.Component {
       </div>
     }
 
+      //if type is checkbox then make the element a input with type checkbox
+      if (this.props.type === 'textArea') {
+        element = <textarea       
+          id={this.props.idForLabel}
+          style={this.props.inlineStyles}
+          className={textAreaClassNames}
+          placeholder={this.props.placeholder}
+          defaultValue={this.props.defaultValue}
+          type={type}
+          onChange={this.handleOnChange}
+          onBlur={this.handleOnBlur}
+        ></textarea>
+      }
+
     return (
       <div>
         {element}
@@ -210,7 +230,7 @@ Input.propTypes = {
   defaultValue: PropTypes.string,
   defaultChecked: PropTypes.bool,
   validate: PropTypes.bool,
-  type: PropTypes.oneOf(['text', 'email', 'password', 'select', 'radio', 'checkbox']).isRequired,
+  type: PropTypes.oneOf(['text', 'email', 'password', 'select', 'radio', 'checkbox', 'textArea']).isRequired,
   customValidationFunc: PropTypes.func,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
