@@ -156,6 +156,7 @@ class Input extends React.Component {
           value={this.props.value}
           name={this.props.name}
           type={`radio`}
+          defaultChecked={this.props.defaultChecked}
           onChange={this.handleOnChange}
           onBlur={this.handleOnBlur}
         />
@@ -207,6 +208,7 @@ Input.propTypes = {
   name: PropTypes.string,
   error: PropTypes.bool,
   defaultValue: PropTypes.string,
+  defaultChecked: PropTypes.bool,
   validate: PropTypes.bool,
   type: PropTypes.oneOf(['text', 'email', 'password', 'select', 'radio', 'checkbox']).isRequired,
   customValidationFunc: PropTypes.func,
