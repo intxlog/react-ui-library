@@ -18,6 +18,18 @@ storiesOf('Input', module)
   ></Input>
 ))
 
+storiesOf('TextArea', module)
+.add('default', () => (
+  <Input type={`textArea`}></Input>
+))
+.add('with placeholder', () => (
+  <Input type={`textArea`} placeholder={`Example of a placeholder`}></Input>
+))
+.add('defaultValue', () => (
+  <Input type={`textArea`} defaultValue={`Example of a default value`}></Input>
+))
+
+
 storiesOf('Input Select', module)
 .add('default', () => (
   <Input
