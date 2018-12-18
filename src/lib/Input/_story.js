@@ -25,7 +25,7 @@ storiesOf('TextArea', module)
 .add('with placeholder', () => (
   <Input type={`textArea`} placeholder={`Example of a placeholder`}></Input>
 ))
-.add('defaultValue', () => (
+.add('with defaultValue', () => (
   <Input type={`textArea`} defaultValue={`Example of a default value`}></Input>
 ))
 

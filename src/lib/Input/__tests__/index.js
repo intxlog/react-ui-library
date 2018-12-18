@@ -5,18 +5,17 @@ import Input from '..'
 
 
 describe('Input', () => {
-
   const onClickMock = jest.fn()
   let props = {
     onClick: onClickMock
   }
-//create a shallow wrapper that can be reused
-let wrapper
-//initialize the components
-beforeEach(() => {
-  wrapper = shallow(<Input {...props}/>)
-})
-describe('Input', () => {
+  //create a shallow wrapper that can be reused
+  let wrapper
+  //initialize the components
+  beforeEach(() => {
+    wrapper = shallow(<Input {...props}/>)
+  })
+
   it('renders correctly', () => {
     // const wrapper = shallow( <Input/> )
     expect(wrapper).toMatchSnapshot()
@@ -95,12 +94,11 @@ describe('Input', () => {
       expect(onBlurMock).toHaveBeenCalledTimes(1)
     })
   })
-})
 
 
-//checkbox testing
-describe('checkbox', () => {
-  it('renders correctly', () => {
+  //checkbox testing
+  describe('checkbox', () => {
+    it('renders correctly', () => {
       wrapper.setProps({
         type:'checkbox',
         idForLabel:`exampleID`
@@ -137,36 +135,48 @@ describe('checkbox', () => {
         expect(onBlurMock).toHaveBeenCalledTimes(1)
       })
     })
-})
+  })
 
 
-//Radio testing
-describe('radio', () => {
-  it('renders correctly', () => {
-      wrapper.setProps({
-        type:'radio',
-        idForLabel:`exampleID`
-      })
-      expect(wrapper).toMatchSnapshot()
-    }),
-    describe('when handleOnChange is called', () => {
-      it('calls the correct function and state is correct', () => {
-        const e = {
-          target: {
-            value: 'test'
-          }
-        }
-        const onChangeMock = jest.fn()
+  //Radio testing
+  describe('radio', () => {
+    it('renders correctly', () => {
         wrapper.setProps({
           type:'radio',
-          idForLabel:`exampleID`,
-          onChange:onChangeMock
+          idForLabel:`exampleID`
         })
-        expect(wrapper.instance().handleOnChange(e)).toEqual(undefined)
-        expect(wrapper.state().value).toEqual('test')
-        expect(onChangeMock).toHaveBeenCalledTimes(1)
-      })
-    }),
+        expect(wrapper).toMatchSnapshot()
+      }),
+      describe('when handleOnChange is called', () => {
+        it('calls the correct function and state is correct', () => {
+          const e = {
+            target: {
+              value: 'test'
+            }
+          }
+          const onChangeMock = jest.fn()
+          wrapper.setProps({
+            type:'radio',
+            idForLabel:`exampleID`,
+            onChange:onChangeMock
+          })
+          expect(wrapper.instance().handleOnChange(e)).toEqual(undefined)
+          expect(wrapper.state().value).toEqual('test')
+          expect(onChangeMock).toHaveBeenCalledTimes(1)
+        })
+      }),
+      describe('when handleOnBlur is called', () => {
+        it('calls the correct function', () => {
+          const onBlurMock = jest.fn()
+          wrapper.setProps({
+              type:'radio',
+              idForLabel:`exampleID`,
+              onBlur:onBlurMock
+            })
+          expect(wrapper.instance().handleOnBlur()).toEqual(undefined)
+          expect(onBlurMock).toHaveBeenCalledTimes(1)
+        })
+      }),
     describe('when handleOnBlur is called', () => {
       it('calls the correct function', () => {
         const onBlurMock = jest.fn()
@@ -178,42 +188,16 @@ describe('radio', () => {
         expect(wrapper.instance().handleOnBlur()).toEqual(undefined)
         expect(onBlurMock).toHaveBeenCalledTimes(1)
       })
-    }),
-  describe('when handleOnBlur is called', () => {
-    it('calls the correct function', () => {
-      const onBlurMock = jest.fn()
-      wrapper.setProps({
-          type:'radio',
-          idForLabel:`exampleID`,
-          onBlur:onBlurMock
-        })
-      expect(wrapper.instance().handleOnBlur()).toEqual(undefined)
-      expect(onBlurMock).toHaveBeenCalledTimes(1)
     })
   })
-})
 
-//Select testing
-describe('select', () => {
-  it('renders correctly', () => {
-    wrapper.setProps({
-      type:"select"
-    })
-    expect(wrapper).toMatchSnapshot()
-  }),
-  describe('when options are children', () => {
+  //Select testing
+  describe('select', () => {
     it('renders correctly', () => {
       wrapper.setProps({
-        type:"select",
-        option:[
-          {value:"option1", infoText:"Option 1"},
-          {value:"option2", infoText:"Option 2"},
-          {value:"option3", infoText:"Option 3"}
-        ]
+        type:"select"
       })
       expect(wrapper).toMatchSnapshot()
     })
   })
-})
-
 })
