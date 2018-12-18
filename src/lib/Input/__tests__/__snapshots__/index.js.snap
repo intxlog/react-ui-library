@@ -1,133 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Input Input renders correctly 1`] = `
-<div>
-  <input
-    className="input"
-    defaultValue=""
-    id=""
-    onBlur={[Function]}
-    onChange={[Function]}
-    placeholder=""
-    style={Object {}}
-    type="text"
-  />
-  <p
-    className="infoText"
-  />
-</div>
-`;
-
-exports[`Input Input when error prop is true renders correctly 1`] = `
-<div>
-  <input
-    className="input error"
-    defaultValue=""
-    id=""
-    onBlur={[Function]}
-    onChange={[Function]}
-    placeholder=""
-    style={Object {}}
-    type="text"
-  />
-  <p
-    className="infoText error"
-  />
-</div>
-`;
-
-exports[`Input Input when idForLabel prop is passed in renders correctly 1`] = `
-<div>
-  <input
-    className="input"
-    defaultValue=""
-    id="exampleID"
-    onBlur={[Function]}
-    onChange={[Function]}
-    placeholder=""
-    style={Object {}}
-    type="text"
-  />
-  <p
-    className="infoText"
-  />
-</div>
-`;
-
-exports[`Input Input when infoText prop is passed in renders correctly 1`] = `
-<div>
-  <input
-    className="input"
-    defaultValue=""
-    id=""
-    onBlur={[Function]}
-    onChange={[Function]}
-    placeholder=""
-    style={Object {}}
-    type="text"
-  />
-  <p
-    className="infoText"
-  >
-    Example Text
-  </p>
-</div>
-`;
-
-exports[`Input Input when placeholder prop is passed in renders correctly 1`] = `
-<div>
-  <input
-    className="input"
-    defaultValue=""
-    id=""
-    onBlur={[Function]}
-    onChange={[Function]}
-    placeholder="Example Text"
-    style={Object {}}
-    type="text"
-  />
-  <p
-    className="infoText"
-  />
-</div>
-`;
-
-exports[`Input Input when type is password renders correctly 1`] = `
-<div>
-  <input
-    className="input"
-    defaultValue=""
-    id=""
-    onBlur={[Function]}
-    onChange={[Function]}
-    placeholder=""
-    style={Object {}}
-    type="text"
-  />
-  <p
-    className="infoText"
-  />
-</div>
-`;
-
-exports[`Input Input when value prop is passed in renders correctly 1`] = `
-<div>
-  <input
-    className="input"
-    defaultValue=""
-    id=""
-    onBlur={[Function]}
-    onChange={[Function]}
-    placeholder=""
-    style={Object {}}
-    type="text"
-  />
-  <p
-    className="infoText"
-  />
-</div>
-`;
-
 exports[`Input checkbox renders correctly 1`] = `
 <div>
   <div
@@ -182,7 +54,23 @@ exports[`Input radio renders correctly 1`] = `
 </div>
 `;
 
-exports[`Input renders correctly 1`] = `undefined`;
+exports[`Input renders correctly 1`] = `
+<div>
+  <input
+    className="input"
+    defaultValue=""
+    id=""
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder=""
+    style={Object {}}
+    type="text"
+  />
+  <p
+    className="infoText"
+  />
+</div>
+`;
 
 exports[`Input select renders correctly 1`] = `
 <div>
@@ -306,7 +194,7 @@ exports[`Input when type is password renders correctly 1`] = `
     onChange={[Function]}
     placeholder=""
     style={Object {}}
-    type="password"
+    type="text"
   />
   <p
     className="infoText"
@@ -326,114 +214,6 @@ exports[`Input when value prop is passed in renders correctly 1`] = `
     style={Object {}}
     type="text"
   />
-  <p
-    className="infoText"
-  />
-</div>
-`;
-
-exports[`checkbox renders correctly 1`] = `
-<div>
-  <div
-    className="checkBoxWrapper"
-  >
-    <input
-      id="exampleID"
-      onBlur={[Function]}
-      onChange={[Function]}
-      type="checkbox"
-    />
-    <div
-      className="checkbox"
-    />
-    <label
-      htmlFor="exampleID"
-      style={Object {}}
-    >
-      None Provided
-    </label>
-  </div>
-  <p
-    className="infoText"
-  />
-</div>
-`;
-
-exports[`radio renders correctly 1`] = `
-<div>
-  <div
-    className="radioWrapper"
-  >
-    <input
-      id="exampleID"
-      onBlur={[Function]}
-      onChange={[Function]}
-      type="radio"
-    />
-    <div
-      className="radio"
-    />
-    <label
-      htmlFor="exampleID"
-      style={Object {}}
-    >
-      None Provided
-    </label>
-  </div>
-  <p
-    className="infoText"
-  />
-</div>
-`;
-
-exports[`select renders correctly 1`] = `
-<div>
-  <div
-    className="selectWrapper"
-    style={Object {}}
-  >
-    <select
-      className="select"
-      defaultValue=""
-      id=""
-      onChange={[Function]}
-    />
-  </div>
-  <p
-    className="infoText"
-  />
-</div>
-`;
-
-exports[`select when options are children renders correctly 1`] = `
-<div>
-  <div
-    className="selectWrapper"
-    style={Object {}}
-  >
-    <select
-      className="select"
-      defaultValue=""
-      id=""
-      onChange={[Function]}
-    >
-      <option
-        value="option1"
-      >
-        Option 1
-      </option>
-      <option
-        value="option2"
-      >
-        Option 2
-      </option>
-      <option
-        value="option3"
-      >
-        Option 3
-      </option>
-    </select>
-  </div>
   <p
     className="infoText"
   />
