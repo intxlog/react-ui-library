@@ -91,6 +91,24 @@ exports[`Input select renders correctly 1`] = `
 </div>
 `;
 
+exports[`Input textArea renders correctly 1`] = `
+<div>
+  <textarea
+    className="textArea"
+    defaultValue=""
+    id=""
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder=""
+    style={Object {}}
+    type="text"
+  />
+  <p
+    className="infoText"
+  />
+</div>
+`;
+
 exports[`Input when error prop is true renders correctly 1`] = `
 <div>
   <input
@@ -166,6 +184,24 @@ exports[`Input when placeholder prop is passed in renders correctly 1`] = `
 `;
 
 exports[`Input when type is password renders correctly 1`] = `
+<div>
+  <input
+    className="input"
+    defaultValue=""
+    id=""
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder=""
+    style={Object {}}
+    type="password"
+  />
+  <p
+    className="infoText"
+  />
+</div>
+`;
+
+exports[`Input when validate is passed in renders correctly 1`] = `
 <div>
   <input
     className="input"
