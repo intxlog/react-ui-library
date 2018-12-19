@@ -122,6 +122,7 @@ $checkOffset: 2px;
     line-height: 22px;
     cursor: pointer;
     padding-left: 18px;
+    display: block;
   } 
   
   > input {
@@ -170,7 +171,8 @@ $cbCheckHeightWidth: 8px;
     font-size: 16px;
     line-height: 22px;
     cursor: pointer;
-    padding-left: 18px;
+    padding-left: 20px;
+    display: block;
   } 
   
   > input {
@@ -187,8 +189,8 @@ $cbCheckHeightWidth: 8px;
   > .checkbox {
     background-color: white;
     border-radius: 2px;
-    height: $radioHeightWidth;
-    width: $radioHeightWidth;
+    height: $cbHeightWidth;
+    width: $cbHeightWidth;
     cursor: pointer;
     border: 1px solid $colorBorder;
     position: absolute;
