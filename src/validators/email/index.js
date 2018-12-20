@@ -11,10 +11,8 @@ export default function (email) {
   //first cast the value to lowercase
   email = String(email).toLowerCase()
 
-  //make sure the value is not blank
-  if (email === null || email === '') {
-    payload.message = `Cannot be blank`
-  } else if (!regex(email)) {
+  //make sure the value is in the correct format according to regex
+  if (!regex(email)) {
     payload.message = `Invalid format`
   } else {
     payload.valid = true
