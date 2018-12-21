@@ -109,6 +109,10 @@ $colorBorder: #656565;
     pointer-events: none;
     border-color: $colorBorder transparent transparent transparent;
   }
+
+  &.disabled {
+    background-color: rgb(235, 235, 228);
+  }
 }
 
 $radioHeightWidth: 14px;

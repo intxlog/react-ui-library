@@ -139,6 +139,7 @@ class Input extends React.Component {
     let selectClassNames = classNames({
       [styles.selectWrapper]: true,
       [this.props.className]: this.props.className,
+      [styles.disabled]: this.props.disabled,
       [styles.error]: this.props.error || this.state.error
     })
 
@@ -182,6 +183,7 @@ class Input extends React.Component {
       style={this.props.inlineStyles}
       className={inputClassNames}
       placeholder={this.props.placeholder}
+      disabled={this.props.disabled}
       defaultValue={this.props.defaultValue}
       type={type}
       onChange={this.handleOnChange}
@@ -198,6 +200,7 @@ class Input extends React.Component {
           id={this.props.idForLabel}
           className={styles.select}
           defaultValue={this.props.defaultValue}
+          disabled={this.props.disabled}
           onChange={this.handleOnChange}
         >
           {this.props.children}
@@ -252,6 +255,7 @@ class Input extends React.Component {
           className={textAreaClassNames}
           placeholder={this.props.placeholder}
           defaultValue={this.props.defaultValue}
+          disabled={this.props.disabled}
           type={type}
           onChange={this.handleOnChange}
           onBlur={this.handleOnBlur}
@@ -274,6 +278,7 @@ Input.propTypes = {
   className: PropTypes.string,
   inlineStyles: PropTypes.object,
   placeholder: PropTypes.string,
+  disabled: PropTypes.bool,
   infoText: PropTypes.string,
   value: PropTypes.string,
   name: PropTypes.string,
