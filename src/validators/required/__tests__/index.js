@@ -1,0 +1,26 @@
+// import funciton
+import requiredValidator from '..'
+
+describe('requiredValidator', () => {
+  it('returns correct payload when val is ""', () => {
+    expect(requiredValidator('')).toEqual({
+      valid: false,
+      message: 'Field is required',
+      value: ''
+    })
+  }),
+  it('returns the correct payload when val is null', () => {
+    expect(requiredValidator(null)).toEqual({
+      valid: false,
+      message: 'Field is required',
+      value: null
+    })
+  }),
+  it('returns the correct payload when val is not null or ""', () => {
+    expect(requiredValidator('foo')).toEqual({
+      valid: true,
+      message: null,
+      value: 'foo'
+    })
+  })
+})
