@@ -110,7 +110,18 @@ describe('Input', () => {
       expect(wrapper.instance().handleOnBlur()).toEqual(undefined)
       expect(onBlurMock).toHaveBeenCalledTimes(1)
     })
+  }),
+  describe('when checkRequired is called', () => {
+    it('calls the correct function', () => {
+      const onCheckRequiredMock = jest.fn()
+      wrapper.setState({
+        validValue: 0
+      })
+      expect(wrapper.instance().checkRequired()).toEqual(undefined)
+      expect(onCheckRequiredMock).toHaveBeenCalledTimes(1)
+    })
   })
+
 
 
   //checkbox testing
