@@ -6,6 +6,11 @@ storiesOf('Input', module)
 .add('default', () => (
   <Input></Input>
 ))
+.add('default (required)', () => (
+  <Input
+    required
+  ></Input>
+))
 .add('default (disabled)', () => (
   <Input disabled></Input>
 ))
@@ -15,7 +20,6 @@ storiesOf('Input', module)
 .add('email', () => (
   <Input
     type='email'
-    onValid={(val) => {console.log(val)}}
   ></Input>
 ))
 .add('password', () => (
@@ -27,6 +31,12 @@ storiesOf('Input', module)
 storiesOf('TextArea', module)
 .add('default', () => (
   <Input type={`textArea`}></Input>
+))
+.add('default (required)', () => (
+  <Input
+    type={`textArea`}
+    required
+  ></Input>
 ))
 .add('default (disabled)', () => (
   <Input type={`textArea`} disabled></Input>
@@ -44,7 +54,6 @@ storiesOf('TextArea', module)
 .add('with defaultValue', () => (
   <Input type={`textArea`} defaultValue={`Example of a default value`}></Input>
 ))
-
 
 storiesOf('Input Select', module)
 .add('default', () => (

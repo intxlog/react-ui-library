@@ -7,6 +7,7 @@ import styles from './styles.module.scss'
 
 //import validator
 import validateString from './../../validators'
+import validateRequired from './../../validators/required'
 
 // logic behind all the different types of inputs
 class Input extends React.Component {
@@ -15,6 +16,7 @@ class Input extends React.Component {
     this.state = {
       value: '',
       entered: false,
+      validValue: null,
       error: false,
       infoText: null
     }
@@ -23,8 +25,9 @@ class Input extends React.Component {
   handleOnChange = (e) => {
     const val = e.target.value
 
-    //validate if the user has entered the input once before
-    if (this.state.entered && this.props.validate) {
+    //check if the user entered the input once before
+    if (this.state.entered) {
+      //run validation
       this.validate(val)
     }
     
@@ -36,19 +39,40 @@ class Input extends React.Component {
   handleOnBlur = () => {
     const val = this.state.value
 
-    //only run validation if validate is set to true
-    if (this.props.validate) {
-      //set entered to true
-      this.setState({entered: true})
-      //run validation
-      this.validate(val)
-    }
+    //set entered to true
+    this.setState({entered: true})
+
+    //run validation
+    this.validate(val)
 
     //fire the blur event that was passed in 
     this.props.onBlur(val)
   }
 
-  validate = (val) => {
+  checkRequired = (val) => {
+    const res = validateRequired(val)
+    const isValid = res.valid
+    const message = res.message
+    const newValue = res.value
+
+    if (!isValid) {
+      this.setState({
+        error: true,
+        infoText: message
+      })
+    } else {
+      this.setState({
+        error: false,
+        infoText: null,
+        validValue: newValue
+      })
+    }
+
+    //return a bool value
+    return isValid
+  }
+
+  checkValid = (val) => {
     //shorthand if statement
     const res = this.props.customValidationFunc ? this.props.customValidationFunc(val) : validateString(val, this.props.type)
     const isValid = res.valid
@@ -64,10 +88,37 @@ class Input extends React.Component {
     } else {
       this.setState({
         error: false,
-        infoText: null
+        infoText: null,
+        validValue: newValue
       })
-      //fire the onValid function with 
-      this.props.onValid(newValue)
+    }
+
+    //return a bool value
+    return isValid
+  }
+
+  validate = (val) => {
+    //create a flag to see if we should fire the onValid function
+    let fireFlag = false
+    //create a flag to see if required has passed to see if we will need to validate
+    let requiredPassed = false
+
+    //check if this is required and passes the requirements
+    if (this.props.required) {
+      fireFlag = this.checkRequired(val)
+      requiredPassed = this.checkRequired(val)
+    } else {
+      requiredPassed = true
+    }
+
+    //check if validate prop is true and it passes the requirements
+    if (this.props.validate && requiredPassed) {
+      fireFlag = this.checkValid(val)
+    }
+
+    if (fireFlag) {
+      //fire the onValid function with the valid value
+      this.props.onValid(this.state.validValue)
     }
   }
 
@@ -235,6 +286,7 @@ Input.propTypes = {
   defaultValue: PropTypes.string,
   defaultChecked: PropTypes.bool,
   validate: PropTypes.bool,
+  required: PropTypes.bool,
   type: PropTypes.oneOf(['text', 'email', 'password', 'select', 'radio', 'checkbox', 'textArea']).isRequired,
   customValidationFunc: PropTypes.func,
   onChange: PropTypes.func,
@@ -252,6 +304,7 @@ Input.defaultProps = {
   error: false,
   defaultValue: '',
   validate: true,
+  required: false,
   type: 'text',
   onChange: () => {},
   onBlur: () => {},

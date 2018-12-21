@@ -20,10 +20,26 @@ describe('Input', () => {
     // const wrapper = shallow( <Input/> )
     expect(wrapper).toMatchSnapshot()
   }),
+  describe('when disabled is passed in', () => {
+    it('renders correctly', () => {
+      wrapper.setProps({
+          disabled: true
+      })
+      expect(wrapper).toMatchSnapshot()
+    })
+  }),
   describe('when validate is passed in', () => {
     it('renders correctly', () => {
       wrapper.setProps({
-          validate:true
+          validate: true
+      })
+      expect(wrapper).toMatchSnapshot()
+    })
+  }),
+  describe('when required is passed in', () => {
+    it('renders correctly', () => {
+      wrapper.setProps({
+          required: false
       })
       expect(wrapper).toMatchSnapshot()
     })
@@ -32,7 +48,7 @@ describe('Input', () => {
     it('renders correctly', () => {
       wrapper.setProps({
           type:'password',
-          password:true
+          password: true
       })
       expect(wrapper).toMatchSnapshot()
     })
@@ -40,7 +56,7 @@ describe('Input', () => {
   describe('when idForLabel prop is passed in', () => {
     it('renders correctly', () => {
         wrapper.setProps({
-          idForLabel:`exampleID`
+          idForLabel: `exampleID`
       })
       expect(wrapper).toMatchSnapshot()
     })
@@ -48,7 +64,7 @@ describe('Input', () => {
   describe('when placeholder prop is passed in', () => {
     it('renders correctly', () => {
       wrapper.setProps({
-          placeholder:`Example Text`
+          placeholder: `Example Text`
       })
       expect(wrapper).toMatchSnapshot()
     })
@@ -56,7 +72,7 @@ describe('Input', () => {
   describe('when infoText prop is passed in', () => {
     it('renders correctly', () => {
       wrapper.setProps({
-          infoText:`Example Text`
+          infoText: `Example Text`
           })
       expect(wrapper).toMatchSnapshot()
     })
@@ -64,7 +80,7 @@ describe('Input', () => {
   describe('when error prop is true', () => {
     it('renders correctly', () => {
       wrapper.setProps({
-          error:true
+          error: true
           })
       expect(wrapper).toMatchSnapshot()
     })
@@ -72,7 +88,7 @@ describe('Input', () => {
   describe('when value prop is passed in', () => {
     it('renders correctly', () => {
       wrapper.setProps({
-          value:`Example Text`
+          value: `Example Text`
           })
       expect(wrapper).toMatchSnapshot()
     })
@@ -103,7 +119,6 @@ describe('Input', () => {
       expect(onBlurMock).toHaveBeenCalledTimes(1)
     })
   })
-
 
   //checkbox testing
   describe('checkbox', () => {
@@ -202,20 +217,76 @@ describe('Input', () => {
 
   //Select testing
   describe('select', () => {
+    describe('renders correctly', () => {
+      it('when type is select', () => {
+        wrapper.setProps({
+          type: 'select'
+        })
+        expect(wrapper).toMatchSnapshot()
+      }),
+      it('when disabled is true', () => {
+        wrapper.setProps({
+          type: 'select',
+          disabled: true
+        })
+        expect(wrapper).toMatchSnapshot()
+      })
+    })
+  })
+
+  //TextArea testing
+  describe('textArea', () => {
     it('renders correctly', () => {
       wrapper.setProps({
-        type:"select"
+        type: 'textArea'
       })
       expect(wrapper).toMatchSnapshot()
     })
   })
 
   describe('textArea', () => {
-    it('renders correctly', () => {
-      wrapper.setProps({
-        type:"textArea"
+    describe('renders correctly', () => {
+      it('when type is textArea', () => {
+        wrapper.setProps({
+          type: 'textArea'
+        })
+        expect(wrapper).toMatchSnapshot()
+      }),
+      it('when disabled is true', () => {
+        wrapper.setProps({
+          type: 'textArea',
+          disabled: true
+        })
+        expect(wrapper).toMatchSnapshot()
       })
-      expect(wrapper).toMatchSnapshot()
+    })
+  })
+
+  //Internal Methods
+  describe('when checkRequired is called with valid value', () => {
+    it('returns the correct value', () => {
+      expect(wrapper.instance().checkRequired('foo')).toEqual(true)
+    })
+  })
+  describe('when checkRequired is called with invalid value', () => {
+    it('returns the correct value', () => {
+      expect(wrapper.instance().checkRequired('')).toEqual(false)
+    })
+  })
+  describe('when checkValid is called with ""', () => {
+    it('returns the correct value', () => {
+      wrapper.setProps({
+        type: `email`
+      })
+      expect(wrapper.instance().checkValid('')).toEqual(false)
+    })
+  })
+  describe('when checkValid is called with test@test.com', () => {
+    it('returns the correct value', () => {
+      wrapper.setProps({
+        type: `email`
+      })
+      expect(wrapper.instance().checkValid('test@test.com')).toEqual(true)
     })
   })
 })
