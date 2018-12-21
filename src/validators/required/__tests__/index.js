@@ -1,20 +1,26 @@
-// import requiredRegex from '../regex'
+// import funciton
 import requiredValidator from '..'
 
 describe('requiredValidator', () => {
-  it('returns correct when field is not populated', () => {
-    const requiredInfo = 'invalid format'
-    expect(requiredValidator(requiredInfo)).toEqual({
-      valid: true,
-      message: null,
-      value: "invalid format"
+  it('returns correct payload when val is ""', () => {
+    expect(requiredValidator('')).toEqual({
+      valid: false,
+      message: 'Field is required',
+      value: ''
     })
   }),
-  it('returns the correct value if field is required', () => {
-    const requiredInfo = ''
-    expect(requiredValidator(requiredInfo).toEqual({
-      message: 'Field is required'
-    }))
+  it('returns the correct payload when val is null', () => {
+    expect(requiredValidator(null)).toEqual({
+      valid: false,
+      message: 'Field is required',
+      value: null
+    })
+  }),
+  it('returns the correct payload when val is not null or ""', () => {
+    expect(requiredValidator('foo')).toEqual({
+      valid: true,
+      message: null,
+      value: 'foo'
+    })
   })
-
 })

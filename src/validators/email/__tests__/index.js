@@ -17,14 +17,6 @@ describe('emailValidator', () => {
       message: "Invalid format",
       value: null
     })
-  }),
-  it('returns the correct payload when given a blank email', () => {
-    const email = ''
-    expect(emailValidator(email)).toEqual({
-      valid: false,
-      message: "Cannot be blank",
-      value: null
-    })
   })
 })
 

@@ -32,6 +32,12 @@ storiesOf('TextArea', module)
 .add('default', () => (
   <Input type={`textArea`}></Input>
 ))
+.add('default (required)', () => (
+  <Input
+    type={`textArea`}
+    required
+  ></Input>
+))
 .add('default (disabled)', () => (
   <Input type={`textArea`} disabled></Input>
 ))

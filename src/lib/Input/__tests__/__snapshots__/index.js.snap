@@ -72,7 +72,27 @@ exports[`Input renders correctly 1`] = `
 </div>
 `;
 
-exports[`Input select renders correctly 1`] = `
+exports[`Input select renders correctly when disabled is true 1`] = `
+<div>
+  <div
+    className="selectWrapper disabled"
+    style={Object {}}
+  >
+    <select
+      className="select"
+      defaultValue=""
+      disabled={true}
+      id=""
+      onChange={[Function]}
+    />
+  </div>
+  <p
+    className="infoText"
+  />
+</div>
+`;
+
+exports[`Input select renders correctly when type is select 1`] = `
 <div>
   <div
     className="selectWrapper"
@@ -96,6 +116,62 @@ exports[`Input textArea renders correctly 1`] = `
   <textarea
     className="textArea"
     defaultValue=""
+    id=""
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder=""
+    style={Object {}}
+    type="text"
+  />
+  <p
+    className="infoText"
+  />
+</div>
+`;
+
+exports[`Input textArea renders correctly when disabled is true 1`] = `
+<div>
+  <textarea
+    className="textArea"
+    defaultValue=""
+    disabled={true}
+    id=""
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder=""
+    style={Object {}}
+    type="text"
+  />
+  <p
+    className="infoText"
+  />
+</div>
+`;
+
+exports[`Input textArea renders correctly when type is textArea 1`] = `
+<div>
+  <textarea
+    className="textArea"
+    defaultValue=""
+    id=""
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder=""
+    style={Object {}}
+    type="text"
+  />
+  <p
+    className="infoText"
+  />
+</div>
+`;
+
+exports[`Input when disabled is passed in renders correctly 1`] = `
+<div>
+  <input
+    className="input"
+    defaultValue=""
+    disabled={true}
     id=""
     onBlur={[Function]}
     onChange={[Function]}
