@@ -28,6 +28,14 @@ describe('Input', () => {
       expect(wrapper).toMatchSnapshot()
     })
   }),
+  describe('when required is passed in', () => {
+    it('renders correctly', () => {
+      wrapper.setProps({
+          required:false
+      })
+      expect(wrapper).toMatchSnapshot()
+    })
+  }),
   describe('when type is password', () => {
     it('renders correctly', () => {
       wrapper.setProps({

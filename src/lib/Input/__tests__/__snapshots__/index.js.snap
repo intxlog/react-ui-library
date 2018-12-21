@@ -183,6 +183,24 @@ exports[`Input when placeholder prop is passed in renders correctly 1`] = `
 </div>
 `;
 
+exports[`Input when required is passed in renders correctly 1`] = `
+<div>
+  <input
+    className="input"
+    defaultValue=""
+    id=""
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder=""
+    style={Object {}}
+    type="text"
+  />
+  <p
+    className="infoText"
+  />
+</div>
+`;
+
 exports[`Input when type is password renders correctly 1`] = `
 <div>
   <input

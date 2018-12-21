@@ -7,14 +7,14 @@ describe('emailValidator', () => {
     expect(emailValidator(email)).toEqual({
       valid: true,
       message: null,
-      value: 'validemail@domain.com'
+      value: "validemail@domain.com"
     })
   }),
   it('returns the correct payload when given an invalid email', () => {
     const email = 'invalid'
     expect(emailValidator(email)).toEqual({
       valid: false,
-      message: `Invalid format`,
+      message: "Invalid format",
       value: null
     })
   }),
@@ -22,7 +22,7 @@ describe('emailValidator', () => {
     const email = ''
     expect(emailValidator(email)).toEqual({
       valid: false,
-      message: `Cannot be blank`,
+      message: "Cannot be blank",
       value: null
     })
   })
