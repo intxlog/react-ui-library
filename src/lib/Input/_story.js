@@ -6,6 +6,11 @@ storiesOf('Input', module)
 .add('default', () => (
   <Input></Input>
 ))
+.add('default with placeholder', () => (
+  <Input
+    placeholder={`Example Placeholder`}
+  ></Input>
+))
 .add('default (required)', () => (
   <Input
     required
@@ -17,9 +22,23 @@ storiesOf('Input', module)
 .add('default with defaultValue (disabled)', () => (
   <Input disabled defaultValue={`Example Text`}></Input>
 ))
+.add('default with infoText', () => (
+  <Input infoText={`Example info text`}></Input>
+))
+.add('default with infoText and error', () => (
+  <Input infoText={`Example info text`} error={true}></Input>
+))
 .add('email', () => (
   <Input
     type='email'
+  ></Input>
+))
+.add('email isValid event fires', () => (
+  <Input
+    type='email'
+    required={true}
+    defaultValue={'test@test.com'}
+    isValid={(bool) => {console.log(bool)}}
   ></Input>
 ))
 .add('password', () => (

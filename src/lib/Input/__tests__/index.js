@@ -5,15 +5,29 @@ import Input from '..'
 
 
 describe('Input', () => {
-  const onClickMock = jest.fn()
+  //mock functions
+  const onChangeMock = jest.fn()
+  const onBlurMock = jest.fn()
+  const isValidMock = jest.fn()
+
   let props = {
-    onClick: onClickMock
+    onChange: onChangeMock,
+    onBlur: onBlurMock,
+    isValid: isValidMock
   }
+
   //create a shallow wrapper that can be reused
   let wrapper
   //initialize the components
   beforeEach(() => {
     wrapper = shallow(<Input {...props}/>)
+  })
+
+  //reset the mocks after each test
+  afterEach(() => {
+    onChangeMock.mockReset()
+    onBlurMock.mockReset()
+    isValidMock.mockReset()
   })
 
   it('renders correctly', () => {
@@ -100,10 +114,6 @@ describe('Input', () => {
           value: 'test'
         }
       }
-      const onChangeMock = jest.fn()
-      wrapper.setProps({
-          onChange:onChangeMock
-          })
       expect(wrapper.instance().handleOnChange(e)).toEqual(undefined)
       expect(wrapper.state().value).toEqual('test')
       expect(onChangeMock).toHaveBeenCalledTimes(1)
@@ -111,12 +121,12 @@ describe('Input', () => {
   }),
   describe('when handleOnBlur is called', () => {
     it('calls the correct function', () => {
-      const onBlurMock = jest.fn()
-      wrapper.setProps({
-          onBlur:onBlurMock
-          })
+      wrapper.setState({
+        value: 'test'
+      })
       expect(wrapper.instance().handleOnBlur()).toEqual(undefined)
       expect(onBlurMock).toHaveBeenCalledTimes(1)
+      expect(onBlurMock).toHaveBeenCalledWith('test')
     })
   })
 
@@ -136,7 +146,6 @@ describe('Input', () => {
             value: 'test'
           }
         }
-        const onChangeMock = jest.fn()
         wrapper.setProps({
           type:'checkbox',
           idForLabel:`exampleID`,
@@ -149,7 +158,6 @@ describe('Input', () => {
     }),
     describe('when handleOnBlur is called', () => {
       it('calls the correct function', () => {
-        const onBlurMock = jest.fn()
         wrapper.setProps({
           type:'checkbox',
           idForLabel:`exampleID`,

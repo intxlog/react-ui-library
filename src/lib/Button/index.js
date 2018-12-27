@@ -47,6 +47,7 @@ class Button extends React.Component {
     let element =  <button 
       className={btnClass} 
       style={inlineStyles} 
+      disabled={this.props.disabled}
       onClick={this.props.onClick}
       type={type}
     >{this.props.text}</button>
@@ -70,6 +71,7 @@ Button.propTypes = {
   text: PropTypes.string,
   type: PropTypes.oneOf([`plain`, `primary`, `link`, `routedLink`]),
   size: PropTypes.oneOf([`small`, `medium`, `large`]),
+  disabled: PropTypes.bool,
   linkTo: PropTypes.string,
   fontSize: PropTypes.number,
   fullWidth: PropTypes.bool,
