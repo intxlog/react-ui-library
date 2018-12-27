@@ -18,6 +18,25 @@ Once installed, you can import components
 import { Button } from '@intxlog/iuilib';
 ```
 
+## Theming
+
+Components can be themed by including the folliwing snippet in your CSS. Then it is just a matter of changing the values to the desired values.  
+```css
+:root {
+  --colorPrimaryBase: #073451;
+  --colorPrimaryLight: #214E6B;
+  --colorPrimaryDark: #001B38;
+  --colorPrimaryFaded: #628397;
+  --colorPrimaryTrans: rgba(7, 51, 80, 0.5);
+  --colorSecondaryBase: #e3761c;
+  --colorSecondaryLight: #FD9036;
+  --colorSecondaryDark: #CA5D03;
+  --colorSecondaryTrans: rgba(227, 118, 28, 0.5);
+  --colorFormInputPlaceholder: rgba(44, 44, 44, .5);
+  --colorFormInputFontColor: #474747;
+}
+```
+
 ## Components
 
 ### Modal
