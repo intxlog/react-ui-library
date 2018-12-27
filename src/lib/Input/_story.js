@@ -28,6 +28,14 @@ storiesOf('Input', module)
     type='email'
   ></Input>
 ))
+.add('email isValid event fires', () => (
+  <Input
+    type='email'
+    required={true}
+    defaultValue={'test@test.com'}
+    isValid={(bool) => {console.log(bool)}}
+  ></Input>
+))
 .add('password', () => (
   <Input
     type='password'
