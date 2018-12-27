@@ -6,6 +6,11 @@ storiesOf('Input', module)
 .add('default', () => (
   <Input></Input>
 ))
+.add('default with placeholder', () => (
+  <Input
+    placeholder={`Example Placeholder`}
+  ></Input>
+))
 .add('default (required)', () => (
   <Input
     required

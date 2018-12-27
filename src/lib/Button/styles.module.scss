@@ -35,6 +35,10 @@
   &:active {
     background-color: var(--colorPrimaryLight);
   }
+
+  &:disabled {
+    background-color: var(--colorPrimaryFaded);
+  }
 }
 
 .small {
