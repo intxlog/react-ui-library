@@ -5,6 +5,7 @@ import Button from './'
 const containerStyles = {
   display: `grid`,
   gridTemplateColumns: `140px 140px 140px 140px`,
+  gridRowGap: `10px`,
   justifyItems: `center`,
   alignItems: `end`
 }
@@ -30,6 +31,10 @@ storiesOf('Button', module)
     <Button 
       text={`Plain Button`}
       type={`plain`}
+    />
+    <Button 
+      text={`disabled`}
+      disabled
     />
     <Button 
       text={`Link`}
