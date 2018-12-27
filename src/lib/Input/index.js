@@ -14,11 +14,32 @@ class Input extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      value: '',
+      value: this.props.defaultValue || '',
       entered: false,
+      isValid: false,
       validValue: null,
       error: false,
       infoText: null
+    }
+  }
+
+  componentDidMount() {
+    //fire the isValid function letting the user know the input is not valid by default
+    //check to make sure there is not a defaultValue
+    if (this.props.defaultValue) {
+      //validate the value
+      this.validate(this.props.defaultValue)
+    } else { //there is not a defaultValue
+      //fire the isValid function if one is passed in
+      this.props.isValid(this.state.isValid)
+    } //end defaultValue check
+
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    //fire isValid function from props if isValid from state changed\
+    if (this.state.isValid !== prevState.isValid) {
+      this.props.isValid(this.state.isValid)
     }
   }
 
@@ -99,13 +120,13 @@ class Input extends React.Component {
 
   validate = (val) => {
     //create a flag to see if we should fire the onValid function
-    let fireFlag = false
+    let isValid = false
     //create a flag to see if required has passed to see if we will need to validate
     let requiredPassed = false
 
     //check if this is required and passes the requirements
     if (this.props.required) {
-      fireFlag = this.checkRequired(val)
+      isValid = this.checkRequired(val)
       requiredPassed = this.checkRequired(val)
     } else {
       requiredPassed = true
@@ -113,13 +134,13 @@ class Input extends React.Component {
 
     //check if validate prop is true and it passes the requirements
     if (this.props.validate && requiredPassed) {
-      fireFlag = this.checkValid(val)
+      isValid = this.checkValid(val)
     }
 
-    if (fireFlag) {
-      //fire the onValid function with the valid value
-      this.props.onValid(this.state.validValue)
-    }
+    //set isValid in state to the proper value
+    this.setState({
+      isValid
+    })
   }
 
   render(){
@@ -291,7 +312,7 @@ Input.propTypes = {
   customValidationFunc: PropTypes.func,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
-  onValid: PropTypes.func
+  isValid: PropTypes.func
 }
 
 // Specifies the default values for props:
@@ -308,7 +329,7 @@ Input.defaultProps = {
   type: 'text',
   onChange: () => {},
   onBlur: () => {},
-  onValid: () => {}
+  isValid: () => {}
 }
 
 //maintain the name for documentation purposes
