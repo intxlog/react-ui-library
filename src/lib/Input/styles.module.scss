@@ -215,12 +215,14 @@ $cbCheckHeightWidth: 8px;
 }
 
 .infoText {
-  //keep the elements space even when it is blank
-  display: inline-block;
+  display: block;
   font-size: 12px;
   line-height: 16px;
   margin: 0;
   padding-left: 6px;
+  margin-bottom: 4px;
+  //keep the elements space even when it is blank
+  min-height: 16px;
 
   &.error {
     color: red;

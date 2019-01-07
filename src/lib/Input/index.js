@@ -33,13 +33,23 @@ class Input extends React.Component {
       //fire the isValid function if one is passed in
       this.props.isValid(this.state.isValid)
     } //end defaultValue check
-
   }
 
   componentDidUpdate(prevProps, prevState) {
-    //fire isValid function from props if isValid from state changed\
+    //fire isValid function from props if isValid from state changed
     if (this.state.isValid !== prevState.isValid) {
       this.props.isValid(this.state.isValid)
+    }
+
+    //check to see if the formSubmitted prop becomes true and validate the field
+    if (this.props.formSubmitted !== prevProps.formSubmitted && this.props.formSubmitted) {
+      //change the entered value in state to true to mimick the user entering the field
+      this.setState({
+        entered: true
+      })
+
+      //validate the value
+      this.validate(this.props.defaultValue)
     }
   }
 
@@ -312,7 +322,8 @@ Input.propTypes = {
   customValidationFunc: PropTypes.func,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
-  isValid: PropTypes.func
+  isValid: PropTypes.func,
+  formSubmitted: PropTypes.bool
 }
 
 // Specifies the default values for props:
