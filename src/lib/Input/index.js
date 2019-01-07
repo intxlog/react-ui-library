@@ -14,7 +14,7 @@ class Input extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      value: this.props.defaultValue || '',
+      value: '',
       entered: false,
       isValid: false,
       validValue: null,
@@ -27,8 +27,22 @@ class Input extends React.Component {
     //fire the isValid function letting the user know the input is not valid by default
     //check to make sure there is not a defaultValue
     if (this.props.defaultValue) {
+      let val = this.props.defaultValue
+      
+      //Clear out the value if the value is IUILIBdefault and make it nothing. This is value that just makes it so we make default values in selects
+      console.log(val)
+      console.log(val.toString() === `IUILIBdefault`)
+      if (val === `IUILIBdefault`) {
+        val = ``
+      } else {
+        //set state as the defaultValue
+        this.setState({
+          value: val
+        })
+      }
+      
       //validate the value
-      this.validate(this.props.defaultValue)
+      this.validate(val)
     } else { //there is not a defaultValue
       //fire the isValid function if one is passed in
       this.props.isValid(this.state.isValid)
