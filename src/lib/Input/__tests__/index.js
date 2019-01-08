@@ -10,30 +10,39 @@ describe('Input', () => {
   const onBlurMock = jest.fn()
   const isValidMock = jest.fn()
 
+  //Spies
+  let checkRequiredSpy
+  let validateSpy
+  
   let props = {
     onChange: onChangeMock,
     onBlur: onBlurMock,
     isValid: isValidMock
   }
-
+  
   //create a shallow wrapper that can be reused
   let wrapper
   //initialize the components
   beforeEach(() => {
     wrapper = shallow(<Input {...props}/>)
+    checkRequiredSpy = jest.spyOn(wrapper.instance(), 'checkRequired')
+    validateSpy = jest.spyOn(wrapper.instance(), 'validate')
   })
+
 
   //reset the mocks after each test
   afterEach(() => {
     onChangeMock.mockReset()
     onBlurMock.mockReset()
     isValidMock.mockReset()
+    checkRequiredSpy.mockRestore()
+    validateSpy.mockRestore()
   })
 
   it('renders correctly', () => {
     // const wrapper = shallow( <Input/> )
     expect(wrapper).toMatchSnapshot()
-  }),
+  })
   describe('when disabled is passed in', () => {
     it('renders correctly', () => {
       wrapper.setProps({
@@ -41,32 +50,32 @@ describe('Input', () => {
       })
       expect(wrapper).toMatchSnapshot()
     })
-  }),
+  })
   describe('when validate is passed in', () => {
     it('renders correctly', () => {
       wrapper.setProps({
-          validate: true
+        validate: true
       })
       expect(wrapper).toMatchSnapshot()
     })
-  }),
+  })
   describe('when required is passed in', () => {
     it('renders correctly', () => {
       wrapper.setProps({
-          required: false
+        required: false
       })
       expect(wrapper).toMatchSnapshot()
     })
-  }),
+  })
   describe('when type is password', () => {
     it('renders correctly', () => {
       wrapper.setProps({
-          type:'password',
-          password: true
+        type:'password',
+        password: true
       })
       expect(wrapper).toMatchSnapshot()
     })
-  }),
+  })
   describe('when idForLabel prop is passed in', () => {
     it('renders correctly', () => {
         wrapper.setProps({
@@ -74,7 +83,7 @@ describe('Input', () => {
       })
       expect(wrapper).toMatchSnapshot()
     })
-  }),
+  })
   describe('when placeholder prop is passed in', () => {
     it('renders correctly', () => {
       wrapper.setProps({
@@ -82,7 +91,7 @@ describe('Input', () => {
       })
       expect(wrapper).toMatchSnapshot()
     })
-  }),
+  })
   describe('when infoText prop is passed in', () => {
     it('renders correctly', () => {
       wrapper.setProps({
@@ -90,7 +99,7 @@ describe('Input', () => {
           })
       expect(wrapper).toMatchSnapshot()
     })
-  }),
+  })
   describe('when error prop is true', () => {
     it('renders correctly', () => {
       wrapper.setProps({
@@ -98,35 +107,13 @@ describe('Input', () => {
           })
       expect(wrapper).toMatchSnapshot()
     })
-  }),
+  })
   describe('when value prop is passed in', () => {
     it('renders correctly', () => {
       wrapper.setProps({
-          value: `Example Text`
-          })
-      expect(wrapper).toMatchSnapshot()
-    })
-  }),
-  describe('when handleOnChange is called', () => {
-    it('calls the correct function and state is correct', () => {
-      const e = {
-        target: {
-          value: 'test'
-        }
-      }
-      expect(wrapper.instance().handleOnChange(e)).toEqual(undefined)
-      expect(wrapper.state().value).toEqual('test')
-      expect(onChangeMock).toHaveBeenCalledTimes(1)
-    })
-  }),
-  describe('when handleOnBlur is called', () => {
-    it('calls the correct function', () => {
-      wrapper.setState({
-        value: 'test'
+        value: `Example Text`
       })
-      expect(wrapper.instance().handleOnBlur()).toEqual(undefined)
-      expect(onBlurMock).toHaveBeenCalledTimes(1)
-      expect(onBlurMock).toHaveBeenCalledWith('test')
+      expect(wrapper).toMatchSnapshot()
     })
   })
 
@@ -138,34 +125,6 @@ describe('Input', () => {
         idForLabel:`exampleID`
       })
       expect(wrapper).toMatchSnapshot()
-    }),
-    describe('when handleOnChange is called', () => {
-      it('calls the correct function and state is correct', () => {
-        const e = {
-          target: {
-            value: 'test'
-          }
-        }
-        wrapper.setProps({
-          type:'checkbox',
-          idForLabel:`exampleID`,
-          onChange:onChangeMock
-        })
-        expect(wrapper.instance().handleOnChange(e)).toEqual(undefined)
-        expect(wrapper.state().value).toEqual('test')
-        expect(onChangeMock).toHaveBeenCalledTimes(1)
-      })
-    }),
-    describe('when handleOnBlur is called', () => {
-      it('calls the correct function', () => {
-        wrapper.setProps({
-          type:'checkbox',
-          idForLabel:`exampleID`,
-          onBlur:onBlurMock
-        })
-        expect(wrapper.instance().handleOnBlur()).toEqual(undefined)
-        expect(onBlurMock).toHaveBeenCalledTimes(1)
-      })
     })
   })
 
@@ -173,53 +132,11 @@ describe('Input', () => {
   //Radio testing
   describe('radio', () => {
     it('renders correctly', () => {
-        wrapper.setProps({
-          type:'radio',
-          idForLabel:`exampleID`
-        })
-        expect(wrapper).toMatchSnapshot()
-      }),
-      describe('when handleOnChange is called', () => {
-        it('calls the correct function and state is correct', () => {
-          const e = {
-            target: {
-              value: 'test'
-            }
-          }
-          const onChangeMock = jest.fn()
-          wrapper.setProps({
-            type:'radio',
-            idForLabel:`exampleID`,
-            onChange:onChangeMock
-          })
-          expect(wrapper.instance().handleOnChange(e)).toEqual(undefined)
-          expect(wrapper.state().value).toEqual('test')
-          expect(onChangeMock).toHaveBeenCalledTimes(1)
-        })
-      }),
-      describe('when handleOnBlur is called', () => {
-        it('calls the correct function', () => {
-          const onBlurMock = jest.fn()
-          wrapper.setProps({
-              type:'radio',
-              idForLabel:`exampleID`,
-              onBlur:onBlurMock
-            })
-          expect(wrapper.instance().handleOnBlur()).toEqual(undefined)
-          expect(onBlurMock).toHaveBeenCalledTimes(1)
-        })
-      }),
-    describe('when handleOnBlur is called', () => {
-      it('calls the correct function', () => {
-        const onBlurMock = jest.fn()
-        wrapper.setProps({
-            type:'radio',
-            idForLabel:`exampleID`,
-            onBlur:onBlurMock
-          })
-        expect(wrapper.instance().handleOnBlur()).toEqual(undefined)
-        expect(onBlurMock).toHaveBeenCalledTimes(1)
+      wrapper.setProps({
+        type:'radio',
+        idForLabel:`exampleID`
       })
+      expect(wrapper).toMatchSnapshot()
     })
   })
 
@@ -271,30 +188,150 @@ describe('Input', () => {
   })
 
   //Internal Methods
-  describe('when checkRequired is called with valid value', () => {
-    it('returns the correct value', () => {
-      expect(wrapper.instance().checkRequired('foo')).toEqual(true)
-    })
-  })
-  describe('when checkRequired is called with invalid value', () => {
-    it('returns the correct value', () => {
-      expect(wrapper.instance().checkRequired('')).toEqual(false)
-    })
-  })
-  describe('when checkValid is called with ""', () => {
-    it('returns the correct value', () => {
-      wrapper.setProps({
-        type: `email`
+  describe('when checkRequired is called', () => {
+    describe('with a valid value', () => {
+      it('returns the correct value', () => {
+        expect(wrapper.instance().checkRequired('foo')).toEqual(true)
       })
-      expect(wrapper.instance().checkValid('')).toEqual(false)
+    })
+    describe('with a invalid value', () => {
+      it('returns the correct value', () => {
+        expect(wrapper.instance().checkRequired('')).toEqual(false)
+      })
     })
   })
-  describe('when checkValid is called with test@test.com', () => {
-    it('returns the correct value', () => {
-      wrapper.setProps({
-        type: `email`
+
+  describe('when checkValid is called', () => {
+    describe('with ""', () => {
+      it('returns the correct value', () => {
+        wrapper.setProps({
+          type: `email`
+        })
+        expect(wrapper.instance().checkValid('')).toEqual(false)
       })
-      expect(wrapper.instance().checkValid('test@test.com')).toEqual(true)
+    })
+    describe('with test@test.com', () => {
+      it('returns the correct value', () => {
+        wrapper.setProps({
+          type: `email`
+        })
+        expect(wrapper.instance().checkValid('test@test.com')).toEqual(true)
+      })
+    })
+  })
+  
+  describe('when validate is called', () => {
+    describe('with a value and required prop is true', () => {
+      it('calls the correct method', () => {
+        wrapper.setProps({
+          required: true
+        })
+
+        //call the method
+        wrapper.instance().validate('test')
+
+        //check the value of the spy
+        expect(checkRequiredSpy).toHaveBeenCalled()
+      })
+    })
+  })
+
+  describe('when handleOnChange is called', () => {
+    describe('when the entered value in state is true', () => {
+      it('calls the validate method', () => {
+        const e = {
+          target: {
+            value: 'test'
+          }
+        }
+
+        //set state
+        wrapper.setState({
+          entered: true
+        })
+
+        //call the method
+        wrapper.instance().handleOnChange(e)
+  
+        expect(validateSpy).toHaveBeenCalled()
+      })  
+    })
+  })
+
+  describe('when handleOnBlur is called', () => {
+    it('calls the correct function', () => {
+      wrapper.setState({
+        value: 'test'
+      })
+      wrapper.instance().handleOnBlur()
+      expect(onBlurMock).toHaveBeenCalled()
+      expect(onBlurMock).toHaveBeenCalledWith('test')
+    })
+  })
+
+  describe('when component mounts', () => {
+    describe('when there is no default value', () => {
+      it('calls the correct function', () => {
+        expect(isValidMock).toHaveBeenCalled()
+        expect(isValidMock).toHaveBeenCalledWith(false)
+      })
+    })
+    describe('when given a defaultValue of "test"', () => {
+      it('calls the correct function and sets the correct state', () => {
+        wrapper.setProps({
+          defaultValue: 'test'
+        })
+
+        //call the method
+        wrapper.instance().componentDidMount()
+        expect(wrapper.state().value).toEqual('test')
+        expect(validateSpy).toHaveBeenCalled()
+        expect(validateSpy).toHaveBeenCalledWith('test')
+      })
+    })  
+    describe('when given a defaultValue of "IUILIBdefault"', () => {
+      it('calls the correct function', () => {
+        wrapper.setProps({
+          defaultValue: 'IUILIBdefault'
+        })
+
+        //call the method
+        wrapper.instance().componentDidMount()
+        expect(isValidMock).toHaveBeenCalled()
+        expect(isValidMock).toHaveBeenCalledWith(false)
+      })
+    }) 
+  })
+
+  describe('when componentDidUpdate is called', () => {
+    describe('formSubmitted prop changes and is true', () => {
+      it('calls the correct function and state is correct', () => {
+        //set the props
+        wrapper.setProps({
+          formSubmitted: false
+        })
+
+        //change the props to trigger componentDidUpdate
+        wrapper.setProps({
+          formSubmitted: true
+        })
+
+        expect(wrapper.state().entered).toEqual(true)
+        expect(validateSpy).toHaveBeenCalled()
+        expect(validateSpy).toHaveBeenCalledWith('')
+      })
+    })
+  })
+
+  describe('isValid state changes', () => {
+    it('calls the correct function', () => {
+      //change the state to trigger componentDidUpdate
+      wrapper.setState({
+        isValid: true
+      })
+
+      expect(isValidMock).toHaveBeenCalled()
+      expect(isValidMock).toHaveBeenCalledWith(true)
     })
   })
 })
