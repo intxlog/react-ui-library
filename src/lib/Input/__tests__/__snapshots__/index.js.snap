@@ -83,6 +83,7 @@ exports[`Input select renders correctly when disabled is true 1`] = `
       defaultValue=""
       disabled={true}
       id=""
+      onBlur={[Function]}
       onChange={[Function]}
     />
   </div>
@@ -102,6 +103,7 @@ exports[`Input select renders correctly when type is select 1`] = `
       className="select"
       defaultValue=""
       id=""
+      onBlur={[Function]}
       onChange={[Function]}
     />
   </div>
@@ -279,8 +281,8 @@ exports[`Input when required is passed in renders correctly 1`] = `
 
 exports[`Input when type is password renders correctly 1`] = `
 <div>
-  <input
-    className="input"
+  <textarea
+    className="textArea"
     defaultValue=""
     id=""
     onBlur={[Function]}

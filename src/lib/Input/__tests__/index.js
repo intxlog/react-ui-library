@@ -279,7 +279,7 @@ describe('Input', () => {
     describe('when given a defaultValue of "test"', () => {
       it('calls the correct function and sets the correct state', () => {
         wrapper.setProps({
-          defaultValue: 'test'
+          defaultValue: 'test',
         })
 
         //call the method

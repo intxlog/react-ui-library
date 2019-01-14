@@ -251,6 +251,8 @@ class Input extends React.Component {
       case `password`:
         type = `password`
         break
+      case `ssn`:
+        type = `ssn`
       default:
         type = `text`
         break
