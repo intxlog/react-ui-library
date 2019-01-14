@@ -8,6 +8,7 @@ import styles from './styles.module.scss'
 //import validator
 import validateString from './../../validators'
 import validateRequired from './../../validators/required'
+import validatePassword from './../../validators/password'
 
 // logic behind all the different types of inputs
 class Input extends React.Component {
@@ -118,6 +119,30 @@ class Input extends React.Component {
     return isValid
   }
 
+  //check if the password meets regex requirements
+  checkPassword = (val) => {
+    const res = validatePassword(val)
+    const isValid = res.valid
+    const message = res.message
+    const newValue = res.value
+
+    if (!isValid) {
+      this.setState({
+        error: true,
+        infoText: message
+      })
+    } else {
+      this.setState({
+        error: false,
+        infoText: null,
+        validValue: newValue
+      })
+    }
+
+    //return a bool value
+    return isValid
+  }
+
   checkValid = (val) => {
     //shorthand if statement
     const res = this.props.customValidationFunc ? this.props.customValidationFunc(val) : validateString(val, this.props.type)
@@ -153,6 +178,14 @@ class Input extends React.Component {
     if (this.props.required) {
       isValid = this.checkRequired(val)
       requiredPassed = this.checkRequired(val)
+    } else {
+      requiredPassed = true
+    }
+
+    //check if password is verified and passes the requirements
+    if (this.props.verify) {
+      isValid = this.checkPassword(val)
+      requiredPassed = this.checkPassword(val)
     } else {
       requiredPassed = true
     }
@@ -248,6 +281,7 @@ class Input extends React.Component {
           defaultValue={this.props.defaultValue}
           disabled={this.props.disabled}
           onChange={this.handleOnChange}
+          onBlur={this.handleOnBlur}
         >
           {this.props.children}
         </select>
@@ -263,6 +297,7 @@ class Input extends React.Component {
           name={this.props.name}
           type={`radio`}
           defaultChecked={this.props.defaultChecked}
+          disabled={this.props.disabled}
           onChange={this.handleOnChange}
           onBlur={this.handleOnBlur}
         />
@@ -282,6 +317,8 @@ class Input extends React.Component {
           value={this.props.value}
           name={this.props.name}
           type={`checkbox`}
+          defaultChecked={this.props.defaultChecked}
+          disabled={this.props.disabled}
           onChange={this.handleOnChange}
           onBlur={this.handleOnBlur}
         />
@@ -292,6 +329,22 @@ class Input extends React.Component {
         >{this.props.labelText}</label>
       </div>
     }
+
+      //if type is password then make the element an input with type password
+      if (this.props.type === 'password') {
+        element = <textarea       
+          id={this.props.idForLabel}
+          style={this.props.inlineStyles}
+          className={textAreaClassNames}
+          placeholder={this.props.placeholder}
+          defaultValue={this.props.defaultValue}
+          verify = {this.props.passwordVerification}
+          disabled={this.props.disabled}
+          type={type}
+          onChange={this.handleOnChange}
+          onBlur={this.handleOnBlur}
+        ></textarea>
+      }
 
       //if type is checkbox then make the element a input with type checkbox
       if (this.props.type === 'textArea') {
@@ -333,6 +386,7 @@ Input.propTypes = {
   defaultChecked: PropTypes.bool,
   validate: PropTypes.bool,
   required: PropTypes.bool,
+  verify: PropTypes.bool,
   type: PropTypes.oneOf(['text', 'email', 'password', 'select', 'radio', 'checkbox', 'textArea']).isRequired,
   customValidationFunc: PropTypes.func,
   onChange: PropTypes.func,
@@ -352,6 +406,7 @@ Input.defaultProps = {
   defaultValue: '',
   validate: true,
   required: false,
+  verify: false,
   type: 'text',
   onChange: () => {},
   onBlur: () => {},
