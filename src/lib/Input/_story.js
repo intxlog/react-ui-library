@@ -46,6 +46,12 @@ storiesOf('Input', module)
     type='password'
   ></Input>
 ))
+.add('zip (validation)', () => (
+  <Input
+    type='zip'
+    required
+  ></Input>
+))
 
 storiesOf('TextArea', module)
 .add('default', () => (

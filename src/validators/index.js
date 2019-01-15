@@ -1,4 +1,5 @@
 import email from './email'
+import zip from './zip'
 
 export default function (value, type) {
   let payload = {
@@ -11,6 +12,9 @@ export default function (value, type) {
   switch (type) {
     case `email`:
       payload = email(value)
+      break
+    case `zip`:
+      payload = zip(value)
       break
     default: //no conditions were met so we are going to return valid
       payload.valid = true
