@@ -1,41 +1,45 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classNames from 'classnames'
 
 //import css
 import styles from './styles.module.scss'
 
 const Checkbox = ({
-  attr,
-  error
+  id,
+  value,
+  name,
+  labelText,
+  defaultChecked,
+  onChange,
+  onBlur
 }) => {
   return (
     <div className={styles.container}>
       <input
-        id={attr.id}
-        value={this.props.value}
+        id={id}
+        value={value}
         name={name}
         type={`checkbox`}
-        onChange={this.handleOnChange}
-        onBlur={this.handleOnBlur}
+        defaultChecked={defaultChecked}
+        onChange={onChange}
+        onBlur={onBlur}
       />
-      <div className={classNames({
-        [styles.checkbox]: true,
-        [this.props.className]: this.props.className
-      })}></div>
+      <div className={styles.checkbox}></div>
       <label
-        htmlFor={attr.id}
-        style={this.props.inlineStyles}
-      >{this.props.labelText}</label>
+        htmlFor={id}
+      >{labelText}</label>
     </div>
   )
 }
 
 //rules for props being passed in
 Checkbox.propTypes = {
-  attr: PropTypes.object.isRequired,
+  id: PropTypes.string,
   labelText: PropTypes.string.isRequired,
-  name: PropTypes.string
+  defaultChecked: PropTypes.bool,
+  name: PropTypes.string,
+  onChange: PropTypes.func,
+  onBlur: PropTypes.func
 }
 
 //maintain the name for documentation purposes

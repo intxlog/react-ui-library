@@ -187,18 +187,6 @@ class Input extends React.Component {
         type = `text`
         break
     }
-    
-    //var to house html attributes and props we need to pass to the elements
-    let attr = {
-      id: this.props.idForLabel,
-      style: this.props.inlineStyles,
-      placholder: this.props.placeholder,
-      defaultValue: this.props.defaultValue,
-      disabled: this.props.disabled,
-      type,
-      onChange: this.handleOnChange,
-      onBlur: this.handleOnBlur
-    }
 
     //dynamically handle css classnames for inputs
     let inputClassNames = classNames({
@@ -227,73 +215,85 @@ class Input extends React.Component {
       [styles.error]: this.props.error || this.state.error
     })
 
-
-    //make the default html element an input
-    element =  <input
-      id={this.props.idForLabel}
-      style={this.props.inlineStyles}
-      className={inputClassNames}
-      placeholder={this.props.placeholder}
-      disabled={this.props.disabled}
-      defaultValue={this.props.defaultValue}
-      type={type}
-      onChange={this.handleOnChange}
-      onBlur={this.handleOnBlur}
-    />
-
-    //if type is select then make the element a select tag
-    if (this.props.type === 'select') {
-      element = <div
-        className={selectClassNames} 
-        style={this.props.inlineStyles} 
-      >
-        <select
-          id={this.props.idForLabel}
-          className={styles.select}
-          defaultValue={this.props.defaultValue}
-          disabled={this.props.disabled}
-          onChange={this.handleOnChange}
+    //switch statement to handle different html cases
+    switch (this.props.type) {
+      case `select`:
+        element = <div
+          className={selectClassNames} 
+          style={this.props.inlineStyles} 
         >
-          {this.props.children}
-        </select>
-      </div>
-    }
+          <select
+            id={this.props.idForLabel}
+            className={styles.select}
+            defaultValue={this.props.defaultValue}
+            disabled={this.props.disabled}
+            onChange={this.handleOnChange}
+          >
+            {this.props.children}
+          </select>
+        </div>
+        break
 
-    //if type is radio then make the element a input with type radio
-    if (this.props.type === 'radio') {
-      element = <div className={styles.radioWrapper}>
-        <input
+      case `radio`:
+        element = <div className={styles.radioWrapper}>
+          <input
+            id={this.props.idForLabel}
+            value={this.props.value}
+            name={this.props.name}
+            type={`radio`}
+            defaultChecked={this.props.defaultChecked}
+            onChange={this.handleOnChange}
+            onBlur={this.handleOnBlur}
+          />
+          <div className={radioClassNames}></div>
+          <label
+            htmlFor={this.props.idForLabel}
+            style={this.props.inlineStyles}
+          >{this.props.labelText}</label>
+        </div>
+        break
+
+      case `checkbox`:
+        element = <Checkbox
           id={this.props.idForLabel}
           value={this.props.value}
           name={this.props.name}
-          type={`radio`}
           defaultChecked={this.props.defaultChecked}
           onChange={this.handleOnChange}
           onBlur={this.handleOnBlur}
-        />
-        <div className={radioClassNames}></div>
-        <label
-          htmlFor={this.props.idForLabel}
-          style={this.props.inlineStyles}
-        >{this.props.labelText}</label>
-      </div>
-    }
+          labelText={this.props.labelText}
+        ></Checkbox>
+        break
 
-    //if type is checkbox then make the element a input with type checkbox
-    if (this.props.type === 'checkbox') {
-      element = <Checkbox
-        attr={attr} 
-      ></Checkbox>
-    }
-
-      //if type is textarea then render the TextArea component
-      if (this.props.type === 'textArea') {
+      case `textArea`:
         element = <TextArea
-          attr={attr}
+          id={this.props.idForLabel}
+          inlineStyles={this.props.inlineStyles}
+          placeholder={this.props.placeholder}
+          disabled={this.props.disabled}
+          defaultValue={this.props.defaultValue}
+          type={type}
+          onChange={this.handleOnChange}
+          onBlur={this.handleOnBlur}
           error={this.props.error}
         ></TextArea>
-      }
+        break
 
+      default:
+        element =  <input
+          id={this.props.idForLabel}
+          style={this.props.inlineStyles}
+          className={inputClassNames}
+          placeholder={this.props.placeholder}
+          disabled={this.props.disabled}
+          defaultValue={this.props.defaultValue}
+          type={type}
+          onChange={this.handleOnChange}
+          onBlur={this.handleOnBlur}
+        />
+        break
+    }
+    
     return (
       <div>
         {element}
