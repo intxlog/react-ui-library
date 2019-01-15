@@ -1,5 +1,5 @@
 import email from './email'
-
+import phone from './phone'
 export default function (value, type) {
   let payload = {
     valid: false,
@@ -11,6 +11,9 @@ export default function (value, type) {
   switch (type) {
     case `email`:
       payload = email(value)
+      break
+    case `phone`:
+      payload = phone(value)
       break
     default: //no conditions were met so we are going to return valid
       payload.valid = true
