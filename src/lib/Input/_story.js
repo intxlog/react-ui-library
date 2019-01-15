@@ -48,7 +48,7 @@ storiesOf('Input', module)
 ))
 .add('ein (validation) 9 digits', () => (
   <Input
-  type='ein'
+    type='ein'
     required
   ></Input>
 ))
