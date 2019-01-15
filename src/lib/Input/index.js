@@ -5,9 +5,12 @@ import classNames from 'classnames'
 //import css
 import styles from './styles.module.scss'
 
-//import validator
+//import validators
 import validateString from './../../validators'
 import validateRequired from './../../validators/required'
+
+//import components
+import TextArea from '../TextArea'
 
 // logic behind all the different types of inputs
 class Input extends React.Component {
@@ -173,6 +176,28 @@ class Input extends React.Component {
     let type = null
     //var to store the html element we are going to display
     let element = null
+    
+    //logic for the different html input types
+    switch (this.props.type) {
+      case `password`:
+        type = `password`
+        break
+      default:
+        type = `text`
+        break
+    }
+    
+    //var to house html attributes we need to pass to the elements
+    let attr = {
+      id: this.props.idForLabel,
+      style: this.props.inlineStyles,
+      placholder: this.props.placeholder,
+      defualtValue: this.props.defaultValue,
+      disabled: this.props.disabled,
+      type,
+      onChange: this.handleOnChange,
+      onBlur: this.handleOnBlur
+    }
 
     //dynamically handle css classnames for inputs
     let inputClassNames = classNames({
@@ -207,21 +232,6 @@ class Input extends React.Component {
       [styles.error]: this.props.error || this.state.error
     })
 
-    //dynamically handle css classnames for textArea
-    let textAreaClassNames = classNames({
-      [styles.textArea]: true,
-      [styles.error]: this.props.error || this.state.error
-    })
-
-    //logic for the different html input types
-    switch (this.props.type) {
-      case `password`:
-        type = `password`
-        break
-      default:
-        type = `text`
-        break
-    }
 
     //make the default html element an input
     element =  <input
@@ -295,17 +305,9 @@ class Input extends React.Component {
 
       //if type is checkbox then make the element a input with type checkbox
       if (this.props.type === 'textArea') {
-        element = <textarea       
-          id={this.props.idForLabel}
-          style={this.props.inlineStyles}
-          className={textAreaClassNames}
-          placeholder={this.props.placeholder}
-          defaultValue={this.props.defaultValue}
-          disabled={this.props.disabled}
-          type={type}
-          onChange={this.handleOnChange}
-          onBlur={this.handleOnBlur}
-        ></textarea>
+        element = <TextArea
+          attr = {attr}
+        ></TextArea>
       }
 
     return (
