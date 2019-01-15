@@ -211,7 +211,7 @@ storiesOf('Input Select', module)
   <Input
     type='select'
   >
-  <option value="default">Choose an option</option>
+    <option value="default">Choose an option</option>
   </Input>
 ))
 .add('default (disabled)', () => (
