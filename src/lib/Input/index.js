@@ -10,8 +10,10 @@ import validateString from './../../validators'
 import validateRequired from './../../validators/required'
 
 //import components
+import TextInput from '../TextInput'
 import TextArea from '../TextArea'
 import Checkbox from '../Checkbox'
+import RadioButton from '../RadioButton'
 
 // logic behind all the different types of inputs
 class Input extends React.Component {
@@ -188,12 +190,6 @@ class Input extends React.Component {
         break
     }
 
-    //dynamically handle css classnames for inputs
-    let inputClassNames = classNames({
-      [styles.input]: true,
-      [this.props.className]: this.props.className,
-      [styles.error]: this.props.error || this.state.error
-    })
 
     //dynamically handle css classnames for selects
     let selectClassNames = classNames({
@@ -201,12 +197,6 @@ class Input extends React.Component {
       [this.props.className]: this.props.className,
       [styles.disabled]: this.props.disabled,
       [styles.error]: this.props.error || this.state.error
-    })
-
-    //dynamically handle css classnames for radio
-    let radioClassNames = classNames({
-      [styles.radio]: true,
-      [this.props.className]: this.props.className
     })
 
     //dynamically handle css classnames for info text
@@ -235,22 +225,14 @@ class Input extends React.Component {
         break
 
       case `radio`:
-        element = <div className={styles.radioWrapper}>
-          <input
+        element = <RadioButton
             id={this.props.idForLabel}
             value={this.props.value}
             name={this.props.name}
-            type={`radio`}
             defaultChecked={this.props.defaultChecked}
             onChange={this.handleOnChange}
             onBlur={this.handleOnBlur}
           />
-          <div className={radioClassNames}></div>
-          <label
-            htmlFor={this.props.idForLabel}
-            style={this.props.inlineStyles}
-          >{this.props.labelText}</label>
-        </div>
         break
 
       case `checkbox`:
@@ -280,17 +262,16 @@ class Input extends React.Component {
         break
 
       default:
-        element =  <input
+        element = <TextInput
           id={this.props.idForLabel}
-          style={this.props.inlineStyles}
-          className={inputClassNames}
+          inlineStyles={this.props.inlineStyles}
           placeholder={this.props.placeholder}
           disabled={this.props.disabled}
           defaultValue={this.props.defaultValue}
           type={type}
           onChange={this.handleOnChange}
           onBlur={this.handleOnBlur}
-        />
+        ></TextInput>
         break
     }
     
@@ -307,7 +288,6 @@ class Input extends React.Component {
 Input.propTypes = {
   idForLabel: PropTypes.string,
   labelText: PropTypes.string,
-  className: PropTypes.string,
   inlineStyles: PropTypes.object,
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,

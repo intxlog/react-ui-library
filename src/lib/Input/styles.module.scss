@@ -22,30 +22,6 @@ $colorBorder: #656565;
   }
 }
 
-.input {
-  @extend %element;
-  font-size: $fontSize;
-  line-height: $lineHeight;
-  padding: 5px 10px;
-
-  //Style Placeholder
-  &::-webkit-input-placeholder {
-    color: var(--colorFormInputPlaceholder);
-  }
-
-  &:-moz-placeholder { /* Firefox 18- */
-    color: var(--colorFormInputPlaceholder);
-  }
-
-  &::-moz-placeholder { /* Firefox 19+ */
-    color: var(--colorFormInputPlaceholder);
-  }
-
-  &:-ms-input-placeholder {
-    color: var(--colorFormInputPlaceholder);
-  }
-}
-
 .select {
   background: transparent;
   border: 0;
@@ -85,57 +61,6 @@ $colorBorder: #656565;
 
   &.disabled {
     background-color: rgb(235, 235, 228);
-  }
-}
-
-$radioHeightWidth: 14px;
-$checkHeightWidth: 8px;
-$checkOffset: 2px;
-.radioWrapper {
-  position: relative;
-
-  > label {
-    font-size: 16px;
-    line-height: 22px;
-    cursor: pointer;
-    padding-left: 18px;
-    display: block;
-  } 
-  
-  > input {
-    clip: rect(1px, 1px, 1px, 1px);
-    width: 1px;
-    height: 1px;
-    position: absolute;
-
-    &:checked ~ .radio::before {
-      display: block;
-    } 
-  }
-  
-  > .radio {
-    background-color: white;
-    border-radius: 100%;
-    height: $radioHeightWidth;
-    width: $radioHeightWidth;
-    cursor: pointer;
-    border: 1px solid $colorBorder;
-    position: absolute;
-    top: 4px;
-    pointer-events: none;
-
-    &:before {
-      content: '';
-      background-color: $colorBorder;
-      height: $checkHeightWidth;
-      width: $checkHeightWidth;
-      position: absolute;
-      top: $checkOffset;
-      left: $checkOffset;
-      border-radius: 100%;
-      display: none;
-    }
-
   }
 }
 
