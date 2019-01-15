@@ -98,7 +98,7 @@ storiesOf('Input', module)
   <Input
     type='password'
     placeholder={`One CAPITAL Letter to Pass`}
-    verifyPassword   
+    required
   ></Input>
 ))
 .add('password (disabled)', () => (
@@ -136,6 +136,7 @@ storiesOf('Input', module)
 .add('ein', () => (
   <Input
     type='ein'
+    required
   ></Input>
 ))
 .add('ein with placeholder', () => (
@@ -154,7 +155,7 @@ storiesOf('Input', module)
   <Input
     type='ein'
     placeholder={` unique nine-digit number`}
-    verifyEin  
+    required 
   ></Input>
 ))
 storiesOf('TextArea', module)

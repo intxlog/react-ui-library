@@ -74,8 +74,9 @@ class Input extends React.Component {
     const val = e.target.value
 
     //check if the user entered the input once before
+
     if (this.state.entered) {
-      console.log("HANDLE ON CHANGE ENTERED: " + e.target.type)
+      
       //run validation
       this.validate(val)
     }
@@ -99,7 +100,18 @@ class Input extends React.Component {
   }
 
   checkRequired = (val) => {
-    const res = validateRequired(val)
+    // check which prop.type is being passed in
+    let res;
+    if (this.props.type === 'ein' ){
+      res = validateEin(val)
+    }
+    else if(this.props.type === 'password'){
+      res = validatePassword(val)
+    }
+    else{
+      res = validateRequired(val)
+    }
+
     const isValid = res.valid
     const message = res.message
     const newValue = res.value
@@ -120,54 +132,6 @@ class Input extends React.Component {
     //return a bool value
     return isValid
   }
-
-  //check if the password meets regex requirements
-  checkPassword = (val) => {
-    const res = validatePassword(val)
-    const isValid = res.valid
-    const message = res.message
-    const newValue = res.value
-
-    if (!isValid) {
-      this.setState({
-        error: true,
-        infoText: message
-      })
-    } else {
-      this.setState({
-        error: false,
-        infoText: null,
-        validValue: newValue
-      })
-    }
-
-    //return a bool value
-    return isValid
-  }
-
-  //check if the password meets regex requirements
-  checkEin = (val) => {
-    const res = validateEin(val)
-    const isValid = res.valid
-    const message = res.message
-    const newValue = res.value
-
-    if (!isValid) {
-      this.setState({
-        error: true,
-        infoText: message
-      })
-    } else {
-      this.setState({
-        error: false,
-        infoText: null,
-        validValue: newValue
-      })
-    }
-    //return a bool value
-    return isValid
-  }
-
 
   checkValid = (val) => {
     //shorthand if statement
@@ -204,22 +168,6 @@ class Input extends React.Component {
     if (this.props.required) {
       isValid = this.checkRequired(val)
       requiredPassed = this.checkRequired(val)
-    } else {
-      requiredPassed = true
-    }
-
-    //check if password is verified and passes the requirements
-    if (this.props.verifyPassword) {
-      isValid = this.checkPassword(val)
-      requiredPassed = this.checkPassword(val)
-    } else {
-      requiredPassed = true
-    }
-
-    //check if password is verified and passes the requirements
-    if (this.props.verifyEin) {
-      isValid = this.checkEin(val)
-      requiredPassed = this.checkEin(val)
     } else {
       requiredPassed = true
     }
@@ -304,8 +252,8 @@ class Input extends React.Component {
       placeholder={this.props.placeholder}
       disabled={this.props.disabled}
       defaultValue={this.props.defaultValue}
-      verifyPassword = {this.props.verifyPassword}
-      verifyEin = {this.props.verifyEin}
+      // verifypassword = {this.props.verifyPassword}
+      // verifyein = {this.props.verifyEin}
       type={type}
       onChange={this.handleOnChange}
       onBlur={this.handleOnBlur}
@@ -372,36 +320,20 @@ class Input extends React.Component {
       </div>
     }
 
-      //if type is password then make the element an input with type password
-      // if (this.props.type === 'password') {
-      //   element = <textarea       
-      //     id={this.props.idForLabel}
-      //     style={this.props.inlineStyles}
-      //     className={textAreaClassNames}
-      //     placeholder={this.props.placeholder}
-      //     defaultValue={this.props.defaultValue}
-      //     verifyPassword = {this.props.passwordVerification}
-      //     disabled={this.props.disabled}
-      //     type={type}
-      //     onChange={this.handleOnChange}
-      //     onBlur={this.handleOnBlur}
-      //   ></textarea>
-      // }
-
-      //if type is checkbox then make the element a input with type checkbox
-      if (this.props.type === 'textArea') {
-        element = <textarea       
-          id={this.props.idForLabel}
-          style={this.props.inlineStyles}
-          className={textAreaClassNames}
-          placeholder={this.props.placeholder}
-          defaultValue={this.props.defaultValue}
-          disabled={this.props.disabled}
-          type={type}
-          onChange={this.handleOnChange}
-          onBlur={this.handleOnBlur}
-        ></textarea>
-      }
+    //if type is checkbox then make the element a input with type checkbox
+    if (this.props.type === 'textArea') {
+      element = <textarea       
+        id={this.props.idForLabel}
+        style={this.props.inlineStyles}
+        className={textAreaClassNames}
+        placeholder={this.props.placeholder}
+        defaultValue={this.props.defaultValue}
+        disabled={this.props.disabled}
+        type={type}
+        onChange={this.handleOnChange}
+        onBlur={this.handleOnBlur}
+      ></textarea>
+    }
 
     return (
       <div>
@@ -428,9 +360,9 @@ Input.propTypes = {
   defaultChecked: PropTypes.bool,
   validate: PropTypes.bool,
   required: PropTypes.bool,
-  verifyPassword: PropTypes.bool,
-  verifyEin: PropTypes.bool,
-  type: PropTypes.oneOf(['text', 'email', 'password', 'select', 'ssn','ien', 'radio', 'checkbox', 'textArea']).isRequired,
+  // verifyPassword: PropTypes.bool,
+  // verifyEin: PropTypes.bool,
+  type: PropTypes.oneOf(['text', 'email', 'password', 'select', 'ssn','ein', 'radio', 'checkbox', 'textArea']).isRequired,
   customValidationFunc: PropTypes.func,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
@@ -449,8 +381,8 @@ Input.defaultProps = {
   defaultValue: '',
   validate: true,
   required: false,
-  verifyPassword: false,
-  verifyEin: false, 
+  // verifyPassword: false,
+  // verifyEin: false, 
   type: 'text',
   onChange: () => {},
   onBlur: () => {},
