@@ -192,7 +192,7 @@ class Input extends React.Component {
       id: this.props.idForLabel,
       style: this.props.inlineStyles,
       placholder: this.props.placeholder,
-      defualtValue: this.props.defaultValue,
+      defaultValue: this.props.defaultValue,
       disabled: this.props.disabled,
       type,
       onChange: this.handleOnChange,
