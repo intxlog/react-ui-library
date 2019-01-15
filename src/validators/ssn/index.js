@@ -1,7 +1,6 @@
 import regex from './regex.js'
 
 export default function (ssn) {
-  console.log("ssn IS REACHED")
   //declare a return object
   let payload = {
     valid: false,
