@@ -17,20 +17,20 @@ $colorBorder: #656565;
     border: 1px solid red;
   }
 
-    //Style Placeholder
-    &::-webkit-input-placeholder {
-      color: var(--colorFormInputPlaceholder);
-    }
-  
-    &:-moz-placeholder { /* Firefox 18- */
-      color: var(--colorFormInputPlaceholder);
-    }
-  
-    &::-moz-placeholder { /* Firefox 19+ */
-      color: var(--colorFormInputPlaceholder);
-    }
-  
-    &:-ms-input-placeholder {
-      color: var(--colorFormInputPlaceholder);
-    }
+  //Style Placeholder
+  &::-webkit-input-placeholder {
+    color: var(--colorFormInputPlaceholder);
+  }
+
+  &:-moz-placeholder { /* Firefox 18- */
+    color: var(--colorFormInputPlaceholder);
+  }
+
+  &::-moz-placeholder { /* Firefox 19+ */
+    color: var(--colorFormInputPlaceholder);
+  }
+
+  &:-ms-input-placeholder {
+    color: var(--colorFormInputPlaceholder);
+  }
 }
