@@ -21,4 +21,14 @@ describe('validators root', () => {
       value: 'any@email.com'
     })
   })
+  it('the zip function is called when zip is the type passed in', () => {
+    const value = 123456789
+    const type = 'ssn'
+    
+    expect(validator(value,type)).toEqual({
+      valid: true,
+      message: null,
+      value: 123456789
+    })
+  })
 })
