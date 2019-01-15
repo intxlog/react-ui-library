@@ -46,6 +46,12 @@ storiesOf('Input', module)
     type='password'
   ></Input>
 ))
+.add('ein (validation) 9 digits', () => (
+  <Input
+    type='ein'
+    required
+  ></Input>
+))
 
 storiesOf('TextArea', module)
 .add('default', () => (
