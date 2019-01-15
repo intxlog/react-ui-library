@@ -21,7 +21,7 @@ describe('validators root', () => {
       value: 'any@email.com'
     })
   })
-  it('the zip function is called when zip is the type passed in', () => {
+  it('the ssn function is called when ssn is the type passed in', () => {
     const value = 123456789
     const type = 'ssn'
     
