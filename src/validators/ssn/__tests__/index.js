@@ -24,7 +24,7 @@ describe('ssnRegex', () => {
 it('returns true when given a valid ssn', () => {
     const ssn = 123456789
     expect(ssnRegex(ssn)).toEqual(true)
-}),
+})
 it('returns false when given an invalid ssn', () => {
     const ssn = 'invalid'
     expect(ssnRegex(ssn)).toEqual(false)
