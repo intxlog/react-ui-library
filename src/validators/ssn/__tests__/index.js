@@ -28,7 +28,7 @@ it('returns true when given a valid ssn', () => {
 it('returns false when given an invalid ssn', () => {
     const ssn = 'invalid'
     expect(ssnRegex(ssn)).toEqual(false)
-}),
+})
 it('returns false when given a blank ssn', () => {
     const ssn = ''
     expect(ssnRegex(ssn)).toEqual(false)
