@@ -11,6 +11,7 @@ import validateRequired from './../../validators/required'
 
 //import components
 import TextArea from '../TextArea'
+import Checkbox from '../Checkbox'
 
 // logic behind all the different types of inputs
 class Input extends React.Component {
@@ -187,7 +188,7 @@ class Input extends React.Component {
         break
     }
     
-    //var to house html attributes we need to pass to the elements
+    //var to house html attributes and props we need to pass to the elements
     let attr = {
       id: this.props.idForLabel,
       style: this.props.inlineStyles,
@@ -217,12 +218,6 @@ class Input extends React.Component {
     //dynamically handle css classnames for radio
     let radioClassNames = classNames({
       [styles.radio]: true,
-      [this.props.className]: this.props.className
-    })
-
-    //dynamically handle css classnames for checkbox
-    let checkboxClassNames = classNames({
-      [styles.checkbox]: true,
       [this.props.className]: this.props.className
     })
 
@@ -286,27 +281,16 @@ class Input extends React.Component {
 
     //if type is checkbox then make the element a input with type checkbox
     if (this.props.type === 'checkbox') {
-      element = <div className={styles.checkBoxWrapper}>
-        <input
-          id={this.props.idForLabel}
-          value={this.props.value}
-          name={this.props.name}
-          type={`checkbox`}
-          onChange={this.handleOnChange}
-          onBlur={this.handleOnBlur}
-        />
-        <div className={checkboxClassNames}></div>
-        <label
-          htmlFor={this.props.idForLabel}
-          style={this.props.inlineStyles}
-        >{this.props.labelText}</label>
-      </div>
+      element = <Checkbox
+        attr={attr} 
+      ></Checkbox>
     }
 
-      //if type is checkbox then make the element a input with type checkbox
+      //if type is textarea then render the TextArea component
       if (this.props.type === 'textArea') {
         element = <TextArea
-          attr = {attr}
+          attr={attr}
+          error={this.props.error}
         ></TextArea>
       }
 
