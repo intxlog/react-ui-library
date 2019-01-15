@@ -1,0 +1,44 @@
+// imports
+@import './../../styles/helpers.scss';
+
+.container {
+  background: transparent;
+  border: 0;
+  outline: 0;
+  width: 100%;
+  color: var(--colorFormInputFontColor);
+  font-size: $fontSize;
+  line-height: 20px;
+  padding: 6px 10px;
+  user-select: none;
+  height: 32px;
+  -webkit-appearance: none;
+}
+
+.wrapper {
+  @extend %element;
+  position: relative;
+  overflow: hidden;
+  background-color: white;
+
+  &, > * {
+    cursor: pointer;
+  }
+
+  &:after {
+    content: '';
+    width: 0;
+    position: absolute;
+    right: 7px;
+    top: 50%;
+    margin-top: -3px;
+    border-width: 6px 4px;
+    border-style: solid;
+    pointer-events: none;
+    border-color: $colorBorder transparent transparent transparent;
+  }
+
+  &.disabled {
+    background-color: rgb(235, 235, 228);
+  }
+}

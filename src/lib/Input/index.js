@@ -14,6 +14,7 @@ import TextInput from '../TextInput'
 import TextArea from '../TextArea'
 import Checkbox from '../Checkbox'
 import RadioButton from '../RadioButton'
+import Select from '../Select'
 
 // logic behind all the different types of inputs
 class Input extends React.Component {
@@ -190,49 +191,30 @@ class Input extends React.Component {
         break
     }
 
-
-    //dynamically handle css classnames for selects
-    let selectClassNames = classNames({
-      [styles.selectWrapper]: true,
-      [this.props.className]: this.props.className,
-      [styles.disabled]: this.props.disabled,
-      [styles.error]: this.props.error || this.state.error
-    })
-
-    //dynamically handle css classnames for info text
-    let textClassNames = classNames({
-      [styles.infoText]: true,
-      [styles.error]: this.props.error || this.state.error
-    })
-
     //switch statement to handle different html cases
     switch (this.props.type) {
       case `select`:
-        element = <div
-          className={selectClassNames} 
-          style={this.props.inlineStyles} 
+        element = <Select
+          id={this.props.idForLabel}
+          defaultValue={this.props.defaultValue}
+          disabled={this.props.disabled}
+          onChange={this.handleOnChange}
+          onBlur={this.handleOnBlur}
+          error={this.props.error}
         >
-          <select
-            id={this.props.idForLabel}
-            className={styles.select}
-            defaultValue={this.props.defaultValue}
-            disabled={this.props.disabled}
-            onChange={this.handleOnChange}
-          >
-            {this.props.children}
-          </select>
-        </div>
+          {this.props.children}
+        </Select>
         break
 
       case `radio`:
         element = <RadioButton
-            id={this.props.idForLabel}
-            value={this.props.value}
-            name={this.props.name}
-            defaultChecked={this.props.defaultChecked}
-            onChange={this.handleOnChange}
-            onBlur={this.handleOnBlur}
-          />
+          id={this.props.idForLabel}
+          value={this.props.value}
+          name={this.props.name}
+          defaultChecked={this.props.defaultChecked}
+          onChange={this.handleOnChange}
+          onBlur={this.handleOnBlur}
+        />
         break
 
       case `checkbox`:
@@ -278,7 +260,10 @@ class Input extends React.Component {
     return (
       <div>
         {element}
-        <p className={textClassNames}>{this.props.infoText || this.state.infoText}</p>
+        <p className={classNames({
+          [styles.infoText]: true,
+          [styles.error]: this.props.error || this.state.error
+        })}>{this.props.infoText || this.state.infoText}</p>
       </div>
     )
   }
