@@ -12,9 +12,12 @@ const Checkbox = ({
   return (
     <div className={styles.container}>
       <input
-        {...attr}
-        type={`checkbox`}
+        id={attr.id}
+        value={this.props.value}
         name={name}
+        type={`checkbox`}
+        onChange={this.handleOnChange}
+        onBlur={this.handleOnBlur}
       />
       <div className={classNames({
         [styles.checkbox]: true,

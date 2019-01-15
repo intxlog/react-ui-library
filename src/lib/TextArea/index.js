@@ -6,23 +6,44 @@ import classNames from 'classnames'
 import styles from './styles.module.scss'
 
 const TextArea = ({
-  attr,
+  id,
+  inlineStyles,
+  placholder,
+  disabled,
+  defaultValue,
+  type,
+  onChange,
+  onBlur,
   error
 }) => {
   return (
     <textarea    
-      {...attr}   
+      id={id}
+      style={inlineStyles}
       className={classNames({
         [styles.element]: true,
         [styles.error]: error
       })}
+      placeholder={placholder}
+      disabled={disabled}
+      defaultValue={defaultValue}
+      type={type}
+      onChange={onChange}
+      onBlur={onBlur}
     ></textarea>
   )
 }
 
 //rules for props being passed in
 TextArea.propTypes = {
-  attr: PropTypes.object.isRequired,
+  id: PropTypes.string,
+  inlineStyles: PropTypes.string,
+  placeholder: PropTypes.string,
+  disabled: PropTypes.bool,
+  defaultValue: PropTypes.string,
+  type: PropTypes.oneOf([`text`, `password`]),
+  onChange: PropTypes.func,
+  onBlur: PropTypes.func,
   error: PropTypes.bool
 }
 
