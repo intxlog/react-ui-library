@@ -9,7 +9,7 @@ describe('einValidator', () => {
         message: null,
         value: 123456789
       })
-    }),
+    })
     it('returns the correct payload when given an invalid ein', () => {
       const ein = 'invalid'
       expect(einValidator(ein)).toEqual({
