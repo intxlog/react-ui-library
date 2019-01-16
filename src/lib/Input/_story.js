@@ -46,6 +46,12 @@ storiesOf('Input', module)
     type='password'
   ></Input>
 ))
+.add('phone (validation)', () => (
+  <Input
+    type='phone'
+    required
+  ></Input>
+))
 .add('ein (validation) 9 digits', () => (
   <Input
     type='ein'

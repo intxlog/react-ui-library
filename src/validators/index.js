@@ -1,4 +1,5 @@
 import email from './email'
+import phone from './phone'
 import ein from './ein'
 import ssn from './ssn'
 
@@ -14,6 +15,8 @@ export default function (value, type) {
     case `email`:
       payload = email(value)
       break
+    case `phone`:
+      payload = phone(value)
     case `ein`:
       payload = ein(value)
       break
