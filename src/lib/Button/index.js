@@ -54,7 +54,7 @@ class Button extends React.Component {
     
     //logic to display a button element or a link
     if (this.props.type === `link`) {
-      element = <a className={styles.link} href={this.props.linkTo}>{this.props.text}</a>
+      element = <a className={styles.link} href={this.props.linkTo} target='_blank' rel='noopener'>{this.props.text}</a>
     }
 
     //logic to display a button element or a routed link
