@@ -5,9 +5,16 @@ import classNames from 'classnames'
 //import css
 import styles from './styles.module.scss'
 
-//import validator
+//import validators
 import validateString from './../../validators'
 import validateRequired from './../../validators/required'
+
+//import components
+import TextInput from '../TextInput'
+import TextArea from '../TextArea'
+import Checkbox from '../Checkbox'
+import RadioButton from '../RadioButton'
+import Select from '../Select'
 
 // logic behind all the different types of inputs
 class Input extends React.Component {
@@ -173,46 +180,7 @@ class Input extends React.Component {
     let type = null
     //var to store the html element we are going to display
     let element = null
-
-    //dynamically handle css classnames for inputs
-    let inputClassNames = classNames({
-      [styles.input]: true,
-      [this.props.className]: this.props.className,
-      [styles.error]: this.props.error || this.state.error
-    })
-
-    //dynamically handle css classnames for selects
-    let selectClassNames = classNames({
-      [styles.selectWrapper]: true,
-      [this.props.className]: this.props.className,
-      [styles.disabled]: this.props.disabled,
-      [styles.error]: this.props.error || this.state.error
-    })
-
-    //dynamically handle css classnames for radio
-    let radioClassNames = classNames({
-      [styles.radio]: true,
-      [this.props.className]: this.props.className
-    })
-
-    //dynamically handle css classnames for checkbox
-    let checkboxClassNames = classNames({
-      [styles.checkbox]: true,
-      [this.props.className]: this.props.className
-    })
-
-    //dynamically handle css classnames for info text
-    let textClassNames = classNames({
-      [styles.infoText]: true,
-      [styles.error]: this.props.error || this.state.error
-    })
-
-    //dynamically handle css classnames for textArea
-    let textAreaClassNames = classNames({
-      [styles.textArea]: true,
-      [styles.error]: this.props.error || this.state.error
-    })
-
+    
     //logic for the different html input types
     switch (this.props.type) {
       case `password`:
@@ -223,95 +191,79 @@ class Input extends React.Component {
         break
     }
 
-    //make the default html element an input
-    element =  <input
-      id={this.props.idForLabel}
-      style={this.props.inlineStyles}
-      className={inputClassNames}
-      placeholder={this.props.placeholder}
-      disabled={this.props.disabled}
-      defaultValue={this.props.defaultValue}
-      type={type}
-      onChange={this.handleOnChange}
-      onBlur={this.handleOnBlur}
-    />
-
-    //if type is select then make the element a select tag
-    if (this.props.type === 'select') {
-      element = <div
-        className={selectClassNames} 
-        style={this.props.inlineStyles} 
-      >
-        <select
+    //switch statement to handle different html cases
+    switch (this.props.type) {
+      case `select`:
+        element = <Select
           id={this.props.idForLabel}
-          className={styles.select}
           defaultValue={this.props.defaultValue}
           disabled={this.props.disabled}
           onChange={this.handleOnChange}
+          onBlur={this.handleOnBlur}
+          error={this.props.error}
         >
           {this.props.children}
-        </select>
-      </div>
-    }
+        </Select>
+        break
 
-    //if type is radio then make the element a input with type radio
-    if (this.props.type === 'radio') {
-      element = <div className={styles.radioWrapper}>
-        <input
+      case `radio`:
+        element = <RadioButton
           id={this.props.idForLabel}
           value={this.props.value}
           name={this.props.name}
-          type={`radio`}
+          labelText={this.props.labelText}
           defaultChecked={this.props.defaultChecked}
           onChange={this.handleOnChange}
           onBlur={this.handleOnBlur}
         />
-        <div className={radioClassNames}></div>
-        <label
-          htmlFor={this.props.idForLabel}
-          style={this.props.inlineStyles}
-        >{this.props.labelText}</label>
-      </div>
-    }
+        break
 
-    //if type is checkbox then make the element a input with type checkbox
-    if (this.props.type === 'checkbox') {
-      element = <div className={styles.checkBoxWrapper}>
-        <input
+      case `checkbox`:
+        element = <Checkbox
           id={this.props.idForLabel}
           value={this.props.value}
           name={this.props.name}
-          type={`checkbox`}
+          defaultChecked={this.props.defaultChecked}
           onChange={this.handleOnChange}
           onBlur={this.handleOnBlur}
-        />
-        <div className={checkboxClassNames}></div>
-        <label
-          htmlFor={this.props.idForLabel}
-          style={this.props.inlineStyles}
-        >{this.props.labelText}</label>
-      </div>
-    }
+          labelText={this.props.labelText}
+        ></Checkbox>
+        break
 
-      //if type is checkbox then make the element a input with type checkbox
-      if (this.props.type === 'textArea') {
-        element = <textarea       
+      case `textArea`:
+        element = <TextArea
           id={this.props.idForLabel}
-          style={this.props.inlineStyles}
-          className={textAreaClassNames}
+          inlineStyles={this.props.inlineStyles}
           placeholder={this.props.placeholder}
-          defaultValue={this.props.defaultValue}
           disabled={this.props.disabled}
+          defaultValue={this.props.defaultValue}
+          onChange={this.handleOnChange}
+          onBlur={this.handleOnBlur}
+          error={this.props.error}
+        ></TextArea>
+        break
+
+      default:
+        element = <TextInput
+          id={this.props.idForLabel}
+          inlineStyles={this.props.inlineStyles}
+          placeholder={this.props.placeholder}
+          disabled={this.props.disabled}
+          defaultValue={this.props.defaultValue}
           type={type}
           onChange={this.handleOnChange}
           onBlur={this.handleOnBlur}
-        ></textarea>
-      }
-
+        ></TextInput>
+        break
+    }
+    
     return (
       <div>
         {element}
-        <p className={textClassNames}>{this.props.infoText || this.state.infoText}</p>
+        <p className={classNames({
+          [styles.infoText]: true,
+          [styles.error]: this.props.error || this.state.error
+        })}>{this.props.infoText || this.state.infoText}</p>
       </div>
     )
   }
@@ -321,7 +273,6 @@ class Input extends React.Component {
 Input.propTypes = {
   idForLabel: PropTypes.string,
   labelText: PropTypes.string,
-  className: PropTypes.string,
   inlineStyles: PropTypes.object,
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
