@@ -326,7 +326,11 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
   infoText: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool
+    ]),
   name: PropTypes.string,
   error: PropTypes.bool,
   defaultValue: PropTypes.string,
