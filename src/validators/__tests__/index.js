@@ -41,4 +41,14 @@ describe('validators root', () => {
       value: 123456789
     })
   })
+  it('the zip function is called when zip is the type passed in', () => {
+    const value = 12345
+    const type = 'zip'
+    
+    expect(validator(value,type)).toEqual({
+      valid: true,
+      message: null,
+      value: 12345
+    })
+  })
 })

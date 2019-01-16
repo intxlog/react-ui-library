@@ -44,8 +44,15 @@ storiesOf('Input', module)
 .add('password', () => (
   <Input
     type='password'
+    required
   ></Input>
 ))
+.add('zip (validation)', () => (
+  <Input
+    type='zip'
+    required
+  ></Input>
+ ))
 .add('phone (validation)', () => (
   <Input
     type='phone'
