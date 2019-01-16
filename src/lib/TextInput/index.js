@@ -37,7 +37,7 @@ const TextInput = ({
 //rules for props being passed in
 TextInput.propTypes = {
   id: PropTypes.string,
-  inlineStyles: PropTypes.string,
+  inlineStyles: PropTypes.object,
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
   defaultValue: PropTypes.string,

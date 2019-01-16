@@ -2,25 +2,12 @@
 
 exports[`Input checkbox renders correctly 1`] = `
 <div>
-  <div
-    className="checkBoxWrapper"
-  >
-    <input
-      id="exampleID"
-      onBlur={[Function]}
-      onChange={[Function]}
-      type="checkbox"
-    />
-    <div
-      className="checkbox"
-    />
-    <label
-      htmlFor="exampleID"
-      style={Object {}}
-    >
-      None Provided
-    </label>
-  </div>
+  <Checkbox
+    id="exampleID"
+    labelText="None Provided"
+    onBlur={[Function]}
+    onChange={[Function]}
+  />
   <p
     className="infoText"
   />
@@ -29,25 +16,12 @@ exports[`Input checkbox renders correctly 1`] = `
 
 exports[`Input radio renders correctly 1`] = `
 <div>
-  <div
-    className="radioWrapper"
-  >
-    <input
-      id="exampleID"
-      onBlur={[Function]}
-      onChange={[Function]}
-      type="radio"
-    />
-    <div
-      className="radio"
-    />
-    <label
-      htmlFor="exampleID"
-      style={Object {}}
-    >
-      None Provided
-    </label>
-  </div>
+  <RadioButton
+    id="exampleID"
+    labelText="None Provided"
+    onBlur={[Function]}
+    onChange={[Function]}
+  />
   <p
     className="infoText"
   />
@@ -56,14 +30,13 @@ exports[`Input radio renders correctly 1`] = `
 
 exports[`Input renders correctly 1`] = `
 <div>
-  <input
-    className="input"
+  <TextInput
     defaultValue=""
     id=""
+    inlineStyles={Object {}}
     onBlur={[Function]}
     onChange={[Function]}
     placeholder=""
-    style={Object {}}
     type="text"
   />
   <p
@@ -74,18 +47,14 @@ exports[`Input renders correctly 1`] = `
 
 exports[`Input select renders correctly when disabled is true 1`] = `
 <div>
-  <div
-    className="selectWrapper disabled"
-    style={Object {}}
-  >
-    <select
-      className="select"
-      defaultValue=""
-      disabled={true}
-      id=""
-      onChange={[Function]}
-    />
-  </div>
+  <Select
+    defaultValue=""
+    disabled={true}
+    error={false}
+    id=""
+    onBlur={[Function]}
+    onChange={[Function]}
+  />
   <p
     className="infoText"
   />
@@ -94,17 +63,13 @@ exports[`Input select renders correctly when disabled is true 1`] = `
 
 exports[`Input select renders correctly when type is select 1`] = `
 <div>
-  <div
-    className="selectWrapper"
-    style={Object {}}
-  >
-    <select
-      className="select"
-      defaultValue=""
-      id=""
-      onChange={[Function]}
-    />
-  </div>
+  <Select
+    defaultValue=""
+    error={false}
+    id=""
+    onBlur={[Function]}
+    onChange={[Function]}
+  />
   <p
     className="infoText"
   />
@@ -113,15 +78,14 @@ exports[`Input select renders correctly when type is select 1`] = `
 
 exports[`Input textArea renders correctly 1`] = `
 <div>
-  <textarea
-    className="textArea"
+  <TextArea
     defaultValue=""
+    error={false}
     id=""
+    inlineStyles={Object {}}
     onBlur={[Function]}
     onChange={[Function]}
     placeholder=""
-    style={Object {}}
-    type="text"
   />
   <p
     className="infoText"
@@ -131,16 +95,15 @@ exports[`Input textArea renders correctly 1`] = `
 
 exports[`Input textArea renders correctly when disabled is true 1`] = `
 <div>
-  <textarea
-    className="textArea"
+  <TextArea
     defaultValue=""
     disabled={true}
+    error={false}
     id=""
+    inlineStyles={Object {}}
     onBlur={[Function]}
     onChange={[Function]}
     placeholder=""
-    style={Object {}}
-    type="text"
   />
   <p
     className="infoText"
@@ -150,15 +113,14 @@ exports[`Input textArea renders correctly when disabled is true 1`] = `
 
 exports[`Input textArea renders correctly when type is textArea 1`] = `
 <div>
-  <textarea
-    className="textArea"
+  <TextArea
     defaultValue=""
+    error={false}
     id=""
+    inlineStyles={Object {}}
     onBlur={[Function]}
     onChange={[Function]}
     placeholder=""
-    style={Object {}}
-    type="text"
   />
   <p
     className="infoText"
@@ -168,15 +130,14 @@ exports[`Input textArea renders correctly when type is textArea 1`] = `
 
 exports[`Input when disabled is passed in renders correctly 1`] = `
 <div>
-  <input
-    className="input"
+  <TextInput
     defaultValue=""
     disabled={true}
     id=""
+    inlineStyles={Object {}}
     onBlur={[Function]}
     onChange={[Function]}
     placeholder=""
-    style={Object {}}
     type="text"
   />
   <p
@@ -187,14 +148,13 @@ exports[`Input when disabled is passed in renders correctly 1`] = `
 
 exports[`Input when error prop is true renders correctly 1`] = `
 <div>
-  <input
-    className="input error"
+  <TextInput
     defaultValue=""
     id=""
+    inlineStyles={Object {}}
     onBlur={[Function]}
     onChange={[Function]}
     placeholder=""
-    style={Object {}}
     type="text"
   />
   <p
@@ -205,14 +165,13 @@ exports[`Input when error prop is true renders correctly 1`] = `
 
 exports[`Input when idForLabel prop is passed in renders correctly 1`] = `
 <div>
-  <input
-    className="input"
+  <TextInput
     defaultValue=""
     id="exampleID"
+    inlineStyles={Object {}}
     onBlur={[Function]}
     onChange={[Function]}
     placeholder=""
-    style={Object {}}
     type="text"
   />
   <p
@@ -223,14 +182,13 @@ exports[`Input when idForLabel prop is passed in renders correctly 1`] = `
 
 exports[`Input when infoText prop is passed in renders correctly 1`] = `
 <div>
-  <input
-    className="input"
+  <TextInput
     defaultValue=""
     id=""
+    inlineStyles={Object {}}
     onBlur={[Function]}
     onChange={[Function]}
     placeholder=""
-    style={Object {}}
     type="text"
   />
   <p
@@ -243,14 +201,13 @@ exports[`Input when infoText prop is passed in renders correctly 1`] = `
 
 exports[`Input when placeholder prop is passed in renders correctly 1`] = `
 <div>
-  <input
-    className="input"
+  <TextInput
     defaultValue=""
     id=""
+    inlineStyles={Object {}}
     onBlur={[Function]}
     onChange={[Function]}
     placeholder="Example Text"
-    style={Object {}}
     type="text"
   />
   <p
@@ -261,14 +218,13 @@ exports[`Input when placeholder prop is passed in renders correctly 1`] = `
 
 exports[`Input when required is passed in renders correctly 1`] = `
 <div>
-  <input
-    className="input"
+  <TextInput
     defaultValue=""
     id=""
+    inlineStyles={Object {}}
     onBlur={[Function]}
     onChange={[Function]}
     placeholder=""
-    style={Object {}}
     type="text"
   />
   <p
@@ -279,14 +235,13 @@ exports[`Input when required is passed in renders correctly 1`] = `
 
 exports[`Input when type is password renders correctly 1`] = `
 <div>
-  <input
-    className="input"
+  <TextInput
     defaultValue=""
     id=""
+    inlineStyles={Object {}}
     onBlur={[Function]}
     onChange={[Function]}
     placeholder=""
-    style={Object {}}
     type="password"
   />
   <p
@@ -297,14 +252,13 @@ exports[`Input when type is password renders correctly 1`] = `
 
 exports[`Input when validate is passed in renders correctly 1`] = `
 <div>
-  <input
-    className="input"
+  <TextInput
     defaultValue=""
     id=""
+    inlineStyles={Object {}}
     onBlur={[Function]}
     onChange={[Function]}
     placeholder=""
-    style={Object {}}
     type="text"
   />
   <p
@@ -315,14 +269,13 @@ exports[`Input when validate is passed in renders correctly 1`] = `
 
 exports[`Input when value prop is passed in renders correctly 1`] = `
 <div>
-  <input
-    className="input"
+  <TextInput
     defaultValue=""
     id=""
+    inlineStyles={Object {}}
     onBlur={[Function]}
     onChange={[Function]}
     placeholder=""
-    style={Object {}}
     type="text"
   />
   <p

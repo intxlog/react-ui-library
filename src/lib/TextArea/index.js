@@ -11,7 +11,6 @@ const TextArea = ({
   placholder,
   disabled,
   defaultValue,
-  type,
   onChange,
   onBlur,
   error
@@ -27,7 +26,6 @@ const TextArea = ({
       placeholder={placholder}
       disabled={disabled}
       defaultValue={defaultValue}
-      type={type}
       onChange={onChange}
       onBlur={onBlur}
     ></textarea>
@@ -37,11 +35,10 @@ const TextArea = ({
 //rules for props being passed in
 TextArea.propTypes = {
   id: PropTypes.string,
-  inlineStyles: PropTypes.string,
+  inlineStyles: PropTypes.object,
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
   defaultValue: PropTypes.string,
-  type: PropTypes.oneOf([`text`, `password`]),
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
   error: PropTypes.bool

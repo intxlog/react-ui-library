@@ -237,7 +237,6 @@ class Input extends React.Component {
           placeholder={this.props.placeholder}
           disabled={this.props.disabled}
           defaultValue={this.props.defaultValue}
-          type={type}
           onChange={this.handleOnChange}
           onBlur={this.handleOnBlur}
           error={this.props.error}
