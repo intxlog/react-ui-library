@@ -10,7 +10,7 @@ describe('validators root', () => {
       message: null,
       value: null
     })
-  }),
+  })
   it('the email function is called when email is the type passed in', () => {
     const value = 'any@email.com'
     const type = 'email' 

@@ -2,35 +2,35 @@ import ssnRegex from '../regex'
 import ssnValidator from '..'
 
 describe('ssnValidator', () => {
-    it('returns the correct payload when given a valid ssn', () => {
-      const ssn = 123456789
-      expect(ssnValidator(ssn)).toEqual({
-        valid: true,
-        message: null,
-        value: 123456789
-      })
-    })
-    it('returns the correct payload when given an invalid ssn', () => {
-      const ssn = 'invalid'
-      expect(ssnValidator(ssn)).toEqual({
-        valid: false,
-        message: "Invalid format",
-        value: null
-      })
+  it('returns the correct payload when given a valid ssn', () => {
+    const ssn = 123456789
+    expect(ssnValidator(ssn)).toEqual({
+      valid: true,
+      message: null,
+      value: 123456789
     })
   })
+  it('returns the correct payload when given an invalid ssn', () => {
+    const ssn = 'invalid'
+    expect(ssnValidator(ssn)).toEqual({
+      valid: false,
+      message: "Invalid format",
+      value: null
+    })
+  })
+})
 
 describe('ssnRegex', () => {
-it('returns true when given a valid ssn', () => {
+  it('returns true when given a valid ssn', () => {
     const ssn = 123456789
     expect(ssnRegex(ssn)).toEqual(true)
-}),
-it('returns false when given an invalid ssn', () => {
+  })
+  it('returns false when given an invalid ssn', () => {
     const ssn = 'invalid'
     expect(ssnRegex(ssn)).toEqual(false)
-}),
-it('returns false when given a blank ssn', () => {
+  })
+  it('returns false when given a blank ssn', () => {
     const ssn = ''
     expect(ssnRegex(ssn)).toEqual(false)
-})
+  })
 })
