@@ -211,6 +211,7 @@ class Input extends React.Component {
           id={this.props.idForLabel}
           value={this.props.value}
           name={this.props.name}
+          labelText={this.props.labelText}
           defaultChecked={this.props.defaultChecked}
           onChange={this.handleOnChange}
           onBlur={this.handleOnBlur}

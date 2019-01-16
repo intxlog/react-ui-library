@@ -16,12 +16,12 @@ const Select = ({
 }) => {
   return (
     <div
-      className={styles.container} 
+      className={styles.wrapper} 
     >
       <select
         id={id}
         className={classNames({
-          [styles.wrapper]: true,
+          [styles.element]: true,
           [styles.disabled]: disabled,
           [styles.error]: error
         })}
@@ -39,7 +39,7 @@ const Select = ({
 //rules for props being passed in
 Select.propTypes = {
   id: PropTypes.string,
-  children: PropTypes.object,
+  children: PropTypes.array,
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
