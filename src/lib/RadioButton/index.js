@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 //import css
 import styles from './styles.module.scss'
@@ -9,18 +10,23 @@ const RadioButton = ({
   value,
   name,
   defaultChecked,
+  disabled,
   labelText,
   onChange,
   onBlur
 }) => {
   return (
-    <div className={styles.container}>
+    <div className={classNames({
+      [styles.container]: true,
+      [styles.disabled]: disabled
+    })}>
       <input
         id={id}
         value={value}
         name={name}
         type={`radio`}
         defaultChecked={defaultChecked}
+        disabled={disabled}
         onChange={onChange}
         onBlur={onBlur}
       />
@@ -38,6 +44,7 @@ RadioButton.propTypes = {
   value: PropTypes.string,
   name: PropTypes.string,
   defaultChecked: PropTypes.bool,
+  disabled: PropTypes.bool,
   labelText: PropTypes.string.isRequired,
   onChange: PropTypes.func,
   onBlur: PropTypes.func

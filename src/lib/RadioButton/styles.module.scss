@@ -3,9 +3,11 @@
 $heightWidth: 14px;
 $circleHeightWidth: 8px;
 $circleOffset: 2px;
+
 .container {
   position: relative;
 
+  
   > label {
     font-size: 16px;
     line-height: 22px;
@@ -19,7 +21,7 @@ $circleOffset: 2px;
     width: 1px;
     height: 1px;
     position: absolute;
-
+    
     &:checked ~ .element::before {
       display: block;
     } 
@@ -35,7 +37,7 @@ $circleOffset: 2px;
     position: absolute;
     top: 4px;
     pointer-events: none;
-
+    
     &:before {
       content: '';
       background-color: $colorBorder;
@@ -47,6 +49,15 @@ $circleOffset: 2px;
       border-radius: 100%;
       display: none;
     }
+  }
 
+  &.disabled {
+    > label {
+      opacity: .5;
+    }
+
+    > .element {
+      background-color: rgb(235, 235, 228);
+    }
   }
 }

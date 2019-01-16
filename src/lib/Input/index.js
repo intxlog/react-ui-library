@@ -213,6 +213,7 @@ class Input extends React.Component {
           name={this.props.name}
           labelText={this.props.labelText}
           defaultChecked={this.props.defaultChecked}
+          disabled={this.props.disabled}
           onChange={this.handleOnChange}
           onBlur={this.handleOnBlur}
         />
@@ -258,13 +259,13 @@ class Input extends React.Component {
     }
     
     return (
-      <div>
+      <>
         {element}
         <p className={classNames({
           [styles.infoText]: true,
           [styles.error]: this.props.error || this.state.error
         })}>{this.props.infoText || this.state.infoText}</p>
-      </div>
+      </>
     )
   }
 }

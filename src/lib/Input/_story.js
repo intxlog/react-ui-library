@@ -135,46 +135,6 @@ storiesOf('Input Select', module)
   </Input>
 ))
 
-
-storiesOf('Input Radio', module)
-.add('default', () => (
-  <>
-    <Input
-      type='radio'
-      name={'test'}
-      value={`option1`}
-      idForLabel={`option1`}
-      labelText={'Option 1'}
-    ></Input>
-    <Input
-      type='radio'
-      name={'test'}
-      value={`option2`}
-      idForLabel={`option2`}
-      labelText={'Option 2'}
-    ></Input>
-  </>
-))
-.add('defaultChecked', () => (
-  <>
-    <Input
-      type='radio'
-      name={'test'}
-      value={`option1`}
-      idForLabel={`option1`}
-      labelText={'Option 1'}
-      defaultChecked
-    ></Input>
-    <Input
-      type='radio'
-      name={'test'}
-      value={`option2`}
-      idForLabel={`option2`}
-      labelText={'Option 2'}
-    ></Input>
-  </>
-))
-
 storiesOf('Input Checkbox', module)
 .add('default', () => (
   <Input
