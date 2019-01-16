@@ -1,5 +1,8 @@
 import email from './email'
 import phone from './phone'
+import ein from './ein'
+import ssn from './ssn'
+
 export default function (value, type) {
   let payload = {
     valid: false,
@@ -14,6 +17,11 @@ export default function (value, type) {
       break
     case `phone`:
       payload = phone(value)
+    case `ein`:
+      payload = ein(value)
+      break
+    case `ssn`:
+      payload = ssn(value)
       break
     default: //no conditions were met so we are going to return valid
       payload.valid = true
