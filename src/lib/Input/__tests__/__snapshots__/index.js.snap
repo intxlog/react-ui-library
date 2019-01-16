@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Input checkbox renders correctly 1`] = `
-<div>
+<Fragment>
   <Checkbox
     id="exampleID"
     labelText="None Provided"
@@ -11,11 +11,11 @@ exports[`Input checkbox renders correctly 1`] = `
   <p
     className="infoText"
   />
-</div>
+</Fragment>
 `;
 
 exports[`Input radio renders correctly 1`] = `
-<div>
+<Fragment>
   <RadioButton
     id="exampleID"
     labelText="None Provided"
@@ -25,11 +25,11 @@ exports[`Input radio renders correctly 1`] = `
   <p
     className="infoText"
   />
-</div>
+</Fragment>
 `;
 
 exports[`Input renders correctly 1`] = `
-<div>
+<Fragment>
   <TextInput
     defaultValue=""
     id=""
@@ -42,11 +42,11 @@ exports[`Input renders correctly 1`] = `
   <p
     className="infoText"
   />
-</div>
+</Fragment>
 `;
 
 exports[`Input select renders correctly when disabled is true 1`] = `
-<div>
+<Fragment>
   <Select
     defaultValue=""
     disabled={true}
@@ -58,11 +58,11 @@ exports[`Input select renders correctly when disabled is true 1`] = `
   <p
     className="infoText"
   />
-</div>
+</Fragment>
 `;
 
 exports[`Input select renders correctly when type is select 1`] = `
-<div>
+<Fragment>
   <Select
     defaultValue=""
     error={false}
@@ -73,11 +73,11 @@ exports[`Input select renders correctly when type is select 1`] = `
   <p
     className="infoText"
   />
-</div>
+</Fragment>
 `;
 
 exports[`Input textArea renders correctly 1`] = `
-<div>
+<Fragment>
   <TextArea
     defaultValue=""
     error={false}
@@ -90,11 +90,11 @@ exports[`Input textArea renders correctly 1`] = `
   <p
     className="infoText"
   />
-</div>
+</Fragment>
 `;
 
 exports[`Input textArea renders correctly when disabled is true 1`] = `
-<div>
+<Fragment>
   <TextArea
     defaultValue=""
     disabled={true}
@@ -108,11 +108,11 @@ exports[`Input textArea renders correctly when disabled is true 1`] = `
   <p
     className="infoText"
   />
-</div>
+</Fragment>
 `;
 
 exports[`Input textArea renders correctly when type is textArea 1`] = `
-<div>
+<Fragment>
   <TextArea
     defaultValue=""
     error={false}
@@ -125,11 +125,11 @@ exports[`Input textArea renders correctly when type is textArea 1`] = `
   <p
     className="infoText"
   />
-</div>
+</Fragment>
 `;
 
 exports[`Input when disabled is passed in renders correctly 1`] = `
-<div>
+<Fragment>
   <TextInput
     defaultValue=""
     disabled={true}
@@ -143,11 +143,11 @@ exports[`Input when disabled is passed in renders correctly 1`] = `
   <p
     className="infoText"
   />
-</div>
+</Fragment>
 `;
 
 exports[`Input when error prop is true renders correctly 1`] = `
-<div>
+<Fragment>
   <TextInput
     defaultValue=""
     id=""
@@ -160,11 +160,11 @@ exports[`Input when error prop is true renders correctly 1`] = `
   <p
     className="infoText error"
   />
-</div>
+</Fragment>
 `;
 
 exports[`Input when idForLabel prop is passed in renders correctly 1`] = `
-<div>
+<Fragment>
   <TextInput
     defaultValue=""
     id="exampleID"
@@ -177,11 +177,11 @@ exports[`Input when idForLabel prop is passed in renders correctly 1`] = `
   <p
     className="infoText"
   />
-</div>
+</Fragment>
 `;
 
 exports[`Input when infoText prop is passed in renders correctly 1`] = `
-<div>
+<Fragment>
   <TextInput
     defaultValue=""
     id=""
@@ -196,11 +196,11 @@ exports[`Input when infoText prop is passed in renders correctly 1`] = `
   >
     Example Text
   </p>
-</div>
+</Fragment>
 `;
 
 exports[`Input when placeholder prop is passed in renders correctly 1`] = `
-<div>
+<Fragment>
   <TextInput
     defaultValue=""
     id=""
@@ -213,11 +213,11 @@ exports[`Input when placeholder prop is passed in renders correctly 1`] = `
   <p
     className="infoText"
   />
-</div>
+</Fragment>
 `;
 
 exports[`Input when required is passed in renders correctly 1`] = `
-<div>
+<Fragment>
   <TextInput
     defaultValue=""
     id=""
@@ -230,11 +230,11 @@ exports[`Input when required is passed in renders correctly 1`] = `
   <p
     className="infoText"
   />
-</div>
+</Fragment>
 `;
 
 exports[`Input when type is password renders correctly 1`] = `
-<div>
+<Fragment>
   <TextInput
     defaultValue=""
     id=""
@@ -247,11 +247,11 @@ exports[`Input when type is password renders correctly 1`] = `
   <p
     className="infoText"
   />
-</div>
+</Fragment>
 `;
 
 exports[`Input when validate is passed in renders correctly 1`] = `
-<div>
+<Fragment>
   <TextInput
     defaultValue=""
     id=""
@@ -264,11 +264,11 @@ exports[`Input when validate is passed in renders correctly 1`] = `
   <p
     className="infoText"
   />
-</div>
+</Fragment>
 `;
 
 exports[`Input when value prop is passed in renders correctly 1`] = `
-<div>
+<Fragment>
   <TextInput
     defaultValue=""
     id=""
@@ -281,5 +281,5 @@ exports[`Input when value prop is passed in renders correctly 1`] = `
   <p
     className="infoText"
   />
-</div>
+</Fragment>
 `;
