@@ -20,6 +20,26 @@ describe('validators root', () => {
       message: null,
       value: 'any@email.com'
     })
+  }),
+  it('the phone function is called when phone is the type passed in', () => {
+    const value = 1234567890
+    const type = 'phone'
+    
+    expect(validator(value,type)).toEqual({
+      valid: true,
+      message: null,
+      value: 1234567890
+    })
+  })
+  it('the ssn function is called when ssn is the type passed in', () => {
+    const value = 123456789
+    const type = 'ssn'
+    
+    expect(validator(value,type)).toEqual({
+      valid: true,
+      message: null,
+      value: 123456789
+    })
   })
   it('the zip function is called when zip is the type passed in', () => {
     const value = 12345
