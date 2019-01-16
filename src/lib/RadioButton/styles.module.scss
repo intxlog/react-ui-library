@@ -20,7 +20,7 @@ $circleOffset: 2px;
     height: 1px;
     position: absolute;
 
-    &:checked ~ .radio::before {
+    &:checked ~ .element::before {
       display: block;
     } 
   }
