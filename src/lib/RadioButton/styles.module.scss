@@ -60,4 +60,15 @@ $circleOffset: 2px;
       background-color: rgb(235, 235, 228);
     }
   }
+
+  &.error {
+    > label {
+      color: red;
+    }
+
+    > .element {
+      background-color: rgb(249, 154, 154);
+      border: red 1px solid;
+    }
+  }
 }

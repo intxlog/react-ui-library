@@ -12,12 +12,14 @@ const RadioButton = ({
   defaultChecked,
   disabled,
   labelText,
+  error,
   onChange,
   onBlur
 }) => {
   return (
     <div className={classNames({
       [styles.container]: true,
+      [styles.error]: error,
       [styles.disabled]: disabled
     })}>
       <input
@@ -41,11 +43,16 @@ const RadioButton = ({
 //rules for props being passed in
 RadioButton.propTypes = {
   id: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool
+  ]).isRequired,
   name: PropTypes.string,
   defaultChecked: PropTypes.bool,
   disabled: PropTypes.bool,
   labelText: PropTypes.string.isRequired,
+  error: PropTypes.bool,
   onChange: PropTypes.func,
   onBlur: PropTypes.func
 }

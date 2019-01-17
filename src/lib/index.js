@@ -4,6 +4,7 @@ import Input from './Input'
 import LoadingGif from './LoadingGif'
 import Modal from './Modal'
 import RadioButton from './RadioButton'
+import RadioGroup from './RadioGroup'
 import Select from './Select'
 import SiteContainer from './SiteContainer'
 import TextArea from './TextArea'
@@ -16,6 +17,7 @@ export {
   LoadingGif,
   Modal,
   RadioButton,
+  RadioGroup,
   Select,
   SiteContainer,
   TextArea,
