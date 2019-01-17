@@ -20,8 +20,6 @@ describe('validators root', () => {
       value: 'any@email.com'
     })
   })
-<<<<<<< HEAD
-=======
   it('the phone function is called when phone is the type passed in', () => {
     const value = 1234567890
     const type = 'phone'
@@ -52,7 +50,6 @@ describe('validators root', () => {
       value: 123456789
     })
   })
->>>>>>> develop
   it('the zip function is called when zip is the type passed in', () => {
     const value = 12345
     const type = 'zip'

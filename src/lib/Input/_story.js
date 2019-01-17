@@ -41,21 +41,16 @@ storiesOf('Input', module)
     type='password'
   ></Input>
 ))
-<<<<<<< HEAD
-=======
 .add('email (validation)', () => (
   <Input
     type='email'
   ></Input>
 ))
->>>>>>> develop
 .add('zip (validation)', () => (
   <Input
     type='zip'
     required
   ></Input>
-<<<<<<< HEAD
-=======
  ))
 .add('phone (validation)', () => (
   <Input
@@ -74,7 +69,6 @@ storiesOf('Input', module)
     type='ssn'
     required
   ></Input>
->>>>>>> develop
 ))
 
 storiesOf('TextArea', module)
