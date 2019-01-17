@@ -8,6 +8,9 @@ exports[`Input checkbox renders correctly 1`] = `
     onBlur={[Function]}
     onChange={[Function]}
   />
+  <div
+    className="errorBox"
+  />
 </Fragment>
 `;
 
@@ -18,6 +21,10 @@ exports[`Input radio renders correctly 1`] = `
     labelText="None Provided"
     onBlur={[Function]}
     onChange={[Function]}
+    value={true}
+  />
+  <div
+    className="errorBox"
   />
 </Fragment>
 `;
@@ -34,6 +41,9 @@ exports[`Input renders correctly 1`] = `
     placeholder=""
     type="text"
   />
+  <div
+    className="errorBox"
+  />
 </Fragment>
 `;
 
@@ -47,6 +57,9 @@ exports[`Input select renders correctly when disabled is true 1`] = `
     onBlur={[Function]}
     onChange={[Function]}
   />
+  <div
+    className="errorBox"
+  />
 </Fragment>
 `;
 
@@ -58,6 +71,9 @@ exports[`Input select renders correctly when type is select 1`] = `
     id=""
     onBlur={[Function]}
     onChange={[Function]}
+  />
+  <div
+    className="errorBox"
   />
 </Fragment>
 `;
@@ -71,6 +87,9 @@ exports[`Input textArea renders correctly 1`] = `
     onBlur={[Function]}
     onChange={[Function]}
     placeholder=""
+  />
+  <div
+    className="errorBox"
   />
 </Fragment>
 `;
@@ -86,6 +105,9 @@ exports[`Input textArea renders correctly when disabled is true 1`] = `
     onChange={[Function]}
     placeholder=""
   />
+  <div
+    className="errorBox"
+  />
 </Fragment>
 `;
 
@@ -98,6 +120,9 @@ exports[`Input textArea renders correctly when type is textArea 1`] = `
     onBlur={[Function]}
     onChange={[Function]}
     placeholder=""
+  />
+  <div
+    className="errorBox"
   />
 </Fragment>
 `;
@@ -115,6 +140,9 @@ exports[`Input when disabled is passed in renders correctly 1`] = `
     placeholder=""
     type="text"
   />
+  <div
+    className="errorBox"
+  />
 </Fragment>
 `;
 
@@ -129,6 +157,9 @@ exports[`Input when error prop is true renders correctly 1`] = `
     onChange={[Function]}
     placeholder=""
     type="text"
+  />
+  <div
+    className="errorBox"
   />
 </Fragment>
 `;
@@ -145,6 +176,9 @@ exports[`Input when idForLabel prop is passed in renders correctly 1`] = `
     placeholder=""
     type="text"
   />
+  <div
+    className="errorBox"
+  />
 </Fragment>
 `;
 
@@ -159,6 +193,9 @@ exports[`Input when infoText prop is passed in renders correctly 1`] = `
     onChange={[Function]}
     placeholder=""
     type="text"
+  />
+  <div
+    className="errorBox"
   />
 </Fragment>
 `;
@@ -175,6 +212,9 @@ exports[`Input when placeholder prop is passed in renders correctly 1`] = `
     placeholder="Example Text"
     type="text"
   />
+  <div
+    className="errorBox"
+  />
 </Fragment>
 `;
 
@@ -189,6 +229,9 @@ exports[`Input when required is passed in renders correctly 1`] = `
     onChange={[Function]}
     placeholder=""
     type="text"
+  />
+  <div
+    className="errorBox"
   />
 </Fragment>
 `;
@@ -205,6 +248,9 @@ exports[`Input when type is password renders correctly 1`] = `
     placeholder=""
     type="password"
   />
+  <div
+    className="errorBox"
+  />
 </Fragment>
 `;
 
@@ -220,6 +266,9 @@ exports[`Input when validate is passed in renders correctly 1`] = `
     placeholder=""
     type="text"
   />
+  <div
+    className="errorBox"
+  />
 </Fragment>
 `;
 
@@ -234,6 +283,9 @@ exports[`Input when value prop is passed in renders correctly 1`] = `
     onChange={[Function]}
     placeholder=""
     type="text"
+  />
+  <div
+    className="errorBox"
   />
 </Fragment>
 `;

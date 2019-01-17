@@ -132,7 +132,8 @@ describe('Input', () => {
     it('renders correctly', () => {
       wrapper.setProps({
         type:'radio',
-        idForLabel:`exampleID`
+        idForLabel:`exampleID`,
+        value: true
       })
       expect(wrapper).toMatchSnapshot()
     })
@@ -230,6 +231,18 @@ describe('Input', () => {
 
         //check the value of the spy
         expect(checkRequiredSpy).toHaveBeenCalled()
+      })
+    })
+    describe('with a value and disabled prop is true', () => {
+      it('calls the correct method', () => {
+        wrapper.setProps({
+          disabled: true
+        })
+
+        //call the method
+        wrapper.instance().validate('test')
+
+        expect(wrapper.state().isValid).toEqual(true)
       })
     })
   })
