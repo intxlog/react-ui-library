@@ -17,20 +17,14 @@ storiesOf('Input', module)
   ></Input>
 ))
 .add('default (disabled)', () => (
-  <Input disabled></Input>
+  <Input 
+    disabled
+  ></Input>
 ))
 .add('default with defaultValue (disabled)', () => (
-  <Input disabled defaultValue={`Example Text`}></Input>
-))
-.add('default with infoText', () => (
-  <Input infoText={`Example info text`}></Input>
-))
-.add('default with infoText and error', () => (
-  <Input infoText={`Example info text`} error={true}></Input>
-))
-.add('email', () => (
-  <Input
-    type='email'
+  <Input 
+    disabled 
+    defaultValue={`Example Text`}
   ></Input>
 ))
 .add('email isValid event fires', () => (
@@ -38,6 +32,7 @@ storiesOf('Input', module)
     type='email'
     required={true}
     defaultValue={'test@test.com'}
+    disabled
     isValid={(bool) => {console.log(bool)}}
   ></Input>
 ))
@@ -46,16 +41,47 @@ storiesOf('Input', module)
     type='password'
   ></Input>
 ))
+<<<<<<< HEAD
+=======
+.add('email (validation)', () => (
+  <Input
+    type='email'
+  ></Input>
+))
+>>>>>>> develop
 .add('zip (validation)', () => (
   <Input
     type='zip'
     required
   ></Input>
+<<<<<<< HEAD
+=======
+ ))
+.add('phone (validation)', () => (
+  <Input
+    type='phone'
+    required
+  ></Input>
+))
+.add('ein (validation) 9 digits', () => (
+  <Input
+    type='ein'
+    required
+  ></Input>
+))
+.add('ssn (validation)', () => (
+  <Input
+    type='ssn'
+    required
+  ></Input>
+>>>>>>> develop
 ))
 
 storiesOf('TextArea', module)
 .add('default', () => (
-  <Input type={`textArea`}></Input>
+  <Input 
+    type={`textArea`}
+  ></Input>
 ))
 .add('default (required)', () => (
   <Input
@@ -71,7 +97,7 @@ storiesOf('TextArea', module)
     type={`textArea`} 
     disabled
     defaultValue={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sollicitudin velit ac tellus posuere, vel rutrum dolor pellentesque. Duis dapibus sapien in mauris pretium volutpat. Vivamus id purus in erat pharetra ultrices eget sit amet orci. Ut ornare dolor sit amet rutrum euismod. Suspendisse potenti. Nunc sed urna quis augue dictum rhoncus. Vivamus vehicula sapien sed dolor gravida, at imperdiet mi aliquet. Curabitur venenatis gravida metus et tempor. Phasellus quis tortor lacinia, gravida magna sit amet, tincidunt odio. Donec nulla purus, interdum nec condimentum ut, rutrum quis arcu.`}
-    ></Input>
+  ></Input>
 ))
 .add('with placeholder', () => (
   <Input type={`textArea`} placeholder={`Example of a placeholder`}></Input>
@@ -114,46 +140,6 @@ storiesOf('Input Select', module)
     <option>Option 2</option>
     <option>Option 3</option>
   </Input>
-))
-
-
-storiesOf('Input Radio', module)
-.add('default', () => (
-  <>
-    <Input
-      type='radio'
-      name={'test'}
-      value={`option1`}
-      idForLabel={`option1`}
-      labelText={'Option 1'}
-    ></Input>
-    <Input
-      type='radio'
-      name={'test'}
-      value={`option2`}
-      idForLabel={`option2`}
-      labelText={'Option 2'}
-    ></Input>
-  </>
-))
-.add('defaultChecked', () => (
-  <>
-    <Input
-      type='radio'
-      name={'test'}
-      value={`option1`}
-      idForLabel={`option1`}
-      labelText={'Option 1'}
-      defaultChecked
-    ></Input>
-    <Input
-      type='radio'
-      name={'test'}
-      value={`option2`}
-      idForLabel={`option2`}
-      labelText={'Option 2'}
-    ></Input>
-  </>
 ))
 
 storiesOf('Input Checkbox', module)

@@ -1,0 +1,63 @@
+@import './../../styles/helpers.scss';
+
+$heightWidth: 14px;
+$circleHeightWidth: 8px;
+$circleOffset: 2px;
+
+.container {
+  position: relative;
+
+  
+  > label {
+    font-size: 16px;
+    line-height: 22px;
+    cursor: pointer;
+    padding-left: 18px;
+    display: block;
+  } 
+  
+  > input {
+    clip: rect(1px, 1px, 1px, 1px);
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    
+    &:checked ~ .element::before {
+      display: block;
+    } 
+  }
+  
+  > .element {
+    background-color: white;
+    border-radius: 100%;
+    height: $heightWidth;
+    width: $heightWidth;
+    cursor: pointer;
+    border: 1px solid $colorBorder;
+    position: absolute;
+    top: 4px;
+    pointer-events: none;
+    
+    &:before {
+      content: '';
+      background-color: $colorBorder;
+      height: $circleHeightWidth;
+      width: $circleHeightWidth;
+      position: absolute;
+      top: $circleOffset;
+      left: $circleOffset;
+      border-radius: 100%;
+      display: none;
+    }
+  }
+
+  &.disabled {
+    > label {
+      opacity: .5;
+    }
+
+    > .element {
+      background-color: rgb(235, 235, 228);
+    }
+  }
+}

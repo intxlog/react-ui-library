@@ -5,19 +5,25 @@ import classNames from 'classnames'
 //import css
 import styles from './styles.module.scss'
 
-//import validator
+//import validators
 import validateString from './../../validators'
 import validateRequired from './../../validators/required'
+
+//import components
+import TextInput from '../TextInput'
+import TextArea from '../TextArea'
+import Checkbox from '../Checkbox'
+import RadioButton from '../RadioButton'
+import Select from '../Select'
 
 // logic behind all the different types of inputs
 class Input extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      value: '',
       entered: false,
+      value: ``,
       isValid: false,
-      validValue: null,
       error: false,
       infoText: null
     }
@@ -25,7 +31,6 @@ class Input extends React.Component {
 
   componentDidMount() {
     //fire the isValid function letting the user know the input is not valid by default
-    //check to make sure there is not a defaultValue
     if (this.props.defaultValue) {
       let val = this.props.defaultValue
       
@@ -33,84 +38,76 @@ class Input extends React.Component {
       if (val === `IUILIBdefault`) {
         val = ``
 
-        //fire the isValid function if one is passed in
-        this.props.isValid(this.state.isValid)
+        this.reportValidity()
       } else {
-        //set state as the defaultValue
         this.setState({
           value: val
         })
 
-        //validate the value
         this.validate(val)
       }
     } else { //there is not a defaultValue
-      //fire the isValid function if one is passed in
-      this.props.isValid(this.state.isValid)
+      this.reportValidity()
     } //end defaultValue check
   }
 
   componentDidUpdate(prevProps, prevState) {
-    //fire isValid function from props if isValid from state changed
-    if (this.state.isValid !== prevState.isValid) {
-      this.props.isValid(this.state.isValid)
+    if (prevState.value !== this.state.value) {
+      this.validate(this.state.value)
+    }
+
+    //when isValid changes report the value
+    if (prevState.isValid !== this.state.isValid) {
+      this.reportValidity()
+    }
+
+    //if entered becomes true then validate the input
+    if (!prevState.entered && this.state.entered) {
+      this.validate(this.state.value)
     }
 
     //check to see if the formSubmitted prop becomes true and validate the field
     if (this.props.formSubmitted !== prevProps.formSubmitted && this.props.formSubmitted) {
-      //change the entered value in state to true to mimick the user entering the field
       this.setState({
         entered: true
       })
-
-      //validate the value
       this.validate(this.state.value)
+    }
+
+    //turn off error and make valid if the input becomes disabled
+    if (!prevProps.disabled && this.props.disabled) {
+      this.setState({
+        error: false,
+        infoText: null,
+        isValid: true,
+        entered: false
+      })
     }
   }
 
   handleOnChange = (e) => {
     const val = e.target.value
-
-    //check if the user entered the input once before
-    if (this.state.entered) {
-      //run validation
-      this.validate(val)
-    }
-    
-    //update the state and fire the onChange function if one was passed in
     this.setState({value: val})
     this.props.onChange(val)  
   }
 
   handleOnBlur = () => {
-    const val = this.state.value
-
-    //set entered to true
     this.setState({entered: true})
-
-    //run validation
-    this.validate(val)
-
-    //fire the blur event that was passed in 
-    this.props.onBlur(val)
+    this.props.onBlur(this.state.value)
   }
 
   checkRequired = (val) => {
     const res = validateRequired(val)
     const isValid = res.valid
     const message = res.message
-    const newValue = res.value
 
     if (!isValid) {
       this.setState({
-        error: true,
         infoText: message
       })
     } else {
       this.setState({
-        error: false,
-        infoText: null,
-        validValue: newValue
+        infoText: null
       })
     }
 
@@ -119,23 +116,18 @@ class Input extends React.Component {
   }
 
   checkValid = (val) => {
-    //shorthand if statement
     const res = this.props.customValidationFunc ? this.props.customValidationFunc(val) : validateString(val, this.props.type)
     const isValid = res.valid
     const message = res.message
-    const newValue = res.value
 
     //if it is not valid then set the error state
     if (!isValid) {
       this.setState({
-        error: true,
         infoText: message
       })
     } else {
       this.setState({
-        error: false,
-        infoText: null,
-        validValue: newValue
+        infoText: null
       })
     }
 
@@ -149,7 +141,6 @@ class Input extends React.Component {
     //create a flag to see if required has passed to see if we will need to validate
     let requiredPassed = false
 
-    //check if this is required and passes the requirements
     if (this.props.required) {
       isValid = this.checkRequired(val)
       requiredPassed = this.checkRequired(val)
@@ -157,15 +148,28 @@ class Input extends React.Component {
       requiredPassed = true
     }
 
-    //check if validate prop is true and it passes the requirements
     if (this.props.validate && requiredPassed) {
       isValid = this.checkValid(val)
     }
 
-    //set isValid in state to the proper value
+    if (this.props.disabled) {
+      isValid = true
+    }
+
     this.setState({
       isValid
     })
+
+    if (this.state.entered) {
+      this.setState({
+        error: !isValid
+      })
+    }
+  }
+
+  //method to report whether of not the input is valid or not
+  reportValidity = () => {
+    this.props.isValid(this.state.isValid)
   }
 
   render(){
@@ -173,46 +177,7 @@ class Input extends React.Component {
     let type = null
     //var to store the html element we are going to display
     let element = null
-
-    //dynamically handle css classnames for inputs
-    let inputClassNames = classNames({
-      [styles.input]: true,
-      [this.props.className]: this.props.className,
-      [styles.error]: this.props.error || this.state.error
-    })
-
-    //dynamically handle css classnames for selects
-    let selectClassNames = classNames({
-      [styles.selectWrapper]: true,
-      [this.props.className]: this.props.className,
-      [styles.disabled]: this.props.disabled,
-      [styles.error]: this.props.error || this.state.error
-    })
-
-    //dynamically handle css classnames for radio
-    let radioClassNames = classNames({
-      [styles.radio]: true,
-      [this.props.className]: this.props.className
-    })
-
-    //dynamically handle css classnames for checkbox
-    let checkboxClassNames = classNames({
-      [styles.checkbox]: true,
-      [this.props.className]: this.props.className
-    })
-
-    //dynamically handle css classnames for info text
-    let textClassNames = classNames({
-      [styles.infoText]: true,
-      [styles.error]: this.props.error || this.state.error
-    })
-
-    //dynamically handle css classnames for textArea
-    let textAreaClassNames = classNames({
-      [styles.textArea]: true,
-      [styles.error]: this.props.error || this.state.error
-    })
-
+    
     //logic for the different html input types
     switch (this.props.type) {
       case `password`:
@@ -223,96 +188,84 @@ class Input extends React.Component {
         break
     }
 
-    //make the default html element an input
-    element =  <input
-      id={this.props.idForLabel}
-      style={this.props.inlineStyles}
-      className={inputClassNames}
-      placeholder={this.props.placeholder}
-      disabled={this.props.disabled}
-      defaultValue={this.props.defaultValue}
-      type={type}
-      onChange={this.handleOnChange}
-      onBlur={this.handleOnBlur}
-    />
-
-    //if type is select then make the element a select tag
-    if (this.props.type === 'select') {
-      element = <div
-        className={selectClassNames} 
-        style={this.props.inlineStyles} 
-      >
-        <select
+    //switch statement to handle different html cases
+    switch (this.props.type) {
+      case `select`:
+        element = <Select
           id={this.props.idForLabel}
-          className={styles.select}
           defaultValue={this.props.defaultValue}
           disabled={this.props.disabled}
+          error={this.props.error || this.state.error}
           onChange={this.handleOnChange}
+          onBlur={this.handleOnBlur}
         >
           {this.props.children}
-        </select>
-      </div>
-    }
+        </Select>
+        break
 
-    //if type is radio then make the element a input with type radio
-    if (this.props.type === 'radio') {
-      element = <div className={styles.radioWrapper}>
-        <input
+      case `radio`:
+        element = <RadioButton
           id={this.props.idForLabel}
           value={this.props.value}
           name={this.props.name}
-          type={`radio`}
+          labelText={this.props.labelText}
+          defaultChecked={this.props.defaultChecked}
+          disabled={this.props.disabled}
+          onChange={this.handleOnChange}
+          onBlur={this.handleOnBlur}
+        />
+        break
+
+      case `checkbox`:
+        element = <Checkbox
+          id={this.props.idForLabel}
+          value={this.props.value}
+          name={this.props.name}
           defaultChecked={this.props.defaultChecked}
           onChange={this.handleOnChange}
           onBlur={this.handleOnBlur}
-        />
-        <div className={radioClassNames}></div>
-        <label
-          htmlFor={this.props.idForLabel}
-          style={this.props.inlineStyles}
-        >{this.props.labelText}</label>
-      </div>
-    }
+          labelText={this.props.labelText}
+        ></Checkbox>
+        break
 
-    //if type is checkbox then make the element a input with type checkbox
-    if (this.props.type === 'checkbox') {
-      element = <div className={styles.checkBoxWrapper}>
-        <input
+      case `textArea`:
+        element = <TextArea
           id={this.props.idForLabel}
-          value={this.props.value}
-          name={this.props.name}
-          type={`checkbox`}
-          onChange={this.handleOnChange}
-          onBlur={this.handleOnBlur}
-        />
-        <div className={checkboxClassNames}></div>
-        <label
-          htmlFor={this.props.idForLabel}
-          style={this.props.inlineStyles}
-        >{this.props.labelText}</label>
-      </div>
-    }
-
-      //if type is checkbox then make the element a input with type checkbox
-      if (this.props.type === 'textArea') {
-        element = <textarea       
-          id={this.props.idForLabel}
-          style={this.props.inlineStyles}
-          className={textAreaClassNames}
+          inlineStyles={this.props.inlineStyles}
           placeholder={this.props.placeholder}
-          defaultValue={this.props.defaultValue}
           disabled={this.props.disabled}
-          type={type}
+          defaultValue={this.props.defaultValue}
           onChange={this.handleOnChange}
           onBlur={this.handleOnBlur}
-        ></textarea>
-      }
+          error={this.props.error}
+        ></TextArea>
+        break
 
+      default:
+        element = <TextInput
+          id={this.props.idForLabel}
+          inlineStyles={this.props.inlineStyles}
+          placeholder={this.props.placeholder}
+          disabled={this.props.disabled}
+          defaultValue={this.props.defaultValue}
+          type={type}
+          error={this.props.error || this.state.error}
+          onChange={this.handleOnChange}
+          onBlur={this.handleOnBlur}
+        ></TextInput>
+        break
+    }
+    
     return (
-      <div>
+      <>
         {element}
-        <p className={textClassNames}>{this.props.infoText || this.state.infoText}</p>
-      </div>
+        {this.state.error &&
+          <p className={classNames({
+            [styles.infoText]: true,
+            [styles.error]: this.state.error
+          })}>{this.state.infoText}</p>
+        }
+      </>
     )
   }
 }
@@ -321,19 +274,20 @@ class Input extends React.Component {
 Input.propTypes = {
   idForLabel: PropTypes.string,
   labelText: PropTypes.string,
-  className: PropTypes.string,
   inlineStyles: PropTypes.object,
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
-  infoText: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool
+    ]),
   name: PropTypes.string,
-  error: PropTypes.bool,
   defaultValue: PropTypes.string,
   defaultChecked: PropTypes.bool,
   validate: PropTypes.bool,
   required: PropTypes.bool,
-  type: PropTypes.oneOf(['text', 'email', 'password', 'select', 'radio', 'checkbox', 'textArea']).isRequired,
+  type: PropTypes.oneOf(['text', 'email', 'password', 'select', 'radio', 'checkbox', 'textArea', `zip`, `ein`, `phone`, `ssn`]).isRequired,
   customValidationFunc: PropTypes.func,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
@@ -345,10 +299,8 @@ Input.propTypes = {
 Input.defaultProps = {
   labelText: `None Provided`,
   placeholder: ``,
-  infoText: ``,
   idForLabel: ``,
   inlineStyles: {},
-  error: false,
   defaultValue: '',
   validate: true,
   required: false,
