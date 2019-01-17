@@ -8,7 +8,7 @@ import styles from './styles.module.scss'
 const TextInput = ({
   id,
   inlineStyles,
-  placholder,
+  placeholder,
   disabled,
   defaultValue,
   type,
@@ -24,7 +24,7 @@ const TextInput = ({
         [styles.element]: true,
         [styles.error]: error
       })}
-      placeholder={placholder}
+      placeholder={placeholder}
       disabled={disabled}
       defaultValue={defaultValue}
       type={type}

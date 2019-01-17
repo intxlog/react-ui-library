@@ -21,10 +21,9 @@ class Input extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      value: '',
       entered: false,
+      value: ``,
       isValid: false,
-      validValue: null,
       error: false,
       infoText: null
     }
@@ -32,7 +31,6 @@ class Input extends React.Component {
 
   componentDidMount() {
     //fire the isValid function letting the user know the input is not valid by default
-    //check to make sure there is not a defaultValue
     if (this.props.defaultValue) {
       let val = this.props.defaultValue
       
@@ -40,84 +38,76 @@ class Input extends React.Component {
       if (val === `IUILIBdefault`) {
         val = ``
 
-        //fire the isValid function if one is passed in
-        this.props.isValid(this.state.isValid)
+        this.reportValidity()
       } else {
-        //set state as the defaultValue
         this.setState({
           value: val
         })
 
-        //validate the value
         this.validate(val)
       }
     } else { //there is not a defaultValue
-      //fire the isValid function if one is passed in
-      this.props.isValid(this.state.isValid)
+      this.reportValidity()
     } //end defaultValue check
   }
 
   componentDidUpdate(prevProps, prevState) {
-    //fire isValid function from props if isValid from state changed
-    if (this.state.isValid !== prevState.isValid) {
-      this.props.isValid(this.state.isValid)
+    if (prevState.value !== this.state.value) {
+      this.validate(this.state.value)
+    }
+
+    //when isValid changes report the value
+    if (prevState.isValid !== this.state.isValid) {
+      this.reportValidity()
+    }
+
+    //if entered becomes true then validate the input
+    if (!prevState.entered && this.state.entered) {
+      this.validate(this.state.value)
     }
 
     //check to see if the formSubmitted prop becomes true and validate the field
     if (this.props.formSubmitted !== prevProps.formSubmitted && this.props.formSubmitted) {
-      //change the entered value in state to true to mimick the user entering the field
       this.setState({
         entered: true
       })
-
-      //validate the value
       this.validate(this.state.value)
+    }
+
+    //turn off error and make valid if the input becomes disabled
+    if (!prevProps.disabled && this.props.disabled) {
+      this.setState({
+        error: false,
+        infoText: null,
+        isValid: true,
+        entered: false
+      })
     }
   }
 
   handleOnChange = (e) => {
     const val = e.target.value
-
-    //check if the user entered the input once before
-    if (this.state.entered) {
-      //run validation
-      this.validate(val)
-    }
-    
-    //update the state and fire the onChange function if one was passed in
     this.setState({value: val})
     this.props.onChange(val)  
   }
 
   handleOnBlur = () => {
-    const val = this.state.value
-
-    //set entered to true
     this.setState({entered: true})
-
-    //run validation
-    this.validate(val)
-
-    //fire the blur event that was passed in 
-    this.props.onBlur(val)
+    this.props.onBlur(this.state.value)
   }
 
   checkRequired = (val) => {
     const res = validateRequired(val)
     const isValid = res.valid
     const message = res.message
-    const newValue = res.value
 
     if (!isValid) {
       this.setState({
-        error: true,
         infoText: message
       })
     } else {
       this.setState({
-        error: false,
-        infoText: null,
-        validValue: newValue
+        infoText: null
       })
     }
 
@@ -126,23 +116,18 @@ class Input extends React.Component {
   }
 
   checkValid = (val) => {
-    //shorthand if statement
     const res = this.props.customValidationFunc ? this.props.customValidationFunc(val) : validateString(val, this.props.type)
     const isValid = res.valid
     const message = res.message
-    const newValue = res.value
 
     //if it is not valid then set the error state
     if (!isValid) {
       this.setState({
-        error: true,
         infoText: message
       })
     } else {
       this.setState({
-        error: false,
-        infoText: null,
-        validValue: newValue
+        infoText: null
       })
     }
 
@@ -156,7 +141,6 @@ class Input extends React.Component {
     //create a flag to see if required has passed to see if we will need to validate
     let requiredPassed = false
 
-    //check if this is required and passes the requirements
     if (this.props.required) {
       isValid = this.checkRequired(val)
       requiredPassed = this.checkRequired(val)
@@ -164,15 +148,28 @@ class Input extends React.Component {
       requiredPassed = true
     }
 
-    //check if validate prop is true and it passes the requirements
     if (this.props.validate && requiredPassed) {
       isValid = this.checkValid(val)
     }
 
-    //set isValid in state to the proper value
+    if (this.props.disabled) {
+      isValid = true
+    }
+
     this.setState({
       isValid
     })
+
+    if (this.state.entered) {
+      this.setState({
+        error: !isValid
+      })
+    }
+  }
+
+  //method to report whether of not the input is valid or not
+  reportValidity = () => {
+    this.props.isValid(this.state.isValid)
   }
 
   render(){
@@ -198,9 +195,9 @@ class Input extends React.Component {
           id={this.props.idForLabel}
           defaultValue={this.props.defaultValue}
           disabled={this.props.disabled}
+          error={this.props.error || this.state.error}
           onChange={this.handleOnChange}
           onBlur={this.handleOnBlur}
-          error={this.props.error}
         >
           {this.props.children}
         </Select>
@@ -252,6 +249,7 @@ class Input extends React.Component {
           disabled={this.props.disabled}
           defaultValue={this.props.defaultValue}
           type={type}
+          error={this.props.error || this.state.error}
           onChange={this.handleOnChange}
           onBlur={this.handleOnBlur}
         ></TextInput>
@@ -261,10 +259,12 @@ class Input extends React.Component {
     return (
       <>
         {element}
-        <p className={classNames({
-          [styles.infoText]: true,
-          [styles.error]: this.props.error || this.state.error
-        })}>{this.props.infoText || this.state.infoText}</p>
+        {this.state.error &&
+          <p className={classNames({
+            [styles.infoText]: true,
+            [styles.error]: this.state.error
+          })}>{this.state.infoText}</p>
+        }
       </>
     )
   }
@@ -277,19 +277,17 @@ Input.propTypes = {
   inlineStyles: PropTypes.object,
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
-  infoText: PropTypes.string,
   value: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
     PropTypes.bool
     ]),
   name: PropTypes.string,
-  error: PropTypes.bool,
   defaultValue: PropTypes.string,
   defaultChecked: PropTypes.bool,
   validate: PropTypes.bool,
   required: PropTypes.bool,
-  type: PropTypes.oneOf(['text', 'email', 'password', 'select', 'radio', 'checkbox', 'textArea']).isRequired,
+  type: PropTypes.oneOf(['text', 'email', 'password', 'select', 'radio', 'checkbox', 'textArea', `zip`, `ein`, `phone`, `ssn`]).isRequired,
   customValidationFunc: PropTypes.func,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
@@ -301,10 +299,8 @@ Input.propTypes = {
 Input.defaultProps = {
   labelText: `None Provided`,
   placeholder: ``,
-  infoText: ``,
   idForLabel: ``,
   inlineStyles: {},
-  error: false,
   defaultValue: '',
   validate: true,
   required: false,

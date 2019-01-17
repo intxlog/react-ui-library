@@ -17,20 +17,14 @@ storiesOf('Input', module)
   ></Input>
 ))
 .add('default (disabled)', () => (
-  <Input disabled></Input>
+  <Input 
+    disabled
+  ></Input>
 ))
 .add('default with defaultValue (disabled)', () => (
-  <Input disabled defaultValue={`Example Text`}></Input>
-))
-.add('default with infoText', () => (
-  <Input infoText={`Example info text`}></Input>
-))
-.add('default with infoText and error', () => (
-  <Input infoText={`Example info text`} error={true}></Input>
-))
-.add('email', () => (
-  <Input
-    type='email'
+  <Input 
+    disabled 
+    defaultValue={`Example Text`}
   ></Input>
 ))
 .add('email isValid event fires', () => (
@@ -38,13 +32,18 @@ storiesOf('Input', module)
     type='email'
     required={true}
     defaultValue={'test@test.com'}
+    disabled
     isValid={(bool) => {console.log(bool)}}
   ></Input>
 ))
 .add('password', () => (
   <Input
     type='password'
-    required
+  ></Input>
+))
+.add('email (validation)', () => (
+  <Input
+    type='email'
   ></Input>
 ))
 .add('zip (validation)', () => (
@@ -74,7 +73,9 @@ storiesOf('Input', module)
 
 storiesOf('TextArea', module)
 .add('default', () => (
-  <Input type={`textArea`}></Input>
+  <Input 
+    type={`textArea`}
+  ></Input>
 ))
 .add('default (required)', () => (
   <Input

@@ -8,9 +8,6 @@ exports[`Input checkbox renders correctly 1`] = `
     onBlur={[Function]}
     onChange={[Function]}
   />
-  <p
-    className="infoText"
-  />
 </Fragment>
 `;
 
@@ -22,9 +19,6 @@ exports[`Input radio renders correctly 1`] = `
     onBlur={[Function]}
     onChange={[Function]}
   />
-  <p
-    className="infoText"
-  />
 </Fragment>
 `;
 
@@ -32,15 +26,13 @@ exports[`Input renders correctly 1`] = `
 <Fragment>
   <TextInput
     defaultValue=""
+    error={false}
     id=""
     inlineStyles={Object {}}
     onBlur={[Function]}
     onChange={[Function]}
     placeholder=""
     type="text"
-  />
-  <p
-    className="infoText"
   />
 </Fragment>
 `;
@@ -55,9 +47,6 @@ exports[`Input select renders correctly when disabled is true 1`] = `
     onBlur={[Function]}
     onChange={[Function]}
   />
-  <p
-    className="infoText"
-  />
 </Fragment>
 `;
 
@@ -70,9 +59,6 @@ exports[`Input select renders correctly when type is select 1`] = `
     onBlur={[Function]}
     onChange={[Function]}
   />
-  <p
-    className="infoText"
-  />
 </Fragment>
 `;
 
@@ -80,15 +66,11 @@ exports[`Input textArea renders correctly 1`] = `
 <Fragment>
   <TextArea
     defaultValue=""
-    error={false}
     id=""
     inlineStyles={Object {}}
     onBlur={[Function]}
     onChange={[Function]}
     placeholder=""
-  />
-  <p
-    className="infoText"
   />
 </Fragment>
 `;
@@ -98,15 +80,11 @@ exports[`Input textArea renders correctly when disabled is true 1`] = `
   <TextArea
     defaultValue=""
     disabled={true}
-    error={false}
     id=""
     inlineStyles={Object {}}
     onBlur={[Function]}
     onChange={[Function]}
     placeholder=""
-  />
-  <p
-    className="infoText"
   />
 </Fragment>
 `;
@@ -115,15 +93,11 @@ exports[`Input textArea renders correctly when type is textArea 1`] = `
 <Fragment>
   <TextArea
     defaultValue=""
-    error={false}
     id=""
     inlineStyles={Object {}}
     onBlur={[Function]}
     onChange={[Function]}
     placeholder=""
-  />
-  <p
-    className="infoText"
   />
 </Fragment>
 `;
@@ -133,15 +107,13 @@ exports[`Input when disabled is passed in renders correctly 1`] = `
   <TextInput
     defaultValue=""
     disabled={true}
+    error={false}
     id=""
     inlineStyles={Object {}}
     onBlur={[Function]}
     onChange={[Function]}
     placeholder=""
     type="text"
-  />
-  <p
-    className="infoText"
   />
 </Fragment>
 `;
@@ -150,15 +122,13 @@ exports[`Input when error prop is true renders correctly 1`] = `
 <Fragment>
   <TextInput
     defaultValue=""
+    error={true}
     id=""
     inlineStyles={Object {}}
     onBlur={[Function]}
     onChange={[Function]}
     placeholder=""
     type="text"
-  />
-  <p
-    className="infoText error"
   />
 </Fragment>
 `;
@@ -167,15 +137,13 @@ exports[`Input when idForLabel prop is passed in renders correctly 1`] = `
 <Fragment>
   <TextInput
     defaultValue=""
+    error={false}
     id="exampleID"
     inlineStyles={Object {}}
     onBlur={[Function]}
     onChange={[Function]}
     placeholder=""
     type="text"
-  />
-  <p
-    className="infoText"
   />
 </Fragment>
 `;
@@ -184,6 +152,7 @@ exports[`Input when infoText prop is passed in renders correctly 1`] = `
 <Fragment>
   <TextInput
     defaultValue=""
+    error={false}
     id=""
     inlineStyles={Object {}}
     onBlur={[Function]}
@@ -191,11 +160,6 @@ exports[`Input when infoText prop is passed in renders correctly 1`] = `
     placeholder=""
     type="text"
   />
-  <p
-    className="infoText"
-  >
-    Example Text
-  </p>
 </Fragment>
 `;
 
@@ -203,15 +167,13 @@ exports[`Input when placeholder prop is passed in renders correctly 1`] = `
 <Fragment>
   <TextInput
     defaultValue=""
+    error={false}
     id=""
     inlineStyles={Object {}}
     onBlur={[Function]}
     onChange={[Function]}
     placeholder="Example Text"
     type="text"
-  />
-  <p
-    className="infoText"
   />
 </Fragment>
 `;
@@ -220,15 +182,13 @@ exports[`Input when required is passed in renders correctly 1`] = `
 <Fragment>
   <TextInput
     defaultValue=""
+    error={false}
     id=""
     inlineStyles={Object {}}
     onBlur={[Function]}
     onChange={[Function]}
     placeholder=""
     type="text"
-  />
-  <p
-    className="infoText"
   />
 </Fragment>
 `;
@@ -237,15 +197,13 @@ exports[`Input when type is password renders correctly 1`] = `
 <Fragment>
   <TextInput
     defaultValue=""
+    error={false}
     id=""
     inlineStyles={Object {}}
     onBlur={[Function]}
     onChange={[Function]}
     placeholder=""
     type="password"
-  />
-  <p
-    className="infoText"
   />
 </Fragment>
 `;
@@ -254,15 +212,13 @@ exports[`Input when validate is passed in renders correctly 1`] = `
 <Fragment>
   <TextInput
     defaultValue=""
+    error={false}
     id=""
     inlineStyles={Object {}}
     onBlur={[Function]}
     onChange={[Function]}
     placeholder=""
     type="text"
-  />
-  <p
-    className="infoText"
   />
 </Fragment>
 `;
@@ -271,15 +227,13 @@ exports[`Input when value prop is passed in renders correctly 1`] = `
 <Fragment>
   <TextInput
     defaultValue=""
+    error={false}
     id=""
     inlineStyles={Object {}}
     onBlur={[Function]}
     onChange={[Function]}
     placeholder=""
     type="text"
-  />
-  <p
-    className="infoText"
   />
 </Fragment>
 `;
