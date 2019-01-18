@@ -3,11 +3,11 @@ import ssnValidator from '..'
 
 describe('ssnValidator', () => {
   it('returns the correct payload when given a valid ssn', () => {
-    const ssn = 123456789
+    const ssn = `123-45-6789`
     expect(ssnValidator(ssn)).toEqual({
       valid: true,
       message: null,
-      value: 123456789
+      value: `123-45-6789`
     })
   })
   it('returns the correct payload when given an invalid ssn', () => {
@@ -22,7 +22,7 @@ describe('ssnValidator', () => {
 
 describe('ssnRegex', () => {
   it('returns true when given a valid ssn', () => {
-    const ssn = 123456789
+    const ssn = `123-45-6789`
     expect(ssnRegex(ssn)).toEqual(true)
   })
   it('returns false when given an invalid ssn', () => {

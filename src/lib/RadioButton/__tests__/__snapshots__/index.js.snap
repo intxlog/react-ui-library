@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioButton renders correctly 1`] = `
+<div
+  className="container"
+>
+  <input
+    type="radio"
+    value={true}
+  />
+  <div
+    className="element"
+  />
+  <label>
+    Example
+  </label>
+</div>
+`;
