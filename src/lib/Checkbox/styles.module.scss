@@ -1,0 +1,49 @@
+@import './../../styles/helpers.scss';
+
+$heightWidth: 14px;
+
+.container {
+  position: relative;
+
+  > label {
+    font-size: 16px;
+    line-height: 22px;
+    cursor: pointer;
+    padding-left: 20px;
+    display: block;
+  } 
+  
+  > input {
+    clip: rect(1px, 1px, 1px, 1px);
+    width: 1px;
+    height: 1px;
+    position: absolute;
+
+    &:checked ~ .checkbox::before {
+      display: block;
+    } 
+  }
+  
+  > .checkbox {
+    background-color: white;
+    border-radius: 2px;
+    height: $heightWidth;
+    width: $heightWidth;
+    cursor: pointer;
+    border: 1px solid $colorBorder;
+    position: absolute;
+    top: 4px;
+    pointer-events: none;
+    // overflow: hidden;
+
+    &:before {
+      content: '\2714';
+      color: $colorBorder;
+      position: absolute;
+      top: -8px;
+      left: 0px;
+      font-size: 20px;
+      display: none;
+    }
+  }
+}

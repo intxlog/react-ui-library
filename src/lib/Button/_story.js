@@ -38,7 +38,7 @@ storiesOf('Button', module)
     />
     <Button 
       text={`Link`}
-      linkTo={'/'}
+      linkTo={`/`}
       type={`link`}
     />
   </div>

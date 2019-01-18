@@ -68,6 +68,8 @@ exports[`Button when type prop is link renders correctly 1`] = `
 <a
   className="link"
   href="/"
+  rel="noopener"
+  target="_blank"
 >
   None Provided
 </a>
