@@ -31,13 +31,13 @@ describe('validators root', () => {
     })
   })
   it('the ssn function is called when ssn is the type passed in', () => {
-    const value = 123456789
+    const value = `123-45-6789`
     const type = 'ssn'
     
     expect(validator(value,type)).toEqual({
       valid: true,
       message: null,
-      value: 123456789
+      value: `123-45-6789`
     })
   })
   it('the ein function is called when ein is the type passed in', () => {
