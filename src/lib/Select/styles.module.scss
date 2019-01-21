@@ -13,6 +13,10 @@
   user-select: none;
   height: 32px;
   -webkit-appearance: none;
+  
+  &.disabled {
+    background-color: rgb(235, 235, 228);
+  }
 }
 
 .wrapper {
@@ -38,7 +42,4 @@
     border-color: $colorBorder transparent transparent transparent;
   }
 
-  &.disabled {
-    background-color: rgb(235, 235, 228);
-  }
 }
