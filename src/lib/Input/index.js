@@ -257,7 +257,7 @@ class Input extends React.Component {
     }
     
     return (
-      <>
+      <div>
         {element}
         <div className={styles.errorBox}>
           {this.state.error &&
@@ -267,7 +267,7 @@ class Input extends React.Component {
             })}>{this.state.infoText}</p>
           }
         </div>
-      </>
+      </div>
     )
   }
 }
