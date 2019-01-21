@@ -61,7 +61,7 @@ class RadioGroup extends React.Component {
   render(){
     const children = React.Children.map(this.props.children, (child, index) => {
       return React.cloneElement(child, {
-        id: `${name}${index}`,
+        id: `${this.props.name}${index}`,
         error: this.state.error || this.props.error,
         name: this.props.name,
         disabled: this.props.disabled,
