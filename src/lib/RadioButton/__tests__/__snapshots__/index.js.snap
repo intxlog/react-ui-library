@@ -5,6 +5,7 @@ exports[`RadioButton renders correctly 1`] = `
   className="container"
 >
   <input
+    defaultChecked={false}
     type="radio"
     value={true}
   />

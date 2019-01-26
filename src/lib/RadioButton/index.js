@@ -9,7 +9,7 @@ const RadioButton = ({
   id,
   value,
   name,
-  defaultChecked,
+  defaultValue,
   disabled,
   labelText,
   error,
@@ -27,7 +27,7 @@ const RadioButton = ({
         value={value}
         name={name}
         type={`radio`}
-        defaultChecked={defaultChecked}
+        defaultChecked={defaultValue === value}
         disabled={disabled}
         onChange={onChange}
         onBlur={onBlur}
@@ -49,7 +49,11 @@ RadioButton.propTypes = {
     PropTypes.bool
   ]).isRequired,
   name: PropTypes.string,
-  defaultChecked: PropTypes.bool,
+  defaultValue: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool
+  ]),
   disabled: PropTypes.bool,
   labelText: PropTypes.string.isRequired,
   error: PropTypes.bool,

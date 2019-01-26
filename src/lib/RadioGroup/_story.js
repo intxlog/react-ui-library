@@ -83,6 +83,7 @@ storiesOf('RadioGroup', module)
 .add('default checked', () => (
   <RadioGroup
     name={`example4`}
+    defaultValue={2}
   >
     <RadioButton
       labelText={`Option 1`}
@@ -91,7 +92,6 @@ storiesOf('RadioGroup', module)
     <RadioButton
       labelText={`Option 2`}
       value={2}
-      defaultChecked
     ></RadioButton>
   </RadioGroup>
 ))

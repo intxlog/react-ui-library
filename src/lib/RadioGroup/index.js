@@ -18,6 +18,13 @@ class RadioGroup extends React.Component {
 
   componentDidMount() {
     this.reportValidity()
+
+    //if there is a default value then make it the value
+    if (this.props.defaultValue) {
+      this.setState({
+        value: this.props.defaultValue
+      })
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -36,11 +43,13 @@ class RadioGroup extends React.Component {
     }
 
     //check to see if the formSubmitted prop becomes true
-    if (this.props.formSubmitted !== prevProps.formSubmitted && this.props.formSubmitted) {
-      if (!this.state.isValid) {
-        this.setState({
-          error: true
-        })
+    if (this.props.required) {
+      if (this.props.formSubmitted !== prevProps.formSubmitted && this.props.formSubmitted) {
+        if (!this.state.isValid) {
+          this.setState({
+            error: true
+          })
+        }
       }
     }
   }
@@ -65,7 +74,8 @@ class RadioGroup extends React.Component {
         error: this.state.error || this.props.error,
         name: this.props.name,
         disabled: this.props.disabled,
-        onChange: this.handleOnChange
+        onChange: this.handleOnChange,
+        defaultValue: this.props.defaultValue
       })
     })
 
@@ -89,7 +99,12 @@ RadioGroup.propTypes = {
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
   isValid: PropTypes.func,
-  direction: PropTypes.oneOf([`horizontal`, `vertical`]).isRequired
+  direction: PropTypes.oneOf([`horizontal`, `vertical`]).isRequired,
+  defaultValue: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool
+  ])
 }
 
 // Specifies the default values for props:
