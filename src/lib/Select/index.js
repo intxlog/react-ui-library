@@ -39,7 +39,10 @@ const Select = ({
 //rules for props being passed in
 Select.propTypes = {
   id: PropTypes.string,
-  children: PropTypes.array,
+  children: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object
+  ]),
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,

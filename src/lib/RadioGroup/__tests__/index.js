@@ -10,7 +10,8 @@ describe('RadioGroup', () => {
   let props = {
     name: `example`,
     onChange: onChangeMock,
-    isValid: isValidMock
+    isValid: isValidMock,
+    defaultValue: `test`
   }
   
   //create a shallow wrapper that can be reused
@@ -30,9 +31,20 @@ describe('RadioGroup', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  describe('when formSubmitted prop changes and becomes true', () => {
+  describe('when the component mounts and defaultValue is passed in', () => {
+    it('sets the value as the defaultValue', () => {
+      expect(wrapper.state().value).toEqual(`test`)
+    })
+  })
+
+  describe('when formSubmitted prop changes and becomes true when required is true and isValid state is false', () => {
     it('sets the correct state', () => {
+      wrapper.setState({
+        isValid: false
+      })
+
       wrapper.setProps({
+        required: true,
         formSubmitted: true
       })
 

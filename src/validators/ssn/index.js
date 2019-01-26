@@ -15,6 +15,5 @@ export default function (ssn) {
     payload.valid = true
     payload.value = ssn
   }
-
   return payload
 }
