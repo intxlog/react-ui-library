@@ -257,15 +257,17 @@ class Input extends React.Component {
     }
     
     return (
-      <>
+      <div>
         {element}
-        {this.state.error &&
-          <p className={classNames({
-            [styles.infoText]: true,
-            [styles.error]: this.state.error
-          })}>{this.state.infoText}</p>
-        }
-      </>
+        <div className={styles.errorBox}>
+          {this.state.error &&
+            <p className={classNames({
+              [styles.infoText]: true,
+              [styles.error]: this.state.error
+            })}>{this.state.infoText}</p>
+          }
+        </div>
+      </div>
     )
   }
 }
@@ -281,7 +283,7 @@ Input.propTypes = {
     PropTypes.string,
     PropTypes.number,
     PropTypes.bool
-    ]),
+  ]),
   name: PropTypes.string,
   defaultValue: PropTypes.string,
   defaultChecked: PropTypes.bool,

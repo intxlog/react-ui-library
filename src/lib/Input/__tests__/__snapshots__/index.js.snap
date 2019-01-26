@@ -1,29 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Input checkbox renders correctly 1`] = `
-<Fragment>
+<div>
   <Checkbox
     id="exampleID"
     labelText="None Provided"
     onBlur={[Function]}
     onChange={[Function]}
   />
-</Fragment>
+  <div
+    className="errorBox"
+  />
+</div>
 `;
 
 exports[`Input radio renders correctly 1`] = `
-<Fragment>
+<div>
   <RadioButton
     id="exampleID"
     labelText="None Provided"
     onBlur={[Function]}
     onChange={[Function]}
+    value={true}
   />
-</Fragment>
+  <div
+    className="errorBox"
+  />
+</div>
 `;
 
 exports[`Input renders correctly 1`] = `
-<Fragment>
+<div>
   <TextInput
     defaultValue=""
     error={false}
@@ -34,11 +41,14 @@ exports[`Input renders correctly 1`] = `
     placeholder=""
     type="text"
   />
-</Fragment>
+  <div
+    className="errorBox"
+  />
+</div>
 `;
 
 exports[`Input select renders correctly when disabled is true 1`] = `
-<Fragment>
+<div>
   <Select
     defaultValue=""
     disabled={true}
@@ -47,11 +57,14 @@ exports[`Input select renders correctly when disabled is true 1`] = `
     onBlur={[Function]}
     onChange={[Function]}
   />
-</Fragment>
+  <div
+    className="errorBox"
+  />
+</div>
 `;
 
 exports[`Input select renders correctly when type is select 1`] = `
-<Fragment>
+<div>
   <Select
     defaultValue=""
     error={false}
@@ -59,11 +72,14 @@ exports[`Input select renders correctly when type is select 1`] = `
     onBlur={[Function]}
     onChange={[Function]}
   />
-</Fragment>
+  <div
+    className="errorBox"
+  />
+</div>
 `;
 
 exports[`Input textArea renders correctly 1`] = `
-<Fragment>
+<div>
   <TextArea
     defaultValue=""
     id=""
@@ -72,11 +88,14 @@ exports[`Input textArea renders correctly 1`] = `
     onChange={[Function]}
     placeholder=""
   />
-</Fragment>
+  <div
+    className="errorBox"
+  />
+</div>
 `;
 
 exports[`Input textArea renders correctly when disabled is true 1`] = `
-<Fragment>
+<div>
   <TextArea
     defaultValue=""
     disabled={true}
@@ -86,11 +105,14 @@ exports[`Input textArea renders correctly when disabled is true 1`] = `
     onChange={[Function]}
     placeholder=""
   />
-</Fragment>
+  <div
+    className="errorBox"
+  />
+</div>
 `;
 
 exports[`Input textArea renders correctly when type is textArea 1`] = `
-<Fragment>
+<div>
   <TextArea
     defaultValue=""
     id=""
@@ -99,11 +121,14 @@ exports[`Input textArea renders correctly when type is textArea 1`] = `
     onChange={[Function]}
     placeholder=""
   />
-</Fragment>
+  <div
+    className="errorBox"
+  />
+</div>
 `;
 
 exports[`Input when disabled is passed in renders correctly 1`] = `
-<Fragment>
+<div>
   <TextInput
     defaultValue=""
     disabled={true}
@@ -115,11 +140,14 @@ exports[`Input when disabled is passed in renders correctly 1`] = `
     placeholder=""
     type="text"
   />
-</Fragment>
+  <div
+    className="errorBox"
+  />
+</div>
 `;
 
 exports[`Input when error prop is true renders correctly 1`] = `
-<Fragment>
+<div>
   <TextInput
     defaultValue=""
     error={true}
@@ -130,11 +158,14 @@ exports[`Input when error prop is true renders correctly 1`] = `
     placeholder=""
     type="text"
   />
-</Fragment>
+  <div
+    className="errorBox"
+  />
+</div>
 `;
 
 exports[`Input when idForLabel prop is passed in renders correctly 1`] = `
-<Fragment>
+<div>
   <TextInput
     defaultValue=""
     error={false}
@@ -145,11 +176,14 @@ exports[`Input when idForLabel prop is passed in renders correctly 1`] = `
     placeholder=""
     type="text"
   />
-</Fragment>
+  <div
+    className="errorBox"
+  />
+</div>
 `;
 
 exports[`Input when infoText prop is passed in renders correctly 1`] = `
-<Fragment>
+<div>
   <TextInput
     defaultValue=""
     error={false}
@@ -160,11 +194,14 @@ exports[`Input when infoText prop is passed in renders correctly 1`] = `
     placeholder=""
     type="text"
   />
-</Fragment>
+  <div
+    className="errorBox"
+  />
+</div>
 `;
 
 exports[`Input when placeholder prop is passed in renders correctly 1`] = `
-<Fragment>
+<div>
   <TextInput
     defaultValue=""
     error={false}
@@ -175,11 +212,14 @@ exports[`Input when placeholder prop is passed in renders correctly 1`] = `
     placeholder="Example Text"
     type="text"
   />
-</Fragment>
+  <div
+    className="errorBox"
+  />
+</div>
 `;
 
 exports[`Input when required is passed in renders correctly 1`] = `
-<Fragment>
+<div>
   <TextInput
     defaultValue=""
     error={false}
@@ -190,11 +230,14 @@ exports[`Input when required is passed in renders correctly 1`] = `
     placeholder=""
     type="text"
   />
-</Fragment>
+  <div
+    className="errorBox"
+  />
+</div>
 `;
 
 exports[`Input when type is password renders correctly 1`] = `
-<Fragment>
+<div>
   <TextInput
     defaultValue=""
     error={false}
@@ -205,11 +248,14 @@ exports[`Input when type is password renders correctly 1`] = `
     placeholder=""
     type="password"
   />
-</Fragment>
+  <div
+    className="errorBox"
+  />
+</div>
 `;
 
 exports[`Input when validate is passed in renders correctly 1`] = `
-<Fragment>
+<div>
   <TextInput
     defaultValue=""
     error={false}
@@ -220,11 +266,14 @@ exports[`Input when validate is passed in renders correctly 1`] = `
     placeholder=""
     type="text"
   />
-</Fragment>
+  <div
+    className="errorBox"
+  />
+</div>
 `;
 
 exports[`Input when value prop is passed in renders correctly 1`] = `
-<Fragment>
+<div>
   <TextInput
     defaultValue=""
     error={false}
@@ -235,5 +284,8 @@ exports[`Input when value prop is passed in renders correctly 1`] = `
     placeholder=""
     type="text"
   />
-</Fragment>
+  <div
+    className="errorBox"
+  />
+</div>
 `;

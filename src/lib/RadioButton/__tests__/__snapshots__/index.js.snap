@@ -6,6 +6,7 @@ exports[`RadioButton renders correctly 1`] = `
 >
   <input
     type="radio"
+    value={true}
   />
   <div
     className="element"

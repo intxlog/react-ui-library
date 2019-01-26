@@ -1,0 +1,13 @@
+.container {
+  margin-bottom: 16px;
+}
+
+.childrenWrapper {
+  display: grid;
+  grid-row-gap: 10px;
+
+  &.horizontal {
+    justify-content: start;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr))
+  }
+}

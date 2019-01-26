@@ -4,7 +4,8 @@ import RadioButton from '..'
 
 describe('RadioButton', () => {
   let props = {
-    labelText: `Example`
+    labelText: `Example`,
+    value: true
   }
   
   //create a shallow wrapper that can be reused
