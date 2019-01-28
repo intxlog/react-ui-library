@@ -20,7 +20,7 @@ class RadioGroup extends React.Component {
     this.reportValidity()
 
     //if there is a default value then make it the value
-    if (this.props.defaultValue) {
+    if (this.props.defaultValue !== null) {
       this.setState({
         value: this.props.defaultValue
       })
