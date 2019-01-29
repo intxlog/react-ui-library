@@ -16,6 +16,7 @@ const RadioButton = ({
   onChange,
   onBlur
 }) => {
+  const isDefaultChecked = disabled ? false : defaultValue === value
   return (
     <div className={classNames({
       [styles.container]: true,
@@ -27,7 +28,7 @@ const RadioButton = ({
         value={value}
         name={name}
         type={`radio`}
-        defaultChecked={defaultValue === value}
+        defaultChecked={isDefaultChecked}
         disabled={disabled}
         onChange={onChange}
         onBlur={onBlur}

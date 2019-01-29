@@ -7,23 +7,18 @@ import styles from './styles.module.scss'
 
 // logic behind all the different types of inputs
 class RadioGroup extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      value: null,
-      error: false,
-      isValid: false
-    }
+  state = {
+    value: this.props.defaultValue || null,
+    error: false,
+    isValid: false,
+    refreshKey: 1
   }
 
   componentDidMount() {
     this.reportValidity()
 
-    //if there is a default value then make it the value
-    if (this.props.defaultValue !== undefined && this.props.defaultValue !== null) {
-      this.setState({
-        value: this.props.defaultValue
-      })
+    if (this.props.disabled) {
+      this.disableComponent()
     }
   }
 
@@ -52,12 +47,22 @@ class RadioGroup extends React.Component {
         }
       }
     }
+
+    //check to see if the component became disabled
+    if (!prevProps.disabled && this.props.disabled) {
+      this.disableComponent()
+    }
+
+    if (prevProps.disabled && !this.props.disabled) {
+      this.enableComponent()
+    }
   }
 
   handleOnChange = (e) => {
     const val = e.target.value
+    console.log(e.target.type)
     this.setState({
-      value: val
+      value: isNaN(val) ? val : parseInt(val)
     })
     this.props.onChange(val)
   }
@@ -67,18 +72,43 @@ class RadioGroup extends React.Component {
     this.props.isValid(this.state.isValid)
   }
 
+  //method to handle when the component becomes disabled
+  disableComponent = () => {
+    let keyValue = this.state.refreshKey
+    this.setState({
+      isValid: true,
+      refreshKey: keyValue + 1
+    })
+  }
+
+  enableComponent = () => {
+    let keyValue = this.state.refreshKey
+    let isValid = this.state.isValid
+
+    if (this.state.value === null) {
+      isValid = false
+    }
+
+    this.setState({
+      refreshKey: keyValue + 1,
+      isValid
+    })
+  }
+
   render(){
     const children = React.Children.map(this.props.children, (child, index) => {
       let props = {}
+
       //make sure we only pass props and methods to children with a display name of RadioButton
       if (child.type.displayName === `RadioButton`) {
         props = {
+          key: `${this.state.refreshKey}`,
           id: `${this.props.name}${index}`,
           error: this.state.error || this.props.error,
           name: this.props.name,
           disabled: this.props.disabled,
           onChange: this.handleOnChange,
-          defaultValue: this.props.defaultValue
+          defaultValue: this.state.value
         }
       }
       
