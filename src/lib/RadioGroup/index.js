@@ -63,7 +63,6 @@ class RadioGroup extends React.Component {
 
   handleOnChange = (e) => {
     const val = e.target.value
-    console.log(e.target.type)
     this.setState({
       value: isNaN(val) ? val : parseInt(val)
     })
