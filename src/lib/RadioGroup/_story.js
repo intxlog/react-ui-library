@@ -82,7 +82,7 @@ storiesOf('RadioGroup', module)
 ))
 .add('default checked', () => (
   <RadioGroup
-    name={`example4`}
+    name={`example5`}
     defaultValue={2}
   >
     <RadioButton
@@ -92,6 +92,39 @@ storiesOf('RadioGroup', module)
     <RadioButton
       labelText={`Option 2`}
       value={2}
+    ></RadioButton>
+  </RadioGroup>
+))
+.add('default checked (true false)', () => (
+  <RadioGroup
+    name={`example6`}
+    defaultValue={false}
+  >
+    <RadioButton
+      labelText={`Option 1`}
+      value={true}
+      ></RadioButton>
+    <RadioButton
+      labelText={`Option 2`}
+      value={false}
+    ></RadioButton>
+  </RadioGroup>
+))
+.add('sandbox', () => (
+  <RadioGroup
+    name={`example7`}
+    disabled={false}
+    formSubmitted={false}
+    required
+    defaultValue
+  >
+    <RadioButton
+      labelText={`Option 1`}
+      value={true}
+      ></RadioButton>
+    <RadioButton
+      labelText={`Option 2`}
+      value={false}
     ></RadioButton>
   </RadioGroup>
 ))

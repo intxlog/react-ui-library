@@ -51,6 +51,16 @@ describe('RadioGroup', () => {
         expect(disableComponentSpy).toHaveBeenCalled()
       })
     })
+
+    describe('when value in state is not null', () => {
+      it('sets the correct state', () => {
+        wrapper.setState({
+          value: false
+        })
+        wrapper.instance().componentDidMount()
+        expect(wrapper.state().isValid).toEqual(true)
+      })
+    })
   })
 
   describe('componentDidUpdate', () => {
@@ -100,7 +110,7 @@ describe('RadioGroup', () => {
         expect(wrapper.state().error).toEqual(true)
       })
     })
-
+    
     describe('when disabled prop becomes true', () => {
       it('calls the correct method', () => {
         wrapper.setProps({

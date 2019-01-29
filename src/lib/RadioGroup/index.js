@@ -8,7 +8,7 @@ import styles from './styles.module.scss'
 // logic behind all the different types of inputs
 class RadioGroup extends React.Component {
   state = {
-    value: this.props.defaultValue || null,
+    value: this.props.defaultValue !== undefined && this.props.defaultValue !== null ? this.props.defaultValue : null,
     error: false,
     isValid: false,
     refreshKey: 1
@@ -19,6 +19,12 @@ class RadioGroup extends React.Component {
 
     if (this.props.disabled) {
       this.disableComponent()
+    }
+
+    if (this.state.value !== null) {
+      this.setState({
+        isValid: true
+      })
     }
   }
 
@@ -97,10 +103,11 @@ class RadioGroup extends React.Component {
     })
   }
 
+  
   render(){
     const children = React.Children.map(this.props.children, (child, index) => {
       let props = {}
-
+      
       //make sure we only pass props and methods to children with a display name of RadioButton
       if (child.type.displayName === `RadioButton`) {
         props = {
@@ -116,14 +123,14 @@ class RadioGroup extends React.Component {
       
       return React.cloneElement(child, props)
     })
-
-
+    
+    
     return (
       <div className={styles.container}>
         <div className={classNames({
-            [styles.childrenWrapper]: true,
-            [styles.horizontal]: this.props.direction === `horizontal`
-          })}>
+          [styles.childrenWrapper]: true,
+          [styles.horizontal]: this.props.direction === `horizontal`
+        })}>
           {children}
         </div>
       </div>
