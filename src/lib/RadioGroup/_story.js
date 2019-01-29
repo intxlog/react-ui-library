@@ -7,7 +7,7 @@ storiesOf('RadioGroup', module)
 .add('default', () => (
   <RadioGroup
     name={`example`}
-    disabled
+    disabled={false}
     formSubmitted={false}
     // defaultValue={2}
     required

@@ -26,9 +26,12 @@ class RadioGroup extends React.Component {
     //when isValid changes report the value
     if (prevState.isValid !== this.state.isValid) {
       this.reportValidity()
-      this.setState({
-        error: !this.state.isValid
-      })
+
+      if (this.props.formSubmitted) {
+        this.setState({
+          error: !this.state.isValid
+        })
+      }
     }
 
     if (prevState.value === null && this.state.value !== null) {
@@ -83,7 +86,7 @@ class RadioGroup extends React.Component {
 
   enableComponent = () => {
     let keyValue = this.state.refreshKey
-    let isValid = this.state.isValid
+    let isValid = true
 
     if (this.state.value === null) {
       isValid = false
