@@ -7,22 +7,23 @@ import styles from './styles.module.scss'
 
 // logic behind all the different types of inputs
 class RadioGroup extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      value: null,
-      error: false,
-      isValid: false
-    }
+  state = {
+    value: this.props.defaultValue !== undefined && this.props.defaultValue !== null ? this.props.defaultValue : null,
+    error: false,
+    isValid: false,
+    refreshKey: 1
   }
 
   componentDidMount() {
     this.reportValidity()
 
-    //if there is a default value then make it the value
-    if (this.props.defaultValue !== undefined && this.props.defaultValue !== null) {
+    if (this.props.disabled) {
+      this.disableComponent()
+    }
+
+    if (this.state.value !== null) {
       this.setState({
-        value: this.props.defaultValue
+        isValid: true
       })
     }
   }
@@ -31,9 +32,12 @@ class RadioGroup extends React.Component {
     //when isValid changes report the value
     if (prevState.isValid !== this.state.isValid) {
       this.reportValidity()
-      this.setState({
-        error: !this.state.isValid
-      })
+
+      if (this.props.formSubmitted) {
+        this.setState({
+          error: !this.state.isValid
+        })
+      }
     }
 
     if (prevState.value === null && this.state.value !== null) {
@@ -52,12 +56,21 @@ class RadioGroup extends React.Component {
         }
       }
     }
+
+    //check to see if the component became disabled
+    if (!prevProps.disabled && this.props.disabled) {
+      this.disableComponent()
+    }
+
+    if (prevProps.disabled && !this.props.disabled) {
+      this.enableComponent()
+    }
   }
 
   handleOnChange = (e) => {
     const val = e.target.value
     this.setState({
-      value: val
+      value: isNaN(val) ? val : parseInt(val)
     })
     this.props.onChange(val)
   }
@@ -67,31 +80,57 @@ class RadioGroup extends React.Component {
     this.props.isValid(this.state.isValid)
   }
 
+  //method to handle when the component becomes disabled
+  disableComponent = () => {
+    let keyValue = this.state.refreshKey
+    this.setState({
+      isValid: true,
+      refreshKey: keyValue + 1
+    })
+  }
+
+  enableComponent = () => {
+    let keyValue = this.state.refreshKey
+    let isValid = true
+
+    if (this.state.value === null) {
+      isValid = false
+    }
+
+    this.setState({
+      refreshKey: keyValue + 1,
+      isValid
+    })
+  }
+
+  
   render(){
     const children = React.Children.map(this.props.children, (child, index) => {
       let props = {}
+      
       //make sure we only pass props and methods to children with a display name of RadioButton
       if (child.type.displayName === `RadioButton`) {
         props = {
+          key: `${this.state.refreshKey}`,
           id: `${this.props.name}${index}`,
           error: this.state.error || this.props.error,
           name: this.props.name,
           disabled: this.props.disabled,
           onChange: this.handleOnChange,
-          defaultValue: this.props.defaultValue
+          defaultValue: this.state.value
         }
       }
       
       return React.cloneElement(child, props)
     })
-
-
+    
+    
     return (
       <div className={styles.container}>
         <div className={classNames({
-            [styles.childrenWrapper]: true,
-            [styles.horizontal]: this.props.direction === `horizontal`
-          })}>
+          [styles.childrenWrapper]: true,
+          [styles.horizontal]: this.props.direction === `horizontal`
+        })}>
           {children}
         </div>
       </div>

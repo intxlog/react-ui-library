@@ -18,4 +18,13 @@ describe('RadioButton', () => {
   it('renders correctly', () => {
     expect(wrapper).toMatchSnapshot()
   })
+
+  describe('when disabled prop is true', () => {
+    it('renders correctly', () => {
+      wrapper.setProps({
+        disabled: true
+      })
+      expect(wrapper).toMatchSnapshot()
+    })
+  })
 })

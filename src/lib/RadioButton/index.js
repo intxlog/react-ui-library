@@ -27,7 +27,7 @@ const RadioButton = ({
         value={value}
         name={name}
         type={`radio`}
-        defaultChecked={defaultValue === value}
+        defaultChecked={disabled ? false : defaultValue === value}
         disabled={disabled}
         onChange={onChange}
         onBlur={onBlur}
