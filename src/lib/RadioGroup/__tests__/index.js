@@ -7,11 +7,15 @@ describe('RadioGroup', () => {
   const onChangeMock = jest.fn()
   const isValidMock = jest.fn()
 
+  //Spies
+  let reportValiditySpy
+  let disableComponentSpy
+  let enableComponentSpy
+
   let props = {
     name: `example`,
     onChange: onChangeMock,
-    isValid: isValidMock,
-    defaultValue: `test`
+    isValid: isValidMock
   }
   
   //create a shallow wrapper that can be reused
@@ -19,36 +23,113 @@ describe('RadioGroup', () => {
   //initialize the components
   beforeEach(() => {
     wrapper = shallow(<RadioGroup {...props}/>)
+    reportValiditySpy = jest.spyOn(wrapper.instance(), 'reportValidity')
+    disableComponentSpy = jest.spyOn(wrapper.instance(), 'disableComponent')
+    enableComponentSpy = jest.spyOn(wrapper.instance(), 'enableComponent')
   })
 
   //reset the mocks after each test
   afterEach(() => {
     onChangeMock.mockReset()
     isValidMock.mockReset()
+    reportValiditySpy.mockRestore()
+    disableComponentSpy.mockRestore()
+    enableComponentSpy.mockRestore()
   })
 
   it('renders correctly', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  describe('when the component mounts and defaultValue is passed in', () => {
-    it('sets the value as the defaultValue', () => {
-      expect(wrapper.state().value).toEqual(`test`)
+  describe('when the component mounts', () => {
+    describe('when disabled is true', () => {
+      it('calls the correct method', () => {
+        wrapper.setProps({
+          disabled: true
+        })
+        wrapper.instance().componentDidMount()
+        expect(disableComponentSpy).toHaveBeenCalled()
+      })
+    })
+
+    describe('when value in state is not null', () => {
+      it('sets the correct state', () => {
+        wrapper.setState({
+          value: false
+        })
+        wrapper.instance().componentDidMount()
+        expect(wrapper.state().isValid).toEqual(true)
+      })
     })
   })
 
-  describe('when formSubmitted prop changes and becomes true when required is true and isValid state is false', () => {
-    it('sets the correct state', () => {
-      wrapper.setState({
-        isValid: false
+  describe('componentDidUpdate', () => {
+    describe('when isValid from state changes', () => {
+      it('calls the correct method', () => {
+        wrapper.setState({
+          isValid: true
+        })
+        expect(reportValiditySpy).toHaveBeenCalled()
       })
 
-      wrapper.setProps({
-        required: true,
-        formSubmitted: true
+      describe('when formSubmitted is true', () => {
+        it('sets the correct state', () => {
+          wrapper.setProps({
+            formSubmitted: true
+          })
+          wrapper.setState({
+            isValid: true
+          })
+          expect(wrapper.state().error).toEqual(!wrapper.state().isValid)
+        })
       })
+    })
 
-      expect(wrapper.state().error).toEqual(true)
+    describe('when valid from state becomes not null', () => {
+      it('sets the correct state', () => {
+        wrapper.setState({
+          value: `test`
+        })
+        expect(wrapper.state().isValid).toEqual(true)
+      })
+    })
+
+    describe('when required prop is true and formSubmitted prop becomes true and isvalid is false', () => {
+      it('sets the correct state', () => {
+        wrapper.setProps({
+          required: true,
+          formSubmitted: false
+        })
+        wrapper.setState({
+          isValid: false
+        })
+        //fire the update
+        wrapper.setProps({
+          formSubmitted: true
+        })
+        expect(wrapper.state().error).toEqual(true)
+      })
+    })
+    
+    describe('when disabled prop becomes true', () => {
+      it('calls the correct method', () => {
+        wrapper.setProps({
+          disabled: true
+        })
+        expect(disableComponentSpy).toHaveBeenCalled()
+      })
+    })
+
+    describe('when disabled prop becomes false', () => {
+      it('calls the correct method', () => {
+        wrapper.setProps({
+          disabled: true
+        })
+        wrapper.setProps({
+          disabled: false
+        })
+        expect(enableComponentSpy).toHaveBeenCalled()
+      })
     })
   })
 
