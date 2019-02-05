@@ -129,6 +129,7 @@ class RadioGroup extends React.Component {
       <div className={styles.container}>
         <div className={classNames({
           [styles.childrenWrapper]: true,
+          [this.props.className] :  this.props.className,
           [styles.horizontal]: this.props.direction === `horizontal`
         })}>
           {children}
@@ -145,6 +146,7 @@ RadioGroup.propTypes = {
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
   isValid: PropTypes.func,
+  className: PropTypes.object,
   direction: PropTypes.oneOf([`horizontal`, `vertical`]).isRequired,
   defaultValue: PropTypes.oneOfType([
     PropTypes.string,
