@@ -66,8 +66,8 @@ class Input extends React.Component {
       this.validate(this.state.value)
     }
 
-    //check to see if the formSubmitted prop becomes true and validate the field
-    if (this.props.formSubmitted !== prevProps.formSubmitted && this.props.formSubmitted) {
+    //check to see if the formSubmitted changes
+    if (this.props.formSubmitted !== prevProps.formSubmitted) {
       this.setState({
         entered: true
       })
@@ -294,7 +294,7 @@ Input.propTypes = {
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
   isValid: PropTypes.func,
-  formSubmitted: PropTypes.bool
+  formSubmitted: PropTypes.number
 }
 
 // Specifies the default values for props:

@@ -75,7 +75,7 @@ describe('RadioGroup', () => {
       describe('when formSubmitted is true', () => {
         it('sets the correct state', () => {
           wrapper.setProps({
-            formSubmitted: true
+            formSubmitted: 1
           })
           wrapper.setState({
             isValid: true
@@ -94,18 +94,18 @@ describe('RadioGroup', () => {
       })
     })
 
-    describe('when required prop is true and formSubmitted prop becomes true and isvalid is false', () => {
+    describe('when required prop is true and formSubmitted prop changes and isvalid is false', () => {
       it('sets the correct state', () => {
         wrapper.setProps({
           required: true,
-          formSubmitted: false
+          formSubmitted: 0
         })
         wrapper.setState({
           isValid: false
         })
         //fire the update
         wrapper.setProps({
-          formSubmitted: true
+          formSubmitted: 1
         })
         expect(wrapper.state().error).toEqual(true)
       })
