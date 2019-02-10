@@ -46,9 +46,9 @@ class RadioGroup extends React.Component {
       })
     }
 
-    //check to see if the formSubmitted prop becomes true
+    //check to see if the formSubmitted prop changes
     if (this.props.required) {
-      if (this.props.formSubmitted !== prevProps.formSubmitted && this.props.formSubmitted) {
+      if (this.props.formSubmitted !== prevProps.formSubmitted) {
         if (!this.state.isValid) {
           this.setState({
             error: true
@@ -148,6 +148,7 @@ RadioGroup.propTypes = {
   isValid: PropTypes.func,
   className: PropTypes.object,
   direction: PropTypes.oneOf([`horizontal`, `vertical`]).isRequired,
+  formSubmitted: PropTypes.number,
   defaultValue: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
