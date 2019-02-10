@@ -76,8 +76,8 @@ describe('Input', () => {
   })
   describe('when idForLabel prop is passed in', () => {
     it('renders correctly', () => {
-        wrapper.setProps({
-          idForLabel: `exampleID`
+      wrapper.setProps({
+        idForLabel: `exampleID`
       })
       expect(wrapper).toMatchSnapshot()
     })
@@ -85,7 +85,7 @@ describe('Input', () => {
   describe('when placeholder prop is passed in', () => {
     it('renders correctly', () => {
       wrapper.setProps({
-          placeholder: `Example Text`
+        placeholder: `Example Text`
       })
       expect(wrapper).toMatchSnapshot()
     })
@@ -93,16 +93,16 @@ describe('Input', () => {
   describe('when infoText prop is passed in', () => {
     it('renders correctly', () => {
       wrapper.setProps({
-          infoText: `Example Text`
-          })
+        infoText: `Example Text`
+      })
       expect(wrapper).toMatchSnapshot()
     })
   })
   describe('when error prop is true', () => {
     it('renders correctly', () => {
       wrapper.setProps({
-          error: true
-          })
+        error: true
+      })
       expect(wrapper).toMatchSnapshot()
     })
   })
@@ -315,16 +315,16 @@ describe('Input', () => {
   })
 
   describe('when componentDidUpdate is called', () => {
-    describe('formSubmitted prop changes and is true', () => {
+    describe('formSubmitted prop changes', () => {
       it('calls the correct function and state is correct', () => {
         //set the props
         wrapper.setProps({
-          formSubmitted: false
+          formSubmitted: 0
         })
 
         //change the props to trigger componentDidUpdate
         wrapper.setProps({
-          formSubmitted: true
+          formSubmitted: 1
         })
 
         expect(wrapper.state().entered).toEqual(true)

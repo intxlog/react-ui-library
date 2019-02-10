@@ -22,7 +22,7 @@ storiesOf('RadioGroup', module)
   <RadioGroup
     name={`example5`}
     required={true}
-    formSubmitted={false}
+    formSubmitted={0}
     isValid={(bool) => {console.log(bool)}}
   >
     <RadioButton
@@ -114,7 +114,7 @@ storiesOf('RadioGroup', module)
   <RadioGroup
     name={`example7`}
     disabled={false}
-    formSubmitted={false}
+    formSubmitted={0}
     required
     defaultValue
   >
