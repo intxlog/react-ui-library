@@ -1,3 +1,5 @@
+@import '../../styles/_variables';
+
 .button {
   outline: 0;
   border: 0;
@@ -6,15 +8,15 @@
 
 .link {
   text-decoration: none;
-  color: var(--colorPrimaryBase);
+  color: $colorPrimaryBase;
   transition: color 0.3s;
 
   &:hover {
-    color: var(--colorPrimaryLight);
+    color: $colorPrimaryLight;
   }
 
   &:active {
-    color: var(--colorPrimaryLight);
+    color: $colorPrimaryLight;
   }
 }
 
@@ -26,18 +28,18 @@
   color: white;
   border-radius: 3px;
   transition: background-color 0.3s;
-  background-color: var(--colorPrimaryBase);
+  background-color: $colorPrimaryBase;
 
   &:hover {
-    background-color: var(--colorPrimaryLight);
+    background-color: $colorPrimaryLight;
   }
 
   &:active {
-    background-color: var(--colorPrimaryLight);
+    background-color: $colorPrimaryLight;
   }
 
   &:disabled {
-    background-color: var(--colorPrimaryFaded);
+    background-color: $colorPrimaryFaded;
   }
 }
 
