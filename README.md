@@ -20,7 +20,7 @@ import { Button } from '@intxlog/iuilib';
 
 ## Theming
 
-Components can be themed by including the folliwing snippet in your CSS. Then it is just a matter of changing the values to the desired values.  
+Components can be themed by including the folliwing snippet in your CSS. Then it is just a matter of changing the values to the desired values. The values displayed are the default values. 
 ```css
 :root {
   --colorPrimaryBase: #073451;

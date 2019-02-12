@@ -1,12 +1,13 @@
 // imports
 @import './../../styles/helpers.scss';
+@import '../../styles/_variables';
 
 .element {
   background: transparent;
   border: 0;
   outline: 0;
   width: 100%;
-  color: var(--colorFormInputFontColor);
+  color: $colorFormInputFontColor;
   font-size: $fontSize;
   line-height: 20px;
   padding: 6px 10px;
