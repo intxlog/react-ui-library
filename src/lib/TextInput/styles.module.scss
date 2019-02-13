@@ -1,6 +1,11 @@
 @import './../../styles/helpers.scss';
+@import '../../styles/_variables';
 
 .element {
   @extend %element;
   padding: 5px 10px;
+
+  &.disabled {
+    background-color: $colorFormInputDisabledBackground;
+  }
 }

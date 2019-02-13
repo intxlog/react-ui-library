@@ -58,7 +58,7 @@ $circleOffset: 2px;
     }
 
     > .element {
-      background-color: rgb(235, 235, 228);
+      background-color: $colorFormInputDisabledBackground;
     }
   }
 

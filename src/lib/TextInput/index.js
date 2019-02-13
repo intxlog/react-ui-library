@@ -22,7 +22,8 @@ const TextInput = ({
       style={inlineStyles}
       className={classNames({
         [styles.element]: true,
-        [styles.error]: error
+        [styles.error]: error,
+        [styles.disabled]: disabled
       })}
       placeholder={placeholder}
       disabled={disabled}
