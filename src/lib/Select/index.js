@@ -18,9 +18,7 @@ const Select = ({
   const isFirefox = !!navigator.userAgent.match(/firefox/i)
   return (
     <div
-      className={classNames({
-        [styles.wrapper]: true
-      })} 
+      className={styles.wrapper} 
     >
       <select
         id={id}
