@@ -2,21 +2,6 @@
 @import './../../styles/helpers.scss';
 @import '../../styles/_variables';
 
-.element {
-  background: transparent;
-  border: 0;
-  outline: 0;
-  width: 100%;
-  color: $colorFormInputFontColor;
-  padding: 5px 10px;
-  user-select: none;
-  -webkit-appearance: none;
-  
-  &.disabled {
-    background-color: rgb(235, 235, 228);
-  }
-}
-
 .wrapper {
   @extend %element;
   position: relative;
@@ -37,5 +22,24 @@
     border-style: solid;
     pointer-events: none;
     border-color: $colorFormInputBorder transparent transparent transparent;
+  }
+}
+
+.element {
+  background: transparent;
+  border: 0;
+  outline: 0;
+  width: 100%;
+  color: $colorFormInputFontColor;
+  padding: 5px 10px;
+  user-select: none;
+  -webkit-appearance: none;
+  
+  &.disabled {
+    background-color: rgb(235, 235, 228);
+  }
+
+  &.ffHack {
+    padding: 4px 10px;
   }
 }
