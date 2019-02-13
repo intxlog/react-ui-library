@@ -3,8 +3,6 @@
 
 .element {
   @extend %element;
-  font-size: $fontSize;
-  line-height: $lineHeight;
   padding: 5px 10px;
 
   &.disabled {

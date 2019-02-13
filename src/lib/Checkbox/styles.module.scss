@@ -1,4 +1,5 @@
 @import './../../styles/helpers.scss';
+@import '../../styles/_variables';
 
 $heightWidth: 14px;
 
@@ -30,7 +31,7 @@ $heightWidth: 14px;
     height: $heightWidth;
     width: $heightWidth;
     cursor: pointer;
-    border: 1px solid $colorBorder;
+    border: 1px solid $colorFormInputBorder;
     position: absolute;
     top: 4px;
     pointer-events: none;
@@ -38,7 +39,7 @@ $heightWidth: 14px;
 
     &:before {
       content: '\2714';
-      color: $colorBorder;
+      color: $colorFormInputBorder;
       position: absolute;
       top: -8px;
       left: 0px;

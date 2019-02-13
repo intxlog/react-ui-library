@@ -34,14 +34,14 @@ $circleOffset: 2px;
     height: $heightWidth;
     width: $heightWidth;
     cursor: pointer;
-    border: 1px solid $colorBorder;
+    border: 1px solid $colorFormInputBorder;
     position: absolute;
     top: 4px;
     pointer-events: none;
     
     &:before {
       content: '';
-      background-color: $colorBorder;
+      background-color: $colorFormInputBorder;
       height: $circleHeightWidth;
       width: $circleHeightWidth;
       position: absolute;
