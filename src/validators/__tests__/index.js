@@ -41,13 +41,13 @@ describe('validators root', () => {
     })
   })
   it('the ein function is called when ein is the type passed in', () => {
-    const value = 123456789
+    const value = `12-3456789`
     const type = 'ein'
     
     expect(validator(value,type)).toEqual({
       valid: true,
       message: null,
-      value: 123456789
+      value: `12-3456789`
     })
   })
   it('the zip function is called when zip is the type passed in', () => {

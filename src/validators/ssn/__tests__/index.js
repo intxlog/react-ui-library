@@ -11,8 +11,7 @@ describe('ssnValidator', () => {
     })
   })
   it('returns the correct payload when given an invalid ssn', () => {
-    const ssn = 'invalid'
-    expect(ssnValidator(ssn)).toEqual({
+    expect(ssnValidator(123456789)).toEqual({
       valid: false,
       message: "Invalid format",
       value: null
