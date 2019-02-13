@@ -21,7 +21,8 @@ const TextArea = ({
       style={inlineStyles}
       className={classNames({
         [styles.element]: true,
-        [styles.error]: error
+        [styles.error]: error,
+        [styles.disabled]: disabled
       })}
       placeholder={placholder}
       disabled={disabled}

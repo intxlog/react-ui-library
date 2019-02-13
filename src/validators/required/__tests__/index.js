@@ -16,6 +16,13 @@ describe('requiredValidator', () => {
       value: null
     })
   }),
+  it('returns the correct payload when val has whitespace before or after', () => {
+    expect(requiredValidator('  foo  ')).toEqual({
+      valid: false,
+      message: 'Check your spacing before and after characters',
+      value: '  foo  '
+    })
+  }),
   it('returns the correct payload when val is not null or ""', () => {
     expect(requiredValidator('foo')).toEqual({
       valid: true,

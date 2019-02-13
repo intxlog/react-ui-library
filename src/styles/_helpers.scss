@@ -1,18 +1,19 @@
-$fontSize: 16px;
-$lineHeight: 16px;
-$colorBorder: #656565;
+@import './_variables';
 
 %element {
   width: 100%;
-  color: var(--colorFormInputFontColor);
+  color: $colorFormInputFontColor;
+  border: 1px solid $colorFormInputBorder;
   border-radius: 3px;
-  border: 1px solid $colorBorder;
   transition: border .3s;
   box-shadow: inset 0 0 0 0 transparent;
   outline: 0;
+  background-color: white;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 
   &:focus {
-    border: 1px solid var(--colorPrimaryBase);
+    border: 1px solid $colorPrimaryBase;
   }
 
   &.error {
@@ -21,18 +22,18 @@ $colorBorder: #656565;
 
   //Style Placeholder
   &::-webkit-input-placeholder {
-    color: var(--colorFormInputPlaceholder);
+    color: $colorFormInputPlaceholder;
   }
 
   &:-moz-placeholder { /* Firefox 18- */
-    color: var(--colorFormInputPlaceholder);
+    color: $colorFormInputPlaceholder;
   }
 
   &::-moz-placeholder { /* Firefox 19+ */
-    color: var(--colorFormInputPlaceholder);
+    color: $colorFormInputPlaceholder;
   }
 
   &:-ms-input-placeholder {
-    color: var(--colorFormInputPlaceholder);
+    color: $colorFormInputPlaceholder;
   }
 }

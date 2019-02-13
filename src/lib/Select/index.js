@@ -14,6 +14,8 @@ const Select = ({
   onBlur,
   error
 }) => {
+  //TODO: this needs to be moved to a container once refactored
+  const isFirefox = !!navigator.userAgent.match(/firefox/i)
   return (
     <div
       className={styles.wrapper} 
@@ -23,7 +25,8 @@ const Select = ({
         className={classNames({
           [styles.element]: true,
           [styles.disabled]: disabled,
-          [styles.error]: error
+          [styles.error]: error,
+          [styles.ffHack]: isFirefox
         })}
         defaultValue={defaultValue}
         disabled={disabled}

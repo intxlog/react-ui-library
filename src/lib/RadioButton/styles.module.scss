@@ -1,4 +1,5 @@
 @import './../../styles/helpers.scss';
+@import '../../styles/_variables';
 
 $heightWidth: 14px;
 $circleHeightWidth: 8px;
@@ -33,14 +34,14 @@ $circleOffset: 2px;
     height: $heightWidth;
     width: $heightWidth;
     cursor: pointer;
-    border: 1px solid $colorBorder;
+    border: 1px solid $colorFormInputBorder;
     position: absolute;
     top: 4px;
     pointer-events: none;
     
     &:before {
       content: '';
-      background-color: $colorBorder;
+      background-color: $colorFormInputBorder;
       height: $circleHeightWidth;
       width: $circleHeightWidth;
       position: absolute;
@@ -57,7 +58,7 @@ $circleOffset: 2px;
     }
 
     > .element {
-      background-color: rgb(235, 235, 228);
+      background-color: $colorFormInputDisabledBackground;
     }
   }
 
