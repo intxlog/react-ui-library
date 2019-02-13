@@ -16,7 +16,7 @@
   -webkit-appearance: none;
   
   &.disabled {
-    background-color: rgb(235, 235, 228);
+    background-color: $colorFormInputDisabledBackground;
   }
 }
 
