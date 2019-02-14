@@ -263,6 +263,7 @@ class Input extends React.Component {
           {this.state.error &&
             <p className={classNames({
               [styles.infoText]: true,
+              [this.props.className] :  this.props.className,
               [styles.error]: this.state.error
             })}>{this.state.infoText}</p>
           }
@@ -278,6 +279,7 @@ Input.propTypes = {
   labelText: PropTypes.string,
   inlineStyles: PropTypes.object,
   placeholder: PropTypes.string,
+  className: PropTypes.string,
   disabled: PropTypes.bool,
   value: PropTypes.oneOfType([
     PropTypes.string,
