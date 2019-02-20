@@ -5,6 +5,9 @@ Simple React Component Library
 
 Demo the components [here](https://intxlog.github.io/react-ui-library) using [Storybook](https://storybook.js.org/) 
 
+## Special thanks to the following:
+[![BrowserStack](https://d2ogrdw2mh0rsl.cloudfront.net/production/images/static/header/header-logo.svg)](https://www.browserstack.com/)
+
 ## Getting Started
 Before you start, please understand that this project is still in early development. PRs and feature requests are welcome.
 
