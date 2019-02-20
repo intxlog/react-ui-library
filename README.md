@@ -60,4 +60,4 @@ You can pass in your own custom validation method by using the this.props.custom
 ## Thank You:
 Thank you to BrowserStack for letting us use their awesome tools when testing this Library.
 
-[![BrowserStack](https://d2ogrdw2mh0rsl.cloudfront.net/production/images/static/header/header-logo.svg)](https://www.browserstack.com/)
+[![BrowserStack](/assets/browserstackLogo.png)](https://www.browserstack.com/)
