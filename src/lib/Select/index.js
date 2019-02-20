@@ -7,7 +7,7 @@ import styles from './styles.module.scss'
 
 const Select = ({
   id,
-  classes,
+  className,
   children,
   disabled,
   defaultValue,
@@ -21,7 +21,7 @@ const Select = ({
     <div
       className={classNames({
         [styles.wrapper]: true,
-        [classes] : classes
+        [className] : className
       })}
     >
       <select
@@ -46,7 +46,7 @@ const Select = ({
 //rules for props being passed in
 Select.propTypes = {
   id: PropTypes.string,
-  classes: PropTypes.string,
+  className: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.object

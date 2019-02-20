@@ -6,7 +6,7 @@ import styles from './styles.module.scss'
 
 const Checkbox = ({
   id,
-  classes,
+  className,
   value,
   name,
   labelText,
@@ -18,7 +18,7 @@ const Checkbox = ({
     <div
     className={classNames({
       [styles.container]: true,
-      [classes] : classes
+      [className] : className
     })}
   >
       <input
@@ -41,7 +41,7 @@ const Checkbox = ({
 //rules for props being passed in
 Checkbox.propTypes = {
   id: PropTypes.string,
-  classes: PropTypes.string,
+  className: PropTypes.string,
   labelText: PropTypes.string.isRequired,
   defaultChecked: PropTypes.bool,
   name: PropTypes.string,

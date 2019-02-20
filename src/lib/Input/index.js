@@ -196,7 +196,7 @@ class Input extends React.Component {
           defaultValue={this.props.defaultValue}
           disabled={this.props.disabled}
           error={this.props.error || this.state.error}
-          classes={this.props.classes}
+          className={this.props.className}
           onChange={this.handleOnChange}
           onBlur={this.handleOnBlur}
         >
@@ -211,7 +211,7 @@ class Input extends React.Component {
           name={this.props.name}
           labelText={this.props.labelText}
           defaultChecked={this.props.defaultChecked}
-          classes={this.props.classes}
+          className={this.props.className}
           disabled={this.props.disabled}
           onChange={this.handleOnChange}
           onBlur={this.handleOnBlur}
@@ -224,7 +224,7 @@ class Input extends React.Component {
           value={this.props.value}
           name={this.props.name}
           defaultChecked={this.props.defaultChecked}
-          classes={this.props.classes}
+          className={this.props.className}
           onChange={this.handleOnChange}
           onBlur={this.handleOnBlur}
           labelText={this.props.labelText}
@@ -238,7 +238,7 @@ class Input extends React.Component {
           placeholder={this.props.placeholder}
           disabled={this.props.disabled}
           defaultValue={this.props.defaultValue}
-          classes={this.props.classes}
+          className={this.props.className}
           onChange={this.handleOnChange}
           onBlur={this.handleOnBlur}
           error={this.props.error}
@@ -253,7 +253,7 @@ class Input extends React.Component {
           disabled={this.props.disabled}
           defaultValue={this.props.defaultValue}
           type={type}
-          classes={this.props.classes}
+          className={this.props.className}
           error={this.props.error || this.state.error}
           onChange={this.handleOnChange}
           onBlur={this.handleOnBlur}
@@ -284,7 +284,7 @@ Input.propTypes = {
   inlineStyles: PropTypes.object,
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
-  classes: PropTypes.string,
+  className: PropTypes.string,
   value: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,

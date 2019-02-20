@@ -75,7 +75,7 @@ class Modal extends React.Component {
     if (this.props.isOpen) {
       modal = <div className={ classNames({
           [styles.container]:true,
-          [this.props.classes]:this.props.classes
+          [this.props.className]:this.props.className
         })}>
         <div className={styles.modal}>
           <button className={styles.closeButton} onClick={this.props.closeFunc}></button>
@@ -95,7 +95,7 @@ Modal.propTypes = {
   buttonText: PropTypes.string,
   closeFunc: PropTypes.func,
   customContent: PropTypes.object,
-  classes: PropTypes.string,
+  className: PropTypes.string,
   type: PropTypes.oneOf(['success', 'warning', 'error'])
 }
 

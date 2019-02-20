@@ -24,7 +24,7 @@ class Button extends React.Component {
       [styles.small]: this.props.size === `small`,
       [styles.medium]: this.props.size === `medium`,
       [styles.large]: this.props.size === `large`,
-      [this.props.classes]: this.props.classes
+      [this.props.className]: this.props.className
     })
     
     //handle full width conditional
@@ -78,7 +78,7 @@ Button.propTypes = {
   submitsForm: PropTypes.bool,
   onClick: PropTypes.func,
   inlineStyles: PropTypes.object,
-  classes: PropTypes.string
+  className: PropTypes.string
 }
 
 // Specifies the default values for props:
