@@ -5,9 +5,6 @@ Simple React Component Library
 
 Demo the components [here](https://intxlog.github.io/react-ui-library) using [Storybook](https://storybook.js.org/) 
 
-## Special thanks to the following:
-[![BrowserStack](https://d2ogrdw2mh0rsl.cloudfront.net/production/images/static/header/header-logo.svg)](https://www.browserstack.com/)
-
 ## Getting Started
 Before you start, please understand that this project is still in early development. PRs and feature requests are welcome.
 
@@ -59,3 +56,8 @@ You can pass in your own custom validation method by using the this.props.custom
   value: string
 }
 ```
+
+## Thank You:
+Thank you to BrowserStack for letting us use their awesome tools when testing this Library.
+
+[![BrowserStack](https://d2ogrdw2mh0rsl.cloudfront.net/production/images/static/header/header-logo.svg)](https://www.browserstack.com/)
