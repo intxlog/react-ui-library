@@ -7,6 +7,7 @@ import styles from './styles.module.scss'
 
 const TextArea = ({
   id,
+  classes,
   inlineStyles,
   placholder,
   disabled,
@@ -22,7 +23,8 @@ const TextArea = ({
       className={classNames({
         [styles.element]: true,
         [styles.error]: error,
-        [styles.disabled]: disabled
+        [styles.disabled]: disabled,
+        [classes]: classes
       })}
       placeholder={placholder}
       disabled={disabled}
@@ -36,6 +38,7 @@ const TextArea = ({
 //rules for props being passed in
 TextArea.propTypes = {
   id: PropTypes.string,
+  classes: PropTypes.string,
   inlineStyles: PropTypes.object,
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,

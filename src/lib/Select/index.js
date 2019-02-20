@@ -7,6 +7,7 @@ import styles from './styles.module.scss'
 
 const Select = ({
   id,
+  classes,
   children,
   disabled,
   defaultValue,
@@ -18,7 +19,10 @@ const Select = ({
   const isFirefox = !!navigator.userAgent.match(/firefox/i)
   return (
     <div
-      className={styles.wrapper} 
+      className={classNames({
+        [styles.wrapper]: true,
+        [classes] : classes
+      })}
     >
       <select
         id={id}
@@ -42,6 +46,7 @@ const Select = ({
 //rules for props being passed in
 Select.propTypes = {
   id: PropTypes.string,
+  classes: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.object

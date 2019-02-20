@@ -129,7 +129,7 @@ class RadioGroup extends React.Component {
       <div className={styles.container}>
         <div className={classNames({
           [styles.childrenWrapper]: true,
-          [this.props.className] :  this.props.className,
+          [this.props.classes] :  this.props.classes,
           [styles.horizontal]: this.props.direction === `horizontal`
         })}>
           {children}
@@ -146,7 +146,7 @@ RadioGroup.propTypes = {
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
   isValid: PropTypes.func,
-  className: PropTypes.object,
+  classes: PropTypes.string,
   direction: PropTypes.oneOf([`horizontal`, `vertical`]).isRequired,
   formSubmitted: PropTypes.number,
   defaultValue: PropTypes.oneOfType([

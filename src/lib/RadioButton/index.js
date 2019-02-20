@@ -7,6 +7,7 @@ import styles from './styles.module.scss'
 
 const RadioButton = ({
   id,
+  classes,
   value,
   name,
   defaultValue,
@@ -20,7 +21,8 @@ const RadioButton = ({
     <div className={classNames({
       [styles.container]: true,
       [styles.error]: error,
-      [styles.disabled]: disabled
+      [styles.disabled]: disabled,
+      [classes]: classes
     })}>
       <input
         id={id}
@@ -43,6 +45,7 @@ const RadioButton = ({
 //rules for props being passed in
 RadioButton.propTypes = {
   id: PropTypes.string,
+  classes: PropTypes.string,
   value: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
