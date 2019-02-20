@@ -28,8 +28,8 @@
 .text {
   margin-top: 0;
   margin-bottom: 20px;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 22px;
 }
 
 .circle {
@@ -49,28 +49,19 @@
   
   &.success {
     border: 5px solid green;
-    
-    &:before {
-      content: '\2714';
-      color: green;
-    }
-  }
 
+  }
+  
   &.warning {
     border: 5px solid orange;
-    
-    &:before {
-      content: '\0021';
-      color: orange;
-    }
   }
-
+  
   &.error {
     border: 5px solid red;
-    
-    &:before {
-      content: '\2716';
-      color: red;
+
+    >svg {
+      height: 70px;
+      width: 70px;
     }
   }
 }
@@ -82,6 +73,7 @@
   height: 20px;
   width: 20px;
   outline: 0;
+  padding: 0;
   border: 2px solid white;
   border-radius: 100%;
   background-color:grey;
@@ -93,13 +85,11 @@
     background-color:rgb(109, 109, 109);
   }
 
-  &:before {
-    content: '\2716';
+  >svg {
     position: absolute;
-    top: 2px;
-    left: 3px;
-    color: white;
-    font-weight: 700;
-    font-size: 11px;
+    top: 1px;
+    right: 1px;
+    height: 14px;
+    width: 14px;
   }
 }
