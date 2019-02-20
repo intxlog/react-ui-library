@@ -50,10 +50,19 @@
   &.success {
     border: 5px solid green;
 
+    >svg {
+      height: 54px;
+      width: 54px;
+    }
   }
   
   &.warning {
     border: 5px solid orange;
+
+    >svg {
+      height: 60px;
+      width: 60px;
+    }
   }
   
   &.error {
