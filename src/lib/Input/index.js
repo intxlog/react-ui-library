@@ -196,6 +196,7 @@ class Input extends React.Component {
           defaultValue={this.props.defaultValue}
           disabled={this.props.disabled}
           error={this.props.error || this.state.error}
+          classes={this.props.classes}
           onChange={this.handleOnChange}
           onBlur={this.handleOnBlur}
         >
@@ -210,6 +211,7 @@ class Input extends React.Component {
           name={this.props.name}
           labelText={this.props.labelText}
           defaultChecked={this.props.defaultChecked}
+          classes={this.props.classes}
           disabled={this.props.disabled}
           onChange={this.handleOnChange}
           onBlur={this.handleOnBlur}
@@ -222,6 +224,7 @@ class Input extends React.Component {
           value={this.props.value}
           name={this.props.name}
           defaultChecked={this.props.defaultChecked}
+          classes={this.props.classes}
           onChange={this.handleOnChange}
           onBlur={this.handleOnBlur}
           labelText={this.props.labelText}
@@ -235,6 +238,7 @@ class Input extends React.Component {
           placeholder={this.props.placeholder}
           disabled={this.props.disabled}
           defaultValue={this.props.defaultValue}
+          classes={this.props.classes}
           onChange={this.handleOnChange}
           onBlur={this.handleOnBlur}
           error={this.props.error}
@@ -249,6 +253,7 @@ class Input extends React.Component {
           disabled={this.props.disabled}
           defaultValue={this.props.defaultValue}
           type={type}
+          classes={this.props.classes}
           error={this.props.error || this.state.error}
           onChange={this.handleOnChange}
           onBlur={this.handleOnBlur}
@@ -263,8 +268,7 @@ class Input extends React.Component {
           {this.state.error &&
             <p className={classNames({
               [styles.infoText]: true,
-              [styles.error]: this.state.error,
-              [this.props.classes] :  this.props.classes,
+              [styles.error]: this.state.error
             })}>{this.state.infoText}</p>
           }
         </div>
