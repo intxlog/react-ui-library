@@ -56,3 +56,8 @@ You can pass in your own custom validation method by using the this.props.custom
   value: string
 }
 ```
+
+## Thank You:
+Thank you to BrowserStack for letting us use their awesome tools when testing this Library.
+
+[![BrowserStack](/assets/browserstackLogo.png)](https://www.browserstack.com/)
