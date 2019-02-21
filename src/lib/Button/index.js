@@ -64,12 +64,12 @@ class Button extends React.Component {
 
     //logic to display a button element or phone link
     if (this.props.type === `phoneLink`) {
-      element = <a href={`tel:+${process.env.REACT_APP_CARRIER_DEPT_PHONE}`} target='_blank'  rel="noopener noreferrer" >{process.env.REACT_APP_CARRIER_DEPT_PHONE}</a>
+      element = <a href={`tel:+${this.props.linkTo}`} target='_blank'  rel="noopener noreferrer" >{this.props.text}</a>
     }
 
     //logic to display a button element or email link
     if (this.props.type === `emailLink`) {
-      element = <a href={`mailto:${process.env.REACT_APP_CARRIER_SERVICES_EMAIL}`}  rel='noopener noreferrer' target='_top'>{process.env.REACT_APP_CARRIER_SERVICES_EMAIL}</a>
+      element = <a href={`mailto:${this.props.linkTo}`}  rel='noopener noreferrer' target='_top'>{this.props.text}</a>
     }
     return (element)
   }
