@@ -18,13 +18,13 @@ class Button extends React.Component {
 
     //logic for dynamic classnames
     let btnClass = classNames({
+      [this.props.className]: this.props.className,
       [styles.button]: true,
       [styles.plain]: this.props.type === `plain`,
       [styles.primary]: this.props.type === `primary`,
       [styles.small]: this.props.size === `small`,
       [styles.medium]: this.props.size === `medium`,
-      [styles.large]: this.props.size === `large`,
-      [this.props.className]: this.props.className
+      [styles.large]: this.props.size === `large`
     })
     
     //handle full width conditional
