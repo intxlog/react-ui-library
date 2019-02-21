@@ -17,8 +17,8 @@ const Checkbox = ({
   return (
     <div
     className={classNames({
-      [styles.container]: true,
-      [className] : className
+      [className] : className,
+      [styles.container]: true
     })}
   >
       <input
