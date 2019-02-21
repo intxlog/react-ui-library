@@ -18,7 +18,7 @@ class Modal extends React.Component {
     let text = null
     let className = null
     let svg = null
-    
+
     //if customContent is passed in then ignore all the rules and just make the content the custom content
     if (this.props.customContent) {
       content = this.props.customContent

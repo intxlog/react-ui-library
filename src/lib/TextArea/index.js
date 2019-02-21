@@ -21,10 +21,10 @@ const TextArea = ({
       id={id}
       style={inlineStyles}
       className={classNames({
+        [className]: className,
         [styles.element]: true,
         [styles.error]: error,
-        [styles.disabled]: disabled,
-        [className]: className
+        [styles.disabled]: disabled
       })}
       placeholder={placholder}
       disabled={disabled}

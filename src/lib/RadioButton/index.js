@@ -19,10 +19,10 @@ const RadioButton = ({
 }) => {
   return (
     <div className={classNames({
+      [className]: className,
       [styles.container]: true,
       [styles.error]: error,
-      [styles.disabled]: disabled,
-      [className]: className
+      [styles.disabled]: disabled
     })}>
       <input
         id={id}
