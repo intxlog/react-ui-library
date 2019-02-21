@@ -62,6 +62,15 @@ class Button extends React.Component {
       element = <Link className={styles.link} to={this.props.linkTo}>{this.props.text}</Link>
     }
 
+    //logic to display a button element or phone link
+    if (this.props.type === `phoneLink`) {
+      element = <a href={`tel:+${this.props.linkTo}`} target='_blank'  rel="noopener noreferrer" >{this.props.text}</a>
+    }
+
+    //logic to display a button element or email link
+    if (this.props.type === `emailLink`) {
+      element = <a href={`mailto:${this.props.linkTo}`}  rel='noopener noreferrer' target='_top'>{this.props.text}</a>
+    }
     return (element)
   }
 }
@@ -69,7 +78,7 @@ class Button extends React.Component {
 //rules for props being passed in
 Button.propTypes = {
   text: PropTypes.string,
-  type: PropTypes.oneOf([`plain`, `primary`, `link`, `routedLink`]),
+  type: PropTypes.oneOf([`plain`, `primary`, `link`, `routedLink`, `phoneLink`, `emailLink`]),
   size: PropTypes.oneOf([`small`, `medium`, `large`]),
   disabled: PropTypes.bool,
   linkTo: PropTypes.string,
