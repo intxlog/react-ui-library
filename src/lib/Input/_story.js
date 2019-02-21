@@ -145,3 +145,12 @@ storiesOf('Input Checkbox', module)
     labelText={'Awesome Checkbox'}
   ></Input>
 ))
+.add('default (checked)', () => (
+  <Input
+    type='checkbox'
+    value={`Checkbox`}
+    idForLabel={`option1`}
+    labelText={'Awesome Checkbox'}
+    defaultChecked
+  ></Input>
+))

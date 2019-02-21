@@ -146,7 +146,7 @@ RadioGroup.propTypes = {
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
   isValid: PropTypes.func,
-  className: PropTypes.object,
+  className: PropTypes.string,
   direction: PropTypes.oneOf([`horizontal`, `vertical`]).isRequired,
   formSubmitted: PropTypes.number,
   defaultValue: PropTypes.oneOfType([

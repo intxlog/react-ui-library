@@ -7,6 +7,7 @@ import styles from './styles.module.scss'
 
 const Select = ({
   id,
+  className,
   children,
   disabled,
   defaultValue,
@@ -14,19 +15,19 @@ const Select = ({
   onBlur,
   error
 }) => {
-  //TODO: this needs to be moved to a container once refactored
-  const isFirefox = !!navigator.userAgent.match(/firefox/i)
   return (
     <div
-      className={styles.wrapper} 
+      className={classNames({
+        [className] : className,
+        [styles.wrapper]: true
+      })}
     >
       <select
         id={id}
         className={classNames({
           [styles.element]: true,
           [styles.disabled]: disabled,
-          [styles.error]: error,
-          [styles.ffHack]: isFirefox
+          [styles.error]: error
         })}
         defaultValue={defaultValue}
         disabled={disabled}
@@ -42,6 +43,7 @@ const Select = ({
 //rules for props being passed in
 Select.propTypes = {
   id: PropTypes.string,
+  className: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.object

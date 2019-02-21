@@ -7,6 +7,7 @@ import styles from './styles.module.scss'
 
 const TextInput = ({
   id,
+  className,
   inlineStyles,
   placeholder,
   disabled,
@@ -21,6 +22,7 @@ const TextInput = ({
       id={id}
       style={inlineStyles}
       className={classNames({
+        [className]: className,
         [styles.element]: true,
         [styles.error]: error,
         [styles.disabled]: disabled
@@ -41,6 +43,7 @@ TextInput.propTypes = {
   inlineStyles: PropTypes.object,
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
+  className: PropTypes.string,
   defaultValue: PropTypes.string,
   type: PropTypes.oneOf([`text`, `password`]),
   onChange: PropTypes.func,
