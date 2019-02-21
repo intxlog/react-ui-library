@@ -20,7 +20,7 @@ $heightWidth: 14px;
     height: 1px;
     position: absolute;
 
-    &:checked ~ .checkbox::before {
+    &:checked ~ .check {
       display: block;
     } 
   }
@@ -35,16 +35,20 @@ $heightWidth: 14px;
     position: absolute;
     top: 4px;
     pointer-events: none;
-    // overflow: hidden;
+  }
 
-    &:before {
-      content: '\2714';
-      color: $colorFormInputBorder;
-      position: absolute;
-      top: -8px;
-      left: 0px;
-      font-size: 20px;
-      display: none;
+  > .check {
+    height: 13px;
+    width: 13px;
+    top: 4px;
+    left: 1px;
+    position: absolute;
+    display: none;
+    z-index: 1;
+    pointer-events: none;
+
+    > path {
+      fill: #555555;
     }
   }
 }

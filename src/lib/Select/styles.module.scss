@@ -6,6 +6,7 @@
   @extend %element;
   position: relative;
   display: grid;
+  overflow: hidden;
 
   &, > * {
     cursor: pointer;
