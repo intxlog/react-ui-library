@@ -1,12 +1,45 @@
-@import '../../styles/_variables';
+@import './../../styles/_helpers.scss';
 
 .button {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+  overflow: visible;
+  text-transform: none;
+  -webkit-appearance: button;
   outline: 0;
   border: 0;
   cursor: pointer;
+
+  //Correct the inability to style clickable types in iOS and Safari
+  &[type="button"],
+  &[type="reset"],
+  &[type="submit"] {
+    -webkit-appearance: button;
+  }
+
+  //Remove the inner border and padding in Firefox
+  &::-moz-focus-inner,
+  &[type="button"]::-moz-focus-inner,
+  &[type="reset"]::-moz-focus-inner,
+  &[type="submit"]::-moz-focus-inner {
+    -webkit-appearance: button;
+    border-style: none;
+    padding: 0;
+  }
+
+  //Restore the focus styles unset by the previous rule
+  &:-moz-focusring,
+  &[type="button"]:-moz-focusring,
+  &[type="reset"]:-moz-focusring,
+  &[type="submit"]:-moz-focusring {
+    outline: 1px dotted ButtonText;
+  }
 }
 
 .link {
+  background-color: transparent;
   text-decoration: none;
   color: $colorPrimaryBase;
   transition: color 0.3s;
