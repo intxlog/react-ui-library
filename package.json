@@ -11,7 +11,7 @@
   "scripts": {
     "build": "./node_modules/.bin/webpack --mode=production",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook -o docs",
+    "build-storybook": "build-storybook",
     "test": "jest",
     "cover": "npm test -- --coverage",
     "report-coverage": "coveralls < ./coverage/lcov.info"
@@ -51,5 +51,16 @@
     "moduleNameMapper": {
       "\\.(css|scss)$": "identity-obj-proxy"
     }
+  },
+  "dependencies": {
+    "@storybook/addon-info": "^5.0.0"
+  },
+  "devDependencies": {
+    "@storybook/react": "^5.0.0",
+    "@storybook/addon-actions": "^5.0.0",
+    "@storybook/addon-links": "^5.0.0",
+    "@storybook/addons": "^5.0.0",
+    "@babel/core": "^7.3.4",
+    "babel-loader": "^8.0.5"
   }
 }
