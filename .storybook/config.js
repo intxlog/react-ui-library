@@ -1,6 +1,5 @@
-import React from 'react'
-import { configure, addDecorator } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
+import { configure, addDecorator } from '@storybook/react'
+import { withInfo } from '@storybook/addon-info'
 import './styles/base.css'
 
 //import stories from the src folder
