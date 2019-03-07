@@ -30,11 +30,6 @@
     "url": "https://github.com/intxlog/react-ui-library/issues"
   },
   "homepage": "https://intxlog.github.io/react-ui-library",
-  "peerDependencies": {
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "react-router-dom": "^4.3.1"
-  },
   "jest": {
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
@@ -52,15 +47,23 @@
       "\\.(css|scss)$": "identity-obj-proxy"
     }
   },
-  "dependencies": {
-    "@storybook/addon-info": "^5.0.0"
+  "peerDependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
-    "@storybook/react": "^5.0.0",
+    "@babel/core": "^7.3.4",
     "@storybook/addon-actions": "^5.0.0",
+    "@storybook/addon-info": "^5.0.0",
     "@storybook/addon-links": "^5.0.0",
     "@storybook/addons": "^5.0.0",
-    "@babel/core": "^7.3.4",
-    "babel-loader": "^8.0.5"
+    "@storybook/react": "^5.0.0",
+    "babel-loader": "^8.0.5",
+    "node-sass": "^4.11.0",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-router-dom": "^4.3.1",
+    "sass-loader": "^7.1.0"
   }
 }
