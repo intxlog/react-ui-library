@@ -26,6 +26,14 @@ If you would like to view components in another project you can use [npm link](h
 
 You will then need to run `npm link @intxlog/iuilib` in the project in which you wish to use the components in.
 
+## Testing
+[Jest](https://jestjs.io/en/) is used to test the components. There are several commands that can be run to help you test.
+
+`npm run test` - watches files and only run tests on the files that have been changed since the last commit  
+`npm run test-all` - watches files and tests on ALL files  
+`npm run test-all-coverage` - watches files and tests on ALL files along with generating a coverage report  
+`npm run test-cover` - Generates a coverage report  
+
 ## Theming
 
 Components can be themed by including the folliwing snippet in your CSS. Then it is just a matter of changing the values to the desired values. The values displayed are the default values. 

@@ -13,8 +13,10 @@
     "start-linked": "npm link && webpack --config webpack.dev.config.js",
     "build": "webpack --config webpack.prod.config.js",
     "build-storybook": "build-storybook",
-    "test": "jest",
-    "cover": "npm test -- --coverage",
+    "test": "jest --watch",
+    "test-all": "jest --watchAll",
+    "test-all-coverage": "jest --watchAll --coverage",
+    "test-cover": "jest --coverage",
     "report-coverage": "coveralls < ./coverage/lcov.info"
   },
   "repository": {
@@ -40,6 +42,7 @@
     ],
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
+      "!src/index.js",
       "!src/setupTests.js",
       "!src/**/_story.js",
       "!src/lib/index.js"
@@ -61,7 +64,13 @@
     "@storybook/addons": "^5.0.0",
     "@storybook/react": "^5.0.0",
     "babel-loader": "^8.0.5",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.10.0",
+    "enzyme-to-json": "^3.3.5",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.3.0",
     "node-sass": "^4.11.0",
+    "opn": "^5.4.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-router-dom": "^4.3.1",
