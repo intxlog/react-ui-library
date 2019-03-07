@@ -9,9 +9,9 @@
     "README.md"
   ],
   "scripts": {
-    "devLink": "npm link && webpack --config webpack.dev.config.js",
+    "start-linked": "npm link && webpack --config webpack.dev.config.js",
     "build": "webpack --config webpack.prod.config.js",
-    "storybook": "start-storybook -p 6006",
+    "start": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "test": "jest",
     "cover": "npm test -- --coverage",

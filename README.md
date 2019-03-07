@@ -18,6 +18,14 @@ Once installed, you can import components
 import { Button } from '@intxlog/iuilib';
 ```
 
+## Development
+Components can be developed using storybook. Using `npm run start` will run storybook in your local development environment and you can view/develop components real time. 
+
+### Linking
+If you would like to view components in another project you can use [npm link](https://docs.npmjs.com/cli/link.html). Using `npm run start-linked` will create a symlink in the global folder `{prefix}/lib/node_modules/<package>` that links to the package where the npm link command was executed and create a production build of the library everytime a file is changed. This will allow you to develop components in other projects in real-time assuming your project is equipped to handle HMR. 
+
+You will then need to run `npm link @intxlog/iuilib` in the project in which you wish to use the components in.
+
 ## Theming
 
 Components can be themed by including the folliwing snippet in your CSS. Then it is just a matter of changing the values to the desired values. The values displayed are the default values. 
@@ -42,20 +50,6 @@ Components can be themed by including the folliwing snippet in your CSS. Then it
 ### Modal
 
 The [Modal](https://intxlog.github.io/react-ui-library/?selectedKind=Modal&selectedStory=default&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel) component can be included in a project by placing the component once somewhere in your React app, preferably in the root of your app. The component is designed to be used with redux/state so that close function that can be passed in modifies the isOpen prop outside of the component itself. 
-
-## Validation
-
-For now, email is the only type of input that is validated. Inputs have a custom onValid event that only returns a value when an input becomes valid. In the future we may add in an onValidChange and onValidBlur event forr performance reasons. For now the onValid event is fired on both. 
-
-You can pass in your own custom validation method by using the this.props.customValidationFunc prop. This function must return an object in the following format:
-
-```js
-{
-  valid: boolean,
-  message: string,
-  value: string
-}
-```
 
 ## Thank You:
 Thank you to BrowserStack for letting us use their awesome tools when testing this Library.
