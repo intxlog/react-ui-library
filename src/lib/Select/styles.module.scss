@@ -1,15 +1,16 @@
 // imports
-@import './../../styles/helpers.scss';
-@import '../../styles/_variables';
+@import './../../styles/_helpers.scss';
 
 .wrapper {
   @extend %element;
   position: relative;
   display: grid;
   overflow: hidden;
+  box-sizing: border-box;
 
   &, > * {
     cursor: pointer;
+    box-sizing: border-box;
   }
 
   &:after {
@@ -27,6 +28,11 @@
 }
 
 .element {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+  text-transform: none;
   background: transparent;
   border: 0;
   outline: 0;

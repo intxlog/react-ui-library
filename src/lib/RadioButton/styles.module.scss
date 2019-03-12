@@ -1,5 +1,4 @@
-@import './../../styles/helpers.scss';
-@import '../../styles/_variables';
+@import './../../styles/_helpers.scss';
 
 $heightWidth: 14px;
 $circleHeightWidth: 8px;
@@ -7,8 +6,12 @@ $circleOffset: 2px;
 
 .container {
   position: relative;
+  box-sizing: border-box;
 
-  
+  > * {
+    box-sizing: border-box;
+  }
+
   > label {
     font-size: 16px;
     line-height: 22px;
@@ -18,6 +21,12 @@ $circleOffset: 2px;
   } 
   
   > input {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+    overflow: visible;
+    padding: 0;
     clip: rect(1px, 1px, 1px, 1px);
     width: 1px;
     height: 1px;

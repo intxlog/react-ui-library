@@ -1,30 +1,18 @@
-
-import React from 'react'
 import { configure, addDecorator } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
-import './styles/base.module.scss'
+import './styles/base.css'
 
-const defaultWrapperStyles = {
-  padding: '20px 40px'
-}
-
+//import stories from the src folder
 const req = require.context('../src', true, /\_story\.js$/)
-
 function loadStories() {
   req.keys().forEach((filename) => req(filename))
 }
 
+//add the info addon 
 addDecorator(
   withInfo({
     inline: true
   })
 )
 
-// wrap all stories in a presentational wrapper
-addDecorator(story => (
-  <div style={defaultWrapperStyles}>
-    {story()}
-  </div>
-))
-
-configure(loadStories, module)
+configure(loadStories, module);
