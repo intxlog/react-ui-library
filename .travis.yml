@@ -9,7 +9,7 @@ cache:
 before_script:
 - chmod +x scripts/docs || true
 script:
-- npm run cover
+- npm run test-cover
 after_script:
 - npm run report-coverage
 after_success:
