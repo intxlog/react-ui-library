@@ -2,6 +2,11 @@ const path = require('path')
 const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
+  watch: true,
+  watchOptions: {
+    ignored: /node_modules/
+  },
+  mode: 'production',
   entry: path.resolve(__dirname, 'src/lib/index.js'),
   output: {
     path: path.resolve(__dirname, './dist/lib'),
@@ -14,7 +19,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /(node_modules)/,
         loader: 'babel-loader'
       },
       {

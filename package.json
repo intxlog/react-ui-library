@@ -1,16 +1,23 @@
 {
   "name": "@intxlog/iuilib",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "A UI library for use in React Apps.",
-  "main": "./dist/lib/index.js",
+  "main": "dist/lib/index.js",
+  "module": "dist/lib/index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
-    "report-coverage": "coveralls < ./coverage/lcov.info",
-    "webpack": "node_modules/.bin/webpack",
-    "test": "jest",
-    "cover": "npm test -- --coverage",
-    "build": "./node_modules/.bin/webpack --mode=production",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook -o docs"
+    "start": "start-storybook -p 6006",
+    "start-linked": "npm link && webpack --config webpack.dev.config.js",
+    "build": "webpack --config webpack.prod.config.js",
+    "build-storybook": "build-storybook",
+    "test": "jest --watch",
+    "test-all": "jest --watchAll",
+    "test-all-coverage": "jest --watchAll --coverage",
+    "test-cover": "jest --coverage",
+    "report-coverage": "coveralls < ./coverage/lcov.info"
   },
   "repository": {
     "type": "git",
@@ -26,41 +33,6 @@
     "url": "https://github.com/intxlog/react-ui-library/issues"
   },
   "homepage": "https://intxlog.github.io/react-ui-library",
-  "devDependencies": {
-    "@babel/core": "^7.3.3",
-    "@storybook/addon-actions": "^4.1.12",
-    "@storybook/addon-backgrounds": "^4.1.12",
-    "@storybook/addon-info": "^4.1.12",
-    "@storybook/addon-links": "^4.1.12",
-    "@storybook/addons": "^4.1.12",
-    "@storybook/react": "^4.1.12",
-    "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "^23.6.0",
-    "babel-loader": "^8.0.5",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "coveralls": "^3.0.2",
-    "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.9.1",
-    "enzyme-to-json": "^3.3.5",
-    "identity-obj-proxy": "^3.0.0",
-    "jest": "^23.6.0",
-    "node-sass": "^4.11.0",
-    "sass-loader": "^7.1.0",
-    "webpack": "^4.29.5",
-    "webpack-cli": "^3.2.3",
-    "webpack-node-externals": "^1.7.2"
-  },
-  "peerDependencies": {
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "react-router-dom": "^4.3.1"
-  },
-  "dependencies": {
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "react-router-dom": "^4.3.1"
-  },
   "jest": {
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
@@ -70,6 +42,7 @@
     ],
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
+      "!src/index.js",
       "!src/setupTests.js",
       "!src/**/_story.js",
       "!src/lib/index.js"
@@ -77,5 +50,32 @@
     "moduleNameMapper": {
       "\\.(css|scss)$": "identity-obj-proxy"
     }
+  },
+  "peerDependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-router-dom": "^4.3.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@storybook/addon-actions": "^5.0.0",
+    "@storybook/addon-info": "^5.0.0",
+    "@storybook/addon-links": "^5.0.0",
+    "@storybook/addons": "^5.0.0",
+    "@storybook/react": "^5.0.0",
+    "babel-loader": "^8.0.5",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.10.0",
+    "enzyme-to-json": "^3.3.5",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.3.0",
+    "node-sass": "^4.11.0",
+    "opn": "^5.4.0",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-router-dom": "^4.3.1",
+    "sass-loader": "^7.1.0",
+    "webpack-cli": "^3.2.3",
+    "webpack-node-externals": "^1.7.2"
   }
 }

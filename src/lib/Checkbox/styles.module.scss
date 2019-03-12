@@ -1,10 +1,14 @@
-@import './../../styles/helpers.scss';
-@import '../../styles/_variables';
+@import './../../styles/_helpers.scss';
 
 $heightWidth: 14px;
 
 .container {
   position: relative;
+  box-sizing: border-box;
+
+  > * {
+    box-sizing: border-box;
+  }
 
   > label {
     font-size: 16px;
@@ -15,6 +19,13 @@ $heightWidth: 14px;
   } 
   
   > input {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+    overflow: visible;
+    box-sizing: border-box;
+    padding: 0;
     clip: rect(1px, 1px, 1px, 1px);
     width: 1px;
     height: 1px;

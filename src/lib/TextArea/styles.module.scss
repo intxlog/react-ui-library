@@ -1,8 +1,12 @@
-// imports
-@import './../../styles/helpers.scss';
-@import '../../styles/_variables';
+@import './../../styles/_helpers.scss';
 
 .element {
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+  overflow: auto;
   width: 100%;
   height: 100px;
   resize: none;
