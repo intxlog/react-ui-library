@@ -12,7 +12,7 @@
     "start": "start-storybook -p 6006",
     "start-linked": "npm link && webpack --config webpack.dev.config.js",
     "build": "webpack --config webpack.prod.config.js",
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook -o docs",
     "test": "jest --watch",
     "test-all": "jest --watchAll",
     "test-all-coverage": "jest --watchAll --coverage",
