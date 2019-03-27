@@ -8,10 +8,6 @@ import styles from './styles.module.scss'
 
 //render prop component to be used for formatting other components
 class Button extends React.Component {
-  handleOnClick = () => {
-    this.props.onClick()
-  }
-
   render(){
     //logic for dynamic classnames
     let btnClass = classNames({
