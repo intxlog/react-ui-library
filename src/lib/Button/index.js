@@ -1,7 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
 
 //import css
 import styles from './styles.module.scss'
@@ -35,6 +34,7 @@ class Button extends React.Component {
 
     //logic to display a button element or a routed link
     if (this.props.elementType === `routedLink`) {
+      let Link = this.props.linkComponent
       element = <Link className={btnClass} to={this.props.linkTo}>{this.props.text}</Link>
     }
 
@@ -53,7 +53,8 @@ Button.propTypes = {
   fullWidth: PropTypes.bool,
   submitsForm: PropTypes.bool,
   onClick: PropTypes.func,
-  className: PropTypes.string
+  className: PropTypes.string,
+  linkComponent: PropTypes.func
 }
 
 // Specifies the default values for props:
