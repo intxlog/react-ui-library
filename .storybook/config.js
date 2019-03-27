@@ -1,6 +1,6 @@
 import { configure, addDecorator } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
-import './styles/base.css'
+import './styles/base.scss'
 
 //import stories from the src folder
 const req = require.context('../src', true, /\_story\.js$/)
