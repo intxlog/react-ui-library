@@ -16,12 +16,10 @@ class Button extends React.Component {
     //logic for dynamic classnames
     let btnClass = classNames({
       [this.props.className]: this.props.className,
-      [styles.button]: this.props.type === `button`,
       [styles.link]: this.props.type === `link`,
       [styles.plain]: this.props.type === `plain`,
       [styles.primary]: this.props.type === `primary`,
       [styles.small]: this.props.size === `small`,
-      [styles.medium]: this.props.size === `medium`,
       [styles.large]: this.props.size === `large`,
       [styles.fullWidth]: this.props.fullWidth
     })
@@ -53,7 +51,7 @@ Button.propTypes = {
   text: PropTypes.string,
   elementType: PropTypes.oneOf([`button`, `link`, `routedLink`]),
   type: PropTypes.oneOf([`plain`, `primary`, `link`]),
-  size: PropTypes.oneOf([`small`, `medium`, `large`]),
+  size: PropTypes.oneOf([`small`, `large`]),
   disabled: PropTypes.bool,
   linkTo: PropTypes.string,
   fullWidth: PropTypes.bool,
@@ -67,7 +65,6 @@ Button.defaultProps = {
   text: `None Provided`,
   type: `primary`,
   elementType: `button`,
-  size: `medium`,
   fullWidth: false,
   submitsForm: false
 }
