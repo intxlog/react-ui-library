@@ -13,53 +13,35 @@ class Button extends React.Component {
   }
 
   render(){
-    let inlineStyles = this.props.inlineStyles || {}
-    let type = `button`
-
     //logic for dynamic classnames
     let btnClass = classNames({
       [this.props.className]: this.props.className,
-      [styles.button]: true,
+      [styles.button]: this.props.type === `button`,
+      [styles.link]: this.props.type === `link`,
       [styles.plain]: this.props.type === `plain`,
       [styles.primary]: this.props.type === `primary`,
       [styles.small]: this.props.size === `small`,
       [styles.medium]: this.props.size === `medium`,
-      [styles.large]: this.props.size === `large`
+      [styles.large]: this.props.size === `large`,
+      [styles.fullWidth]: this.props.fullWidth
     })
-    
-    //handle full width conditional
-    if (this.props.fullWidth) {
-      inlineStyles.width = `100%`
-    }
-    
-    //if there is fontSize then overwrite the defualt
-    if(this.props.fontSize) {
-      inlineStyles.fontSize = `${this.props.fontSize}px`
-      inlineStyles.lineHeight = `${this.props.fontSize}px`
-    }
-
-    //if submitsForm is true then make its type submit
-    if (this.props.submitsForm) {
-      type = `submit`
-    }
 
     //declare a default element
     let element =  <button 
       className={btnClass} 
-      style={inlineStyles} 
       disabled={this.props.disabled}
       onClick={this.props.onClick}
-      type={type}
+      type={this.props.submitsForm ? `submit` : `button`}
     >{this.props.text}</button>
     
     //logic to display a button element or a link
-    if (this.props.type === `link`) {
-      element = <a className={styles.link} href={this.props.linkTo} target='_blank' rel='noopener'>{this.props.text}</a>
+    if (this.props.elementType === `link`) {
+      element = <a className={btnClass} href={this.props.linkTo} target='_blank' rel='noopener'>{this.props.text}</a>
     }
 
     //logic to display a button element or a routed link
-    if (this.props.type === `routedLink`) {
-      element = <Link className={styles.link} to={this.props.linkTo}>{this.props.text}</Link>
+    if (this.props.elementType === `routedLink`) {
+      element = <Link className={btnClass} to={this.props.linkTo}>{this.props.text}</Link>
     }
 
     return (element)
@@ -69,15 +51,14 @@ class Button extends React.Component {
 //rules for props being passed in
 Button.propTypes = {
   text: PropTypes.string,
-  type: PropTypes.oneOf([`plain`, `primary`, `link`, `routedLink`]),
+  elementType: PropTypes.oneOf([`button`, `link`, `routedLink`]),
+  type: PropTypes.oneOf([`plain`, `primary`, `link`]),
   size: PropTypes.oneOf([`small`, `medium`, `large`]),
   disabled: PropTypes.bool,
   linkTo: PropTypes.string,
-  fontSize: PropTypes.number,
   fullWidth: PropTypes.bool,
   submitsForm: PropTypes.bool,
   onClick: PropTypes.func,
-  inlineStyles: PropTypes.object,
   className: PropTypes.string
 }
 
@@ -85,6 +66,7 @@ Button.propTypes = {
 Button.defaultProps = {
   text: `None Provided`,
   type: `primary`,
+  elementType: `button`,
   size: `medium`,
   fullWidth: false,
   submitsForm: false

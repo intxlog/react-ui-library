@@ -36,6 +36,10 @@
   &[type="submit"]:-moz-focusring {
     outline: 1px dotted ButtonText;
   }
+
+  &.fullWidth {
+    width: 100%;
+  }
 }
 
 .link {
