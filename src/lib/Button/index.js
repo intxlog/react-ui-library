@@ -49,6 +49,7 @@ Button.propTypes = {
   type: PropTypes.oneOf([`plain`, `primary`, `link`]),
   size: PropTypes.oneOf([`small`, `large`]),
   target:PropTypes.string, 
+  rel: PropTypes.string,
   disabled: PropTypes.bool,
   linkTo: PropTypes.string,
   fullWidth: PropTypes.bool,
