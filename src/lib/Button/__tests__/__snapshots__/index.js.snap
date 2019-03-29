@@ -2,9 +2,8 @@
 
 exports[`Button renders correctly 1`] = `
 <button
-  className="button primary medium"
+  className="primary"
   onClick={[MockFunction]}
-  style={Object {}}
   type="button"
 >
   None Provided
@@ -13,14 +12,8 @@ exports[`Button renders correctly 1`] = `
 
 exports[`Button when fontSize prop is 14 renders correctly 1`] = `
 <button
-  className="button primary medium"
+  className="primary"
   onClick={[MockFunction]}
-  style={
-    Object {
-      "fontSize": "14px",
-      "lineHeight": "14px",
-    }
-  }
   type="button"
 >
   None Provided
@@ -29,13 +22,8 @@ exports[`Button when fontSize prop is 14 renders correctly 1`] = `
 
 exports[`Button when fullWidth prop is true renders correctly 1`] = `
 <button
-  className="button primary medium"
+  className="primary fullWidth"
   onClick={[MockFunction]}
-  style={
-    Object {
-      "width": "100%",
-    }
-  }
   type="button"
 >
   None Provided
@@ -44,9 +32,8 @@ exports[`Button when fullWidth prop is true renders correctly 1`] = `
 
 exports[`Button when submitsForm prop is true renders correctly 1`] = `
 <button
-  className="button primary medium"
+  className="primary"
   onClick={[MockFunction]}
-  style={Object {}}
   type="submit"
 >
   None Provided
@@ -55,9 +42,8 @@ exports[`Button when submitsForm prop is true renders correctly 1`] = `
 
 exports[`Button when text prop is Example Text renders correctly 1`] = `
 <button
-  className="button primary medium"
+  className="primary"
   onClick={[MockFunction]}
-  style={Object {}}
   type="button"
 >
   Example Text
@@ -66,9 +52,9 @@ exports[`Button when text prop is Example Text renders correctly 1`] = `
 
 exports[`Button when type prop is link renders correctly 1`] = `
 <a
-  className="link"
+  className="primary"
   href="/"
-  rel="noopener"
+  rel="noopener noreferrer"
   target="_blank"
 >
   None Provided
@@ -77,9 +63,8 @@ exports[`Button when type prop is link renders correctly 1`] = `
 
 exports[`Button when type prop is plain renders correctly 1`] = `
 <button
-  className="button plain medium"
+  className="plain"
   onClick={[MockFunction]}
-  style={Object {}}
   type="button"
 >
   None Provided
@@ -88,9 +73,8 @@ exports[`Button when type prop is plain renders correctly 1`] = `
 
 exports[`Button when type prop is primary renders correctly 1`] = `
 <button
-  className="button primary medium"
+  className="primary"
   onClick={[MockFunction]}
-  style={Object {}}
   type="button"
 >
   None Provided
@@ -98,11 +82,11 @@ exports[`Button when type prop is primary renders correctly 1`] = `
 `;
 
 exports[`Button when type prop is routedLink renders correctly 1`] = `
-<Link
-  className="link"
-  replace={false}
-  to="/"
+<button
+  className="primary"
+  onClick={[MockFunction]}
+  type="button"
 >
   None Provided
-</Link>
+</button>
 `;

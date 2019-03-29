@@ -1,16 +1,21 @@
 @import './../../styles/_helpers.scss';
 
-.button {
+%button {
   font-family: inherit;
   font-size: 100%;
   line-height: 1.15;
   margin: 0;
   overflow: visible;
   text-transform: none;
-  -webkit-appearance: button;
   outline: 0;
   border: 0;
   cursor: pointer;
+  font-size: 16px;
+  line-height: 16px;
+  padding: 10px 15px;
+  display: block;
+  text-decoration: none;
+  text-align: center;
 
   //Correct the inability to style clickable types in iOS and Safari
   &[type="button"],
@@ -36,28 +41,39 @@
   &[type="submit"]:-moz-focusring {
     outline: 1px dotted ButtonText;
   }
+
+  &.fullWidth {
+    width: 100%;
+  }
 }
 
 .link {
   background-color: transparent;
   text-decoration: none;
-  color: $colorPrimaryBase;
-  transition: color 0.3s;
+  color: #3890ca;
+  cursor: pointer;
+  outline: 0;
+  border: 0;
+  display: inline;
 
-  &:hover {
-    color: $colorPrimaryLight;
+  &:hover,
+  &:active {
+    text-decoration: underline;
   }
 
-  &:active {
+  &:visited {
     color: $colorPrimaryLight;
   }
 }
 
 .plain {
+  @extend %button;
   background-color: transparent;
+  padding: 0;
 }
 
 .primary {
+  @extend %button;
   color: white;
   border-radius: 3px;
   transition: background-color 0.3s;
@@ -80,12 +96,6 @@
   font-size: 12px;
   line-height: 12px;
   padding: 6px 10px;
-}
-
-.medium {
-  font-size: 16px;
-  line-height: 16px;
-  padding: 10px 15px;
 }
 
 .large {

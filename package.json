@@ -1,6 +1,6 @@
 {
   "name": "@intxlog/iuilib",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "A UI library for use in React Apps.",
   "main": "dist/lib/index.js",
   "module": "dist/lib/index.js",
@@ -53,8 +53,7 @@
   },
   "peerDependencies": {
     "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "react-router-dom": "^4.3.1"
+    "react-dom": "^16.6.3"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
@@ -64,6 +63,7 @@
     "@storybook/addons": "^5.0.0",
     "@storybook/react": "^5.0.0",
     "babel-loader": "^8.0.5",
+    "css-loader": "^2.1.1",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.10.0",
     "enzyme-to-json": "^3.3.5",
@@ -77,5 +77,9 @@
     "sass-loader": "^7.1.0",
     "webpack-cli": "^3.2.3",
     "webpack-node-externals": "^1.7.2"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "core-js": "^3.0.0"
   }
 }

@@ -78,7 +78,7 @@ describe('Button', () => {
     describe('is link', () =>{
       it('renders correctly', () => {
         wrapper.setProps({ 
-          type: `link`,
+          elementType: `link`,
           linkTo: '/'
         })
         expect(wrapper).toMatchSnapshot()
@@ -87,25 +87,11 @@ describe('Button', () => {
     describe('is routedLink', () =>{
       it('renders correctly', () => {
         wrapper.setProps({ 
-          type: `routedLink`,
+          elementType: `routedLink`,
           linkTo: '/'
         })
         expect(wrapper).toMatchSnapshot()
       })
-    })
-  }),
-  describe('when handleOnClick method is called', () => {
-    it('calls the correct function', () => {
-      expect(wrapper.instance().handleOnClick()).toEqual(undefined)
-      expect(onClickMock).toHaveBeenCalled()
-    })
-  }),
-  describe('when user clicks', () => {
-    it('calls the correct function', () => {
-      const buttonElement = wrapper.find('.button')
-      buttonElement.simulate('click')
-      expect(onClickMock).toHaveBeenCalledTimes(1)
-      expect(onClickMock).toHaveBeenCalledWith()
     })
   })
 })
