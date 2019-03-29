@@ -29,7 +29,7 @@ class Button extends React.Component {
     
     //logic to display a button element or a link
     if (this.props.elementType === `link`) {
-      element = <a className={btnClass} href={this.props.linkTo} target='_blank' rel='noopener'>{this.props.text}</a>
+      element = <a className={btnClass} href={this.props.linkTo} target={this.props.target} rel={this.props.rel}>{this.props.text}</a>
     }
 
     //logic to display a button element or a routed link
@@ -48,6 +48,8 @@ Button.propTypes = {
   elementType: PropTypes.oneOf([`button`, `link`, `routedLink`]),
   type: PropTypes.oneOf([`plain`, `primary`, `link`]),
   size: PropTypes.oneOf([`small`, `large`]),
+  target:PropTypes.string, 
+  rel: PropTypes.string,
   disabled: PropTypes.bool,
   linkTo: PropTypes.string,
   fullWidth: PropTypes.bool,
@@ -63,7 +65,9 @@ Button.defaultProps = {
   type: `primary`,
   elementType: `button`,
   fullWidth: false,
-  submitsForm: false
+  submitsForm: false,
+  target: `_blank`,
+  rel: `noopener noreferrer`
 }
 
 //maintain the name for documentation purposes
