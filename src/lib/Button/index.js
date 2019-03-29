@@ -35,7 +35,11 @@ class Button extends React.Component {
     //logic to display a button element or a routed link
     if (this.props.elementType === `routedLink`) {
       let Link = this.props.linkComponent
-      element = <Link className={btnClass} to={this.props.linkTo}>{this.props.text}</Link>
+      if (Link !== undefined) {
+        element = <Link className={btnClass} to={this.props.linkTo}>{this.props.text}</Link>
+      } else {
+        console.error(`You must provide a Link component from react-router-dom`)
+      }
     }
 
     return (element)

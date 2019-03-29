@@ -47,14 +47,16 @@ exports[`Modal when isOpen is true renders correctly 1`] = `
       Success!
     </p>
     <Button
+      elementType="button"
       fullWidth={false}
       inlineStyles={
         Object {
           "minWidth": "120px",
         }
       }
-      size="medium"
+      rel="noopener noreferrer"
       submitsForm={false}
+      target="_blank"
       text="Ok"
       type="primary"
     />
@@ -137,14 +139,16 @@ exports[`Modal when isOpen is true when text is passed in renders correctly 1`] 
       This is custom text
     </p>
     <Button
+      elementType="button"
       fullWidth={false}
       inlineStyles={
         Object {
           "minWidth": "120px",
         }
       }
-      size="medium"
+      rel="noopener noreferrer"
       submitsForm={false}
+      target="_blank"
       text="Ok"
       type="primary"
     />
@@ -197,14 +201,16 @@ exports[`Modal when isOpen is true when text is passed in renders correctly 2`] 
       Success!
     </p>
     <Button
+      elementType="button"
       fullWidth={false}
       inlineStyles={
         Object {
           "minWidth": "120px",
         }
       }
-      size="medium"
+      rel="noopener noreferrer"
       submitsForm={false}
+      target="_blank"
       text="Custom Text"
       type="primary"
     />
@@ -257,14 +263,16 @@ exports[`Modal when isOpen is true when type is error renders correctly 1`] = `
       Error!
     </p>
     <Button
+      elementType="button"
       fullWidth={false}
       inlineStyles={
         Object {
           "minWidth": "120px",
         }
       }
-      size="medium"
+      rel="noopener noreferrer"
       submitsForm={false}
+      target="_blank"
       text="Ok"
       type="primary"
     />
@@ -317,14 +325,16 @@ exports[`Modal when isOpen is true when type is warning renders correctly 1`] = 
       Warning!
     </p>
     <Button
+      elementType="button"
       fullWidth={false}
       inlineStyles={
         Object {
           "minWidth": "120px",
         }
       }
-      size="medium"
+      rel="noopener noreferrer"
       submitsForm={false}
+      target="_blank"
       text="Ok"
       type="primary"
     />
