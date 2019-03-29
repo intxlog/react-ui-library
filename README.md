@@ -23,12 +23,6 @@ Components can be developed using storybook. Using `npm run start` will run stor
 
 ### Linking
 **Reason:** 
-Some (me) do best by explicitly  instruction.  Intuitively the instructions work, 
-However, there's never a distinction for which project command line you write commands in (ui-library vs. onboarding portal). 
-_(e.g. beginners never know where, what or when something is linked or how much... href, cdnjs, .env, configs, package.json, these all could have links somewhere in the application)
-
-**Recommendation:** 
-
 To view components in another project you can use [npm link](https://docs.npmjs.com/cli/link.html).
 1. Use `npm run start-linked` in the _react-ui-library app_ command line. 
 > This will create a symlink in the global folder `{prefix}/lib/node_modules/<package>` that links to the package where the npm link command was executed and create a production build of the react-ui-library everytime a file is changed. This will allow you to develop components in other projects in real-time assuming your project is equipped to handle HMR.
