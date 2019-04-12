@@ -3,6 +3,7 @@ import zip from './zip'
 import phone from './phone'
 import ein from './ein'
 import ssn from './ssn'
+import password from './password'
 
 export default function (value, type) {
   let payload = {
@@ -27,6 +28,9 @@ export default function (value, type) {
       break
     case `ssn`:
       payload = ssn(value)
+      break
+    case `password`:
+      payload = password(value)
       break
     default: //no conditions were met so we are going to return valid
       payload.valid = true
