@@ -129,8 +129,8 @@ class RadioGroup extends React.Component {
       <div className={styles.container}>
         <div className={classNames({
           [styles.childrenWrapper]: true,
-          [this.props.className] :  this.props.className,
-          [styles.horizontal]: this.props.direction === `horizontal`
+          [styles.horizontal]: this.props.direction === `horizontal`,
+          [this.props.className] :  this.props.className
         })}>
           {children}
         </div>
