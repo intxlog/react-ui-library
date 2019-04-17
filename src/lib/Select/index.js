@@ -18,8 +18,8 @@ const Select = ({
   return (
     <div
       className={classNames({
-        [className] : className,
-        [styles.wrapper]: true
+        [styles.wrapper]: true,
+        [className] : className
       })}
     >
       <select
