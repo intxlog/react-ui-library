@@ -16,9 +16,9 @@ const Checkbox = ({
 }) => {
   return (
     <div
-    className={classNames({
-      [className] : className,
-      [styles.container]: true
+    className={classNames({     
+      [styles.container]: true,
+      [className] : className
     })}
   >
       <input

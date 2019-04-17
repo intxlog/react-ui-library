@@ -10,13 +10,13 @@ class Button extends React.Component {
   render(){
     //logic for dynamic classnames
     let btnClass = classNames({
-      [this.props.className]: this.props.className,
       [styles.link]: this.props.type === `link`,
       [styles.plain]: this.props.type === `plain`,
       [styles.primary]: this.props.type === `primary`,
       [styles.small]: this.props.size === `small`,
       [styles.large]: this.props.size === `large`,
-      [styles.fullWidth]: this.props.fullWidth
+      [styles.fullWidth]: this.props.fullWidth,
+      [this.props.className]: this.props.className
     })
 
     //declare a default element
