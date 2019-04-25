@@ -1,16 +1,37 @@
 const path = require('path')
 const nodeExternals = require('webpack-node-externals');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserJSPlugin = require('terser-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
   mode: 'production',
   entry: path.resolve(__dirname, 'src/lib/index.js'),
   output: {
-    path: path.resolve(__dirname, './dist/lib'),
+    path: path.resolve(__dirname, './dist'),
     filename: 'index.js',
     library: '',
     libraryTarget: 'commonjs'
   },
   externals: [nodeExternals()],
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        styles: {
+          name: 'styles',
+          test: /\.css$/,
+          chunks: 'all',
+          enforce: true,
+        },
+      },
+    },
+    minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+    }),
+  ],
   module: {
     rules: [
       {
@@ -20,19 +41,20 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loaders: [
-          require.resolve('style-loader'),
+        use: [MiniCssExtractPlugin.loader,
           {
             loader: require.resolve('css-loader'),
             options: {
               importLoaders: 1,
               modules: true,
               localIdentName: '[name]__[local]___[hash:base64:5]',
-            }
+            },
           },
-          require.resolve('sass-loader')
-        ]
-      }
-    ]
-  }
+          {
+            loader: "sass-loader",
+          },
+        ],
+      },
+    ],
+  },
 }

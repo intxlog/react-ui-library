@@ -18,6 +18,11 @@ Once installed, you can import components
 import { Button } from '@intxlog/iuilib';
 ```
 
+Then import the css file in the root of your application
+```js
+import '@intxlog/iuilib/dist/main.css';
+```
+
 ## Development
 Components can be developed using storybook. Using `npm run start` will run storybook in your local development environment and you can view/develop components real time. 
 
