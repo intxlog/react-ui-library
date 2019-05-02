@@ -15,6 +15,8 @@ import TextArea from '../TextArea'
 import Checkbox from '../Checkbox'
 import RadioButton from '../RadioButton'
 import Select from '../Select'
+import Ssn from '../SocialSecurityNumber'
+import Phone from '../PhoneNumber'
 
 // logic behind all the different types of inputs
 class Input extends React.Component {
@@ -88,15 +90,15 @@ class Input extends React.Component {
   handleOnChange = (e) => {
     const val = e.target.value
     this.setState({value: val})
-    this.props.onChange(val)  
-  }
+      this.props.onChange(val) 
+    }  
 
   handleOnBlur = () => {
     this.setState({entered: true})
     this.props.onBlur(this.state.value)
   }
 
-  checkRequired = (val) => {
+  checkRequired = (val) => {  
     const res = validateRequired(val)
     const isValid = res.valid
     const message = res.message
@@ -111,11 +113,11 @@ class Input extends React.Component {
       })
     }
 
-    //return a bool value
+    //return a bool value   
     return isValid
   }
 
-  checkValid = (val) => {
+  checkValid = (val) => {   
     const res = this.props.customValidationFunc ? this.props.customValidationFunc(val) : validateString(val, this.props.type)
     const isValid = res.valid
     const message = res.message
@@ -135,7 +137,7 @@ class Input extends React.Component {
     return isValid
   }
 
-  validate = (val) => {
+  validate = (val) => {   
     //create a flag to see if we should fire the onValid function
     let isValid = false
     //create a flag to see if required has passed to see if we will need to validate
@@ -169,7 +171,7 @@ class Input extends React.Component {
 
   //method to report whether of not the input is valid or not
   reportValidity = () => {
-    this.props.isValid(this.state.isValid)
+    this.props.isValid(this.state.isValid)  
   }
 
   render(){
@@ -243,6 +245,35 @@ class Input extends React.Component {
           onBlur={this.handleOnBlur}
           error={this.props.error}
         ></TextArea>
+        break
+      
+      case `ssn`:
+        element = <Ssn
+          id={this.props.idForLabel}
+          inlineStyles={this.props.inlineStyles}
+          placeholder={this.props.placeholder}
+          disabled={this.props.disabled}
+          type={type} 
+          className={this.props.className}
+          error={this.props.error || this.state.error}
+          onChange={this.handleOnChange}
+          onBlur={this.handleOnBlur}
+        ></Ssn>
+        break
+
+      case `phone`:
+        element = <Phone
+          id={this.props.idForLabel}
+          inlineStyles={this.props.inlineStyles}
+          placeholder={this.props.placeholder}
+          disabled={this.props.disabled}
+          defaultValue={this.props.defaultValue}
+          type={type}          
+          className={this.props.className}
+          error={this.props.error || this.state.error}
+          onChange={this.handleOnChange}
+          onBlur={this.handleOnBlur}
+        ></Phone>
         break
 
       default:

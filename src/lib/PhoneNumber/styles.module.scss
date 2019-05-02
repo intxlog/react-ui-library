@@ -1,0 +1,16 @@
+@import './../../styles/_helpers.scss';
+
+.element {
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+  overflow: visible;
+  @extend %element;
+  padding: 5px 10px;
+
+  &.disabled {
+    background-color: $colorFormInputDisabledBackground;
+  }
+}
