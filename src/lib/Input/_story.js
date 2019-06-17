@@ -70,6 +70,11 @@ storiesOf('Input', module)
     required
   ></Input>
 ))
+.add('date', () => (
+  <Input
+    type='date'
+  ></Input>
+))
 
 storiesOf('TextArea', module)
 .add('default', () => (

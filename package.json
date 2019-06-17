@@ -83,6 +83,8 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "core-js": "^3.1.4"
+    "core-js": "^3.1.4",
+    "moment": "^2.24.0",
+    "react-dates": "^20.2.3"
   }
 }

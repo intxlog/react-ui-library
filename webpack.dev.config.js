@@ -23,7 +23,7 @@ module.exports = {
         loader: 'babel-loader'
       },
       {
-        test: /\.scss$/,
+        test: /\.s?css$/,
         loaders: [
           require.resolve('style-loader'),
           {

@@ -15,6 +15,7 @@ import TextArea from '../TextArea'
 import Checkbox from '../Checkbox'
 import RadioButton from '../RadioButton'
 import Select from '../Select'
+import DatePicker from '../DatePicker'
 
 // logic behind all the different types of inputs
 class Input extends React.Component {
@@ -245,6 +246,10 @@ class Input extends React.Component {
         ></TextArea>
         break
 
+      case `date`:
+        element = <DatePicker></DatePicker>
+        break
+
       default:
         element = <TextInput
           id={this.props.idForLabel}
@@ -295,7 +300,7 @@ Input.propTypes = {
   defaultChecked: PropTypes.bool,
   validate: PropTypes.bool,
   required: PropTypes.bool,
-  type: PropTypes.oneOf(['text', 'email', 'password', 'select', 'radio', 'checkbox', 'textArea', `zip`, `ein`, `phone`, `ssn`]).isRequired,
+  type: PropTypes.oneOf(['text', 'email', 'password', 'select', 'radio', 'checkbox', 'textArea', `zip`, `ein`, `phone`, `ssn`, `date`]).isRequired,
   customValidationFunc: PropTypes.func,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,

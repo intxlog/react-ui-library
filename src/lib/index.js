@@ -1,5 +1,6 @@
 import Button from './Button'
 import Checkbox from './Checkbox'
+import DatePicker from './DatePicker'
 import Input from './Input'
 import LoadingGif from './LoadingGif'
 import Modal from './Modal'
@@ -13,6 +14,7 @@ import TextInput from './TextInput'
 export { 
   Button,
   Checkbox,
+  DatePicker,
   Input,
   LoadingGif,
   Modal,
