@@ -305,7 +305,7 @@ Input.propTypes = {
 
 // Specifies the default values for props:
 Input.defaultProps = {
-  labelText: `None Provided`,
+  labelText: ``,
   placeholder: ``,
   idForLabel: ``,
   inlineStyles: {},
