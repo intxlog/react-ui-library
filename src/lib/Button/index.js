@@ -58,7 +58,7 @@ Button.propTypes = {
   linkTo: PropTypes.string,
   fullWidth: PropTypes.bool,
   submitsForm: PropTypes.bool,
-  onClick: PropTypes.func,
+  // onClick: PropTypes.func,
   className: PropTypes.string,
   // linkComponent: PropTypes.func
 }
