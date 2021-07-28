@@ -60,7 +60,10 @@ Button.propTypes = {
   submitsForm: PropTypes.bool,
   // onClick: PropTypes.func,
   className: PropTypes.string,
-  // linkComponent: PropTypes.object
+  linkComponent: PropTypes.oneOf([
+    PropTypes.object,
+    PropTypes.func
+  ])
 }
 
 // Specifies the default values for props:
