@@ -1,6 +1,6 @@
 {
   "name": "@intxlog/iuilib",
-  "version": "0.4.5",
+  "version": "0.5.0",
   "description": "A UI library for use in React Apps.",
   "main": "dist/index.js",
   "module": "dist/index.js",
