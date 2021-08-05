@@ -60,7 +60,7 @@ Button.propTypes = {
   submitsForm: PropTypes.bool,
   // onClick: PropTypes.func,
   className: PropTypes.string,
-  linkComponent: PropTypes.oneOf([
+  linkComponent: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.func
   ])
